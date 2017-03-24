@@ -14,7 +14,7 @@ library(ehR)
 - Requires the newest version of devtools (https://github.com/hadley/devtools) to be installed
 ```
 library(devtools)  
-devtools::install_github("hadley/devtools")
+install_github("hadley/devtools")
 ```
 - Dependes on rJava (http://www.rforge.net/rJava/)
 
