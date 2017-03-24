@@ -1,10 +1,12 @@
-Package: toolbox
-Title: What the Package Does (one line, title case)
+Package: ehR
+Title: A collection of useful functions.
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Authors@R: person("Clara", "Marquardt", email = "marquardt.clara@gmail.com", role = c("aut", "cre"))
+Description: ...
 Depends: R (>= 3.3.1)
-License: What license is it under?
+License: ...
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1.9000
+Imports: data.table, ggplot2, grid, gridExtra, plotflow, scales, dplyr, rJava, reader, icd, devtools
+Remotes: trinker/plotflow
