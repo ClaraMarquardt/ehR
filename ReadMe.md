@@ -10,8 +10,8 @@ library(ehR)
 **Documentation**
 - See function_overview.csv for an overview of all the functions (and data sets) included in the package 
 
-**Datasets**
-The packe contains the following data sets:
+**Datasets**  
+The package contains the following data sets:
 - 'dia': Simulated EHR diagnosis data for 500 patients
 - 'ed': Simulated EHR ED visit data for 500 patients
 - 'dem': Simulatd EHR demographics data for 500 patients
