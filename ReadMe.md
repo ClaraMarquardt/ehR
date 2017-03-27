@@ -33,10 +33,13 @@ install_github("hadley/devtools")
 ````
 # 1. Clone the repo
 git clone https://github.com/ClaraMarquardt/ehR.git
+
 # 2. Create a new branch
 git checkout -b [branch name]
+
 # 3. Push all changes to the branch (assuming all changes have been committed)
 git push origin [branch name]
+
 # 4. Test by installing from the branch
 library(devtools)
 install_git("git://github.com/ClaraMarquardt/ehR.git", branch = "[branch name])
