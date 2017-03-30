@@ -11,7 +11,10 @@ mean_ci_clust(var, cluster_var, ci, return_sd = TRUE, digit = 2,
 Confidence interval (and optionally standard deviation) [character vector]
 }
 \description{
-Calculate the clustered confidence interval for a sample mean or proportion.
+(1) Clustered CI for proportions based on: 
+www.fao.org/wairdocs/ILRI/x5436E/x5436e07.htm
+(2) Clustered CI for means based on: diffuseprior.wordpress.com/2012/06/15/\
+standard-robust-and-clustered-standard-errors-computed-in-r/
 }
 \examples{
 TBC
