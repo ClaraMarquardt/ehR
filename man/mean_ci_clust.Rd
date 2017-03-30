@@ -17,5 +17,6 @@ www.fao.org/wairdocs/ILRI/x5436E/x5436e07.htm
 standard-robust-and-clustered-standard-errors-computed-in-r/
 }
 \examples{
-TBC
+mean_ci_clust(as.integer(is.na(dem$date_of_death))*100,dem$empi, 
+0.95, type="perc_prop")  # clustered prop CI
 }

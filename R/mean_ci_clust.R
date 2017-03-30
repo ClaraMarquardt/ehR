@@ -9,7 +9,9 @@
 #' @param TBC
 #' @return Confidence interval (and optionally standard deviation) [character vector]
 #' @examples
-#' TBC
+#' mean_ci_clust(as.integer(is.na(dem$date_of_death))*100,dem$empi, 
+#' 0.95, type="perc_prop")  # clustered prop CI
+
 
 mean_ci_clust <- function(var, cluster_var, ci, return_sd=TRUE, digit=2, min_lim=NA, 
   max_lim=NA, type="perc_prop") {
