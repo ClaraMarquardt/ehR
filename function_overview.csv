@@ -37,4 +37,5 @@
 "table_mod","Ordered frequency table formatted as a data.table."
 "var_overview","Generate an overview of a dataset."
 "write_append_csv","Paste multiple tables/character strings into a single csv file."
+"write_xlsx_mod","Write toxslx sheet with a number of formatting options and safety checks."
 "zocat","Zocat-icd9 crosswalk."
