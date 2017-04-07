@@ -15,7 +15,7 @@ The package contains the following data sets:
 - 'dia': Simulated EHR diagnosis data for 500 patients
 - 'ed': Simulated EHR ED visit data for 500 patients
 - 'dem': Simulatd EHR demographics data for 500 patients
-- 'gagne_code': Icd9 code - gagne comorbidity category crosswalk (http://scholar.harvard.edu/gagne/software/combined-comorbidity-score)
+- 'gagne_code': Icd9 code - gagne comorbidity category crosswalk (http://scholar.harvard.edu/gagne/software/combined-comorbidity-score) [* note the crosswalk included in the package includes gagne categories that are assigned a 0 weight (these are not included in the here referenced, publicly available version of the crosswalk)]
 - 'zocat': Icd9 code - zocat crosswalk
 
 **Note**
@@ -27,7 +27,7 @@ install_github("hadley/devtools")
 - Dependes on rJava (http://www.rforge.net/rJava/)
 
 **Development**
-- Package is actively being developed and extended - see https://github.com/ClaraMarquardt/ehR_dev for a list of open issues
+- Package is actively being developed and extended  - see the ehR project board for a list of open issues
 
 - To contribute:
 ````

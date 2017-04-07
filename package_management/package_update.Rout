@@ -1,0 +1,120 @@
+
+R version 3.3.1 (2016-06-21) -- "Bug in Your Hair"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin13.4.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #----------------------------------------------------------------------------#
+> 
+> # Purpose:     Batch mode script to update package 
+> # Author:      Clara Marquardt
+> # Date:        2017
+> 
+> 
+> #----------------------------------------------------------------------------#
+> 
+> 
+> #----------------------------------------------------------------------------#
+> #                                    CONTROL                                 #
+> #----------------------------------------------------------------------------#
+> 
+> # parameters
+> wd_path         <- commandArgs(trailingOnly = TRUE)[1]
+> package_name    <- commandArgs(trailingOnly = TRUE)[2]
+> 
+> print(sprintf("wd_path: %s",  wd_path))
+[1] "wd_path: /Users/claramarquardt/Google_Drive/Jobs/zolab/Mulab/other_project/method_new_repo/"
+> print(sprintf("package_name: %s",  package_name))
+[1] "package_name: ehR"
+> 
+> # dependencies
+> library("devtools")
+> library(roxygen2)
+> library(data.table)
+> library(zoo)
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+Warning message:
+package ‘zoo’ was built under R version 3.3.2 
+> 
+> # paths
+> setwd(wd_path)
+> 
+> #----------------------------------------------------------------------------#
+> #                                    CODE                                    #
+> #----------------------------------------------------------------------------#
+> 
+> # update the documentation
+> #-------------------------------------------
+> setwd(paste0("./", package_name))
+> document()
+Updating ehR documentation
+Loading ehR
+Warning: @param [mean_ci.R#6]: requires name and description
+Warning: @param [mean_ci_clust.R#10]: requires name and description
+Warning: @param [median_ci.R#6]: requires name and description
+Writing parse_arg.Rd
+> 
+> # uninstall existing versions
+> #-------------------------------------------
+> package_spec <- paste0("package:", package_name)
+> detach(package_spec, unload=TRUE,character.only = TRUE)
+> 
+> try(remove.packages(package_name))
+Removing package from ‘/Library/Frameworks/R.framework/Versions/3.3/Resources/library’
+(as ‘lib’ is unspecified)
+> 
+> # fresh install
+> #-------------------------------------------
+> setwd("..")
+> install(package_name, dependencies = TRUE)
+Installing ehR
+'/Library/Frameworks/R.framework/Resources/bin/R' CMD INSTALL '/Users/claramarquardt/Google_Drive/Jobs/zolab/Mulab/other_project/method_new_repo/ehR' 
+> library(package_name,character.only = TRUE)
+> 
+> # generate overview of package
+> #-------------------------------------------
+> overview <- as.data.table(library(help=package_name, 
++ 				character.only = TRUE)$info[[2]])
+> 
+> ## format
+> overview[V1 %like% "\\.$", id:=1:nrow(overview[V1 %like% "\\.$"])]
+> overview[, id:=na.locf(id, fromLast=TRUE)]
+> overview[, V1:=gsub("^[ ]*", "", V1)]
+> overview[, V1:=paste0(V1, collapse=" "), by=c("id")]
+> overview <- unique(overview, by=c("id"))
+> 
+> overview[, c("function_name"):=strsplit(V1, "   ")[[1]][1], by=c("id")]
+> overview[, c("function_desc"):=paste0(unlist(strsplit(V1, "   ")[[1]][-1]),collapse=""), 
++ 		by=c("id")]
+> overview[,function_desc:=gsub("^[ ]*", "", function_desc)]
+> overview[, c("id", "V1"):=NULL]
+> 
+> ## save
+> write.csv(overview, paste0(wd_path, package_name, "/function_overview.csv"), row.names=F)
+> 
+> #----------------------------------------------------------------------------#
+> #                                    END                                     #
+> #----------------------------------------------------------------------------#
+> 
+> proc.time()
+   user  system elapsed 
+ 11.835   0.750  14.938 
