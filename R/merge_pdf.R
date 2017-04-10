@@ -1,6 +1,6 @@
 #----------------------------------------------------------------------------#
 
-#' Merge a list of PDFs into a multi-paage PDF
+#' Merge a list of PDFs into a multi-paage PDF.
 #' @export
 #' @import plotflow
 #' @param  TBC 

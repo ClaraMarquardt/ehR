@@ -23,8 +23,8 @@ package_name="ehR"
 cd ${wd_path}
 
 R CMD BATCH --no-save "--args ${wd_path} ${package_name}" \
-	code_dev/package_management/package_update.R \
-	code_dev/package_management/package_update.Rout
+	ehR/package_management/package_update.R \
+	ehR/package_management/package_update.Rout
 
 #----------------------------------------------------------------------------#
 #                                    END                                     #

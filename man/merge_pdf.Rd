@@ -2,7 +2,7 @@
 % Please edit documentation in R/merge_pdf.R
 \name{merge_pdf}
 \alias{merge_pdf}
-\title{Merge a list of PDFs into a multi-paage PDF}
+\title{Merge a list of PDFs into a multi-paage PDF.}
 \usage{
 merge_pdf(input_file_list, output_file_name)
 }
@@ -13,7 +13,7 @@ merge_pdf(input_file_list, output_file_name)
 TBC
 }
 \description{
-Merge a list of PDFs into a multi-paage PDF
+Merge a list of PDFs into a multi-paage PDF.
 }
 \examples{
 TBC

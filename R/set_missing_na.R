@@ -1,6 +1,6 @@
 #----------------------------------------------------------------------------#
 
-#' Replace (in place) empty values ("[ ]*" or "") in data.table with another value
+#' Replace (in place) empty values ("[ ]*" or "") in data.table with another value.
 #' @export
 #' @param name Name of data.table [character]
 #' @param replace Value with which to replace empty values  [any]

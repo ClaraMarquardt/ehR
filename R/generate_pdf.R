@@ -1,6 +1,6 @@
 #----------------------------------------------------------------------------#
 
-#' Convert a list of ggplots into a (multi-page) PDF
+#' Convert a list of ggplots into a (multi-page) PDF.
 #' @export
 #' @import ggplot2
 #' @import plotflow

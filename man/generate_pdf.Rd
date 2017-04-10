@@ -2,7 +2,7 @@
 % Please edit documentation in R/generate_pdf.R
 \name{generate_pdf}
 \alias{generate_pdf}
-\title{Convert a list of ggplots into a (multi-page) PDF}
+\title{Convert a list of ggplots into a (multi-page) PDF.}
 \usage{
 generate_pdf(plot_list, graph_cat = length(plot_list), ncol_plot, nrow_plot,
   file_path, file_name, orientation = "vertical", share_legend = FALSE)
@@ -14,7 +14,7 @@ generate_pdf(plot_list, graph_cat = length(plot_list), ncol_plot, nrow_plot,
 TBC
 }
 \description{
-Convert a list of ggplots into a (multi-page) PDF
+Convert a list of ggplots into a (multi-page) PDF.
 }
 \examples{
 TBC

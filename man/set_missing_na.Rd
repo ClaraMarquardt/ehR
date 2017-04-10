@@ -2,7 +2,7 @@
 % Please edit documentation in R/set_missing_na.R
 \name{set_missing_na}
 \alias{set_missing_na}
-\title{Replace (in place) empty values ("[ ]*" or "") in data.table with another value}
+\title{Replace (in place) empty values ("[ ]*" or "") in data.table with another value.}
 \usage{
 set_missing_na(dt, replace = NA, subset_col = names(dt))
 }
@@ -15,7 +15,7 @@ set_missing_na(dt, replace = NA, subset_col = names(dt))
 Data.table modified in place
 }
 \description{
-Replace (in place) empty values ("[ ]*" or "") in data.table with another value
+Replace (in place) empty values ("[ ]*" or "") in data.table with another value.
 }
 \examples{
 TBC
