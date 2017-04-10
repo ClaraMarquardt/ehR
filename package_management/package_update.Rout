@@ -73,13 +73,13 @@ Warning: @examples [hochberg_adj.R#9]: requires a value
 Warning: @param [mean_ci.R#6]: requires name and description
 Warning: @param [mean_ci_clust.R#10]: requires name and description
 Warning: @param [median_ci.R#6]: requires name and description
+Warning: @examples [one_hot_encoding.R#13]: requires a value
 Warning: @return [pseudo_r2.R#8]: requires a value
 Warning: @examples [pseudo_r2.R#9]: requires a value
 Warning: @return [se.R#8]: requires a value
 Warning: @examples [se.R#9]: requires a value
-Writing generate_pdf.Rd
-Writing merge_pdf.Rd
-Writing set_missing_na.Rd
+Writing NAMESPACE
+Writing one_hot_encoding.Rd
 > 
 > # uninstall existing versions
 > #-------------------------------------------
@@ -125,4 +125,4 @@ Installing ehR
 > 
 > proc.time()
    user  system elapsed 
- 12.912   0.993  17.794 
+ 13.114   0.972  20.045 

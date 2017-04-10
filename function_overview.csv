@@ -27,6 +27,7 @@
 "median_ci","Calculate the confidence interval for a sample median."
 "merge_pdf","Merge a list of PDFs into a multi-paage PDF."
 "mymerge","Merge list of data.tables on a given set of variables."
+"one_hot_encoding","Encode categorical values in data.table."
 "out","Save R objects to different formats."
 "pad","Pad elements of list with 0s to bring all elements to a fixed length."
 "parse_arg","Parse and assign (in parent namespace) the arguments in a function call."
