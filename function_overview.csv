@@ -31,6 +31,7 @@
 "out","Save R objects to different formats."
 "pad","Pad elements of list with 0s to bring all elements to a fixed length."
 "parse_arg","Parse and assign (in parent namespace) the arguments in a function call."
+"parse_date","Automatically recognise and parse date variables."
 "perc","Calculate a percentage."
 "plot_marginal","Annotate a plot with one/two side plots."
 "print_memory","Print table with memory usage of objects in namespace."
