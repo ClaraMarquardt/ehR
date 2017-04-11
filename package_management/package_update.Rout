@@ -1,7 +1,7 @@
 
 R version 3.3.3 (2017-03-06) -- "Another Canoe"
 Copyright (C) 2017 The R Foundation for Statistical Computing
-Platform: x86_64-apple-darwin13.4.0 (64-bit)
+Platform: x86_64-apple-darwin16.4.0 (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -73,13 +73,22 @@ Warning: @examples [hochberg_adj.R#9]: requires a value
 Warning: @param [mean_ci.R#6]: requires name and description
 Warning: @param [mean_ci_clust.R#10]: requires name and description
 Warning: @param [median_ci.R#6]: requires name and description
-Warning: @examples [one_hot_encoding.R#13]: requires a value
+Warning: @examples [one_hot_encoding.R#14]: requires a value
 Warning: @return [pseudo_r2.R#8]: requires a value
 Warning: @examples [pseudo_r2.R#9]: requires a value
 Warning: @return [se.R#8]: requires a value
 Warning: @examples [se.R#9]: requires a value
-Writing NAMESPACE
-Writing one_hot_encoding.Rd
+Warning: @return [theme_basic.R#9]: requires a value
+Warning: @examples [theme_basic.R#10]: requires a value
+Warning: @return [theme_legend_bottom.R#10]: requires a value
+Warning: @examples [theme_legend_bottom.R#11]: requires a value
+Warning: @return [theme_remove_all.R#10]: requires a value
+Warning: @examples [theme_remove_all.R#11]: requires a value
+Writing theme_basic.Rd
+Writing theme_legend_bottom.Rd
+Writing theme_remove_all.Rd
+Warning message:
+Version of roxygen2 last used with this package is 6.0.1.9000.  You only have version 6.0.1 
 > 
 > # uninstall existing versions
 > #-------------------------------------------
@@ -87,7 +96,7 @@ Writing one_hot_encoding.Rd
 > detach(package_spec, unload=TRUE,character.only = TRUE)
 > 
 > try(remove.packages(package_name))
-Removing package from ‘/Library/Frameworks/R.framework/Versions/3.3/Resources/library’
+Removing package from ‘/usr/local/lib/R/3.3/site-library’
 (as ‘lib’ is unspecified)
 > 
 > # fresh install
@@ -95,7 +104,21 @@ Removing package from ‘/Library/Frameworks/R.framework/Versions/3.3/Resources/
 > setwd("..")
 > install(package_name, dependencies = TRUE)
 Installing ehR
-'/Library/Frameworks/R.framework/Resources/bin/R' CMD INSTALL '/Users/claramarquardt/Google_Drive/Jobs/zolab/mulab/other_project/method_new_repo/ehR' 
+'/usr/local/Cellar/r/3.3.3_1/R.framework/Resources/bin/R' --no-site-file  \
+  --no-environ --no-save --no-restore --quiet CMD INSTALL  \
+  '/Users/claramarquardt/Google_Drive/Jobs/zolab/mulab/other_project/method_new_repo/ehR'  \
+  --library='/usr/local/lib/R/3.3/site-library' --install-tests 
+
+* installing *source* package ‘ehR’ ...
+** R
+** data
+*** moving datasets to lazyload DB
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded
+* DONE (ehR)
 > library(package_name,character.only = TRUE)
 > 
 > # generate overview of package
@@ -125,4 +148,4 @@ Installing ehR
 > 
 > proc.time()
    user  system elapsed 
- 13.114   0.972  20.045 
+ 13.228   1.042  20.237 

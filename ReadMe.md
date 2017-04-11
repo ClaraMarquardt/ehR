@@ -18,13 +18,34 @@ The package contains the following data sets:
 - 'gagne_code': Icd9 code - gagne comorbidity category crosswalk (http://scholar.harvard.edu/gagne/software/combined-comorbidity-score) [* note the crosswalk included in the package includes gagne categories that are assigned a 0 weight (these are not included in the here referenced, publicly available version of the crosswalk)]
 - 'zocat': Icd9 code - zocat crosswalk
 
-**Note**
+**Notes**
 - Requires the newest version of devtools (https://github.com/hadley/devtools) to be installed
 ```
 library(devtools)  
 install_github("hadley/devtools")
 ```
-- Dependes on rJava (http://www.rforge.net/rJava/)
+- Depends on rJava (http://www.rforge.net/rJava/)
+
+- ggplot themes included in the package (theme_[name of theme].R) *may* require a number of additional fonts to be installed and registered with ggplot/ggsave
+
+````
+# install the necessary packages
+install.packages("extrafontdb",repos="http://cran.cnr.berkeley.edu/", 
+   dependencies=TRUE)
+install.packages("extrafont",repos="http://cran.cnr.berkeley.edu/", 
+   dependencies=TRUE)
+
+# load the necessary packages
+library(extrafont)
+library(extrafontdb)
+
+# register the fonts (this step only needs to be execute once)
+font_import()
+loadfonts()
+
+# * note that there may still be problems when using the themes on a plot saved in a non-PDF format (open issue)
+
+````
 
 **Development**
 - Package is actively being developed and extended  - see the ehR project board for a list of open issues
