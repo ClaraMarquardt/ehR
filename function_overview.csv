@@ -37,6 +37,7 @@
 "print_memory","Print table with memory usage of objects in namespace."
 "ps","Print(sprintf(...)."
 "pseudo_r2","Calculate the pseudo-R2 value for a logistic model."
+"readRDS_merge","Read in (a) a single or (b) a list of RDS files (which are to be merged)."
 "return_mult","Store multiple arguments returned from function as separate objects."
 "se","Generate standard errors."
 "set_missing_na","Replace (in place) empty values (""[ ]*"" or """") in data.table with another value."
