@@ -6,6 +6,7 @@
 #'
 #' @export
 #' @import data.table
+#' @import lubridate
 #' @param dt_vector 
 #' @param column_name_list
 #' @param column_name_list_new

@@ -21,6 +21,7 @@
 "list_function","List all the functions used in a R script."
 "list_space","Insert element - string - into a list."
 "list_table","Convert list to table which, optionally, is appended to existing table."
+"load_dep","Load dependencies (dev function)."
 "load_or_install","Load or install R packages (public or local)."
 "mean_ci","Calculate the confidence interval for a sample mean or proportion."
 "mean_ci_clust","Calculate the clustered confidence interval for a sample mean or proportion."
