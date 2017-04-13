@@ -93,7 +93,6 @@ Warning: @return [theme_legend_bottom.R#10]: requires a value
 Warning: @examples [theme_legend_bottom.R#11]: requires a value
 Warning: @return [theme_remove_all.R#10]: requires a value
 Warning: @examples [theme_remove_all.R#11]: requires a value
-Writing load_dep.Rd
 There were 12 warnings (use warnings() to see them)
 > 
 > # uninstall existing versions
@@ -104,6 +103,7 @@ There were 12 warnings (use warnings() to see them)
 > try(remove.packages(package_name))
 Removing package from ‘/usr/local/lib/R/3.3/site-library’
 (as ‘lib’ is unspecified)
+Error in find.package(pkgs, lib) : there is no package called ‘ehR’
 > 
 > # fresh install
 > #-------------------------------------------
@@ -177,4 +177,4 @@ There were 11 warnings (use warnings() to see them)
 > 
 > proc.time()
    user  system elapsed 
- 12.524   0.754  23.898 
+ 13.005   0.734  19.026 
