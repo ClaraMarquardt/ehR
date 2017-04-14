@@ -68,6 +68,12 @@ Updating ehR documentation
 Loading ehR
 Warning: @return [extract_table.R#10]: requires a value
 Warning: @examples [extract_table.R#11]: requires a value
+Warning: @return [feat_dt.R#16]: requires a value
+Warning: @examples [feat_dt.R#17]: requires a value
+Warning: @return [feature_logit.R#16]: requires a value
+Warning: @examples [feature_logit.R#17]: requires a value
+Warning: @return [hist_line_plot.R#25]: requires a value
+Warning: @examples [hist_line_plot.R#26]: requires a value
 Warning: @return [hochberg_adj.R#8]: requires a value
 Warning: @examples [hochberg_adj.R#9]: requires a value
 Warning: @return [load_dep.R#9]: requires a value
@@ -75,6 +81,8 @@ Warning: @examples [load_dep.R#10]: requires a value
 Warning: @param [mean_ci.R#6]: requires name and description
 Warning: @param [mean_ci_clust.R#10]: requires name and description
 Warning: @param [median_ci.R#6]: requires name and description
+Warning: @return [model_auc.R#14]: requires a value
+Warning: @examples [model_auc.R#15]: requires a value
 Warning: @examples [one_hot_encoding.R#14]: requires a value
 Warning: @param [parse_date.R#12]: requires name and description
 Warning: @param [parse_date.R#13]: requires name and description
@@ -85,6 +93,8 @@ Warning: @examples [pseudo_r2.R#9]: requires a value
 Warning: @param [readRDS_merge.R#12]: requires name and description
 Warning: @return [readRDS_merge.R#13]: requires a value
 Warning: @examples [readRDS_merge.R#14]: requires a value
+Warning: @return [rocr_basic.R#15]: requires a value
+Warning: @examples [rocr_basic.R#16]: requires a value
 Warning: @return [se.R#8]: requires a value
 Warning: @examples [se.R#9]: requires a value
 Warning: @return [theme_basic.R#9]: requires a value
@@ -93,6 +103,7 @@ Warning: @return [theme_legend_bottom.R#10]: requires a value
 Warning: @examples [theme_legend_bottom.R#11]: requires a value
 Warning: @return [theme_remove_all.R#10]: requires a value
 Warning: @examples [theme_remove_all.R#11]: requires a value
+Writing feature_logit.Rd
 There were 12 warnings (use warnings() to see them)
 > 
 > # uninstall existing versions
@@ -103,7 +114,6 @@ There were 12 warnings (use warnings() to see them)
 > try(remove.packages(package_name))
 Removing package from ‘/usr/local/lib/R/3.3/site-library’
 (as ‘lib’ is unspecified)
-Error in find.package(pkgs, lib) : there is no package called ‘ehR’
 > 
 > # fresh install
 > #-------------------------------------------
@@ -177,4 +187,4 @@ There were 11 warnings (use warnings() to see them)
 > 
 > proc.time()
    user  system elapsed 
- 13.005   0.734  19.026 
+ 13.947   0.769  18.747 
