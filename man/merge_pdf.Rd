@@ -4,7 +4,7 @@
 \alias{merge_pdf}
 \title{Merge a list of PDFs into a multi-paage PDF.}
 \usage{
-merge_pdf(input_file_list, output_file_name)
+merge_pdf(input_file_list, output_file_name, quiet = FALSE)
 }
 \arguments{
 \item{TBC}{}

@@ -13,7 +13,7 @@
 #' TBC
 
 generate_pdf <- function(plot_list, graph_cat=length(plot_list), ncol_plot, nrow_plot, 
-  file_path, file_name, orientation="vertical", share_legend=FALSE) {
+  file_path, file_name, orientation="vertical", share_legend=FALSE, quiet=FALSE) {
 
   grid_arrange_shared_legend <- function(...) {
     plots <- list(...)
@@ -57,7 +57,7 @@ generate_pdf <- function(plot_list, graph_cat=length(plot_list), ncol_plot, nrow
    dev.off()
    temp1 <- temp1 + graph_count
    temp2 <- temp2 + graph_count
-   print(paste0("successfully generated page ", k, " out of ", graph_page))
+   if (quiet==FALSE) print(paste0("successfully generated page ", k, " out of ", graph_page))
   
   }
 

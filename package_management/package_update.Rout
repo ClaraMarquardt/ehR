@@ -103,7 +103,8 @@ Warning: @return [theme_legend_bottom.R#10]: requires a value
 Warning: @examples [theme_legend_bottom.R#11]: requires a value
 Warning: @return [theme_remove_all.R#10]: requires a value
 Warning: @examples [theme_remove_all.R#11]: requires a value
-Writing feature_logit.Rd
+Writing generate_pdf.Rd
+Writing merge_pdf.Rd
 There were 12 warnings (use warnings() to see them)
 > 
 > # uninstall existing versions
@@ -187,4 +188,4 @@ There were 11 warnings (use warnings() to see them)
 > 
 > proc.time()
    user  system elapsed 
- 13.947   0.769  18.747 
+ 13.722   0.905  20.485 

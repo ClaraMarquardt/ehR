@@ -5,7 +5,8 @@
 \title{Convert a list of ggplots into a (multi-page) PDF.}
 \usage{
 generate_pdf(plot_list, graph_cat = length(plot_list), ncol_plot, nrow_plot,
-  file_path, file_name, orientation = "vertical", share_legend = FALSE)
+  file_path, file_name, orientation = "vertical", share_legend = FALSE,
+  quiet = FALSE)
 }
 \arguments{
 \item{TBC}{}

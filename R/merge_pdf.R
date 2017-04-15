@@ -8,12 +8,12 @@
 #' @examples
 #' TBC
 
-merge_pdf <- function(input_file_list, output_file_name) {
+merge_pdf <- function(input_file_list, output_file_name, quiet=FALSE) {
  
     plotflow:::mergePDF(in.file=paste(input_file_list, 
         collapse=" "),file=output_file_name)
 
-    ps("succesfully merged pdf: %s", output_file_name)
+    if (quiet==FALSE) ps("succesfully merged pdf: %s", output_file_name)
 }
 
 #----------------------------------------------------------------------------#
