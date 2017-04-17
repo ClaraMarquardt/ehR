@@ -64,7 +64,7 @@ generate_pdf <- function(plot_list, graph_cat=length(plot_list), ncol_plot, nrow
   plotflow:::mergePDF(in.file=paste(file.path(temp_folder_plot, dir(temp_folder_plot)), 
     collapse=" "),file=paste0(file_path, file_name, "_combined.pdf"))
 
-  print(unlink(temp_folder_plot, recursive=TRUE))
+ unlink(temp_folder_plot, recursive=TRUE)
 
 }
 

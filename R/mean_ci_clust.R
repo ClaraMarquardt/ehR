@@ -12,7 +12,6 @@
 #' mean_ci_clust(as.integer(is.na(dem$date_of_death))*100,dem$empi, 
 #' 0.95, type="perc_prop")  # clustered prop CI
 
-
 mean_ci_clust <- function(var, cluster_var, ci, return_sd=TRUE, digit=2, min_lim=NA, 
   max_lim=NA, type="perc_prop") {
 
@@ -26,7 +25,28 @@ mean_ci_clust <- function(var, cluster_var, ci, return_sd=TRUE, digit=2, min_lim
 
   if (type=="mean") {
     
-    stop("method not implemented")
+    cluster_dt <- data.table(cluster=cluster_var, outcome=var)
+
+    # determine CI
+    var_sd_clust   <- sapply(unique(cluster_dt$cluster), function(cluster_id) {
+      cluster_sd <- sum(cluster_dt[cluster==cluster_id]$outcome - mean(cluster_dt$outcome))^2
+      return(cluster_sd)
+    })
+    var_sd_clust <- sqrt(sum(var_sd_clust)/(nrow(cluster_dt)-1))
+
+    ci_low   <- round(mean(var, na.rm=T) - ci_stat * var_sd_clust, digits=digit)
+    ci_upper <- round(mean(var, na.rm=T) + ci_stat * var_sd_clust, digits=digit)
+
+    if (!is.na(min_lim)) {
+      ci_low <- max(min_lim, ci_low)
+    }
+
+    if (!is.na(max_lim)) {
+      ci_upper <- min(max_lim, ci_upper)
+    }
+
+    var_sd <- round(var_sd_clust, digits=digit)
+
 
   } else if (type=="perc_prop") {
 

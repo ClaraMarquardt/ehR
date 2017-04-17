@@ -97,14 +97,16 @@ Warning: @return [rocr_basic.R#15]: requires a value
 Warning: @examples [rocr_basic.R#16]: requires a value
 Warning: @return [se.R#8]: requires a value
 Warning: @examples [se.R#9]: requires a value
+Warning: @param [t_fun.R#9]: requires name and description
+Warning: @examples [t_fun.R#11]: requires a value
 Warning: @return [theme_basic.R#9]: requires a value
 Warning: @examples [theme_basic.R#10]: requires a value
 Warning: @return [theme_legend_bottom.R#10]: requires a value
 Warning: @examples [theme_legend_bottom.R#11]: requires a value
 Warning: @return [theme_remove_all.R#10]: requires a value
 Warning: @examples [theme_remove_all.R#11]: requires a value
-Writing generate_pdf.Rd
-Writing merge_pdf.Rd
+Writing NAMESPACE
+Writing insert_col.Rd
 There were 12 warnings (use warnings() to see them)
 > 
 > # uninstall existing versions
@@ -188,4 +190,4 @@ There were 11 warnings (use warnings() to see them)
 > 
 > proc.time()
    user  system elapsed 
- 13.722   0.905  20.485 
+ 13.237   0.837  20.184 
