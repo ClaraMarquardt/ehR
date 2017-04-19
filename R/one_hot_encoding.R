@@ -46,12 +46,12 @@
 
     # format
     dt_factor[, `:=`(names(dt_factor), lapply(.SD, function(x) as.integer(x)))]
-
+    dt_non_factor <- dt[, c(setdiff(names(dt), var_list)), with=F]
+    
     # check that row count aligns
     if (nrow(dt_factor) != nrow(dt_non_factor)) 
       print("warning - one hot encoding () - it appears that rows are dropped during the conversion")
 
-    dt_non_factor <- dt[, c(setdiff(names(dt), var_list)), with=F]
     dt_temp <- data.table(data.frame(dt_non_factor, dt_factor))
 
     options(na.action = current.na.action)
