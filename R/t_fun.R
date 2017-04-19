@@ -22,13 +22,6 @@ t_fun <- function(df, outcome_var, assignment_var, cluster_var=NULL) {
   # unclustered t test - obtain se
   if (is.null(cluster_var)) {
 
-    # obtain control/treatment observations
-    x1 <- df[get(assignment_var)==0, get(outcome_var)]
-    x2 <- df[get(assignment_var)==1, get(outcome_var)]
-
-    # obtain the t test statistic (assume: H0= mean(x1) - mean(x2)==0)
-    t_mean <- mean(x1) - mean(x2)
-
     x1_var <- sum((x1-mean(x1))^2)/(length(x1)-1) 
     x2_var <- sum((x2-mean(x2))^2)/(length(x2)-1) 
     t_se   <- sqrt(x1_var/length(x1)+x2_var/length(x2))
@@ -68,7 +61,7 @@ t_fun <- function(df, outcome_var, assignment_var, cluster_var=NULL) {
   degree_freedom <- t.test(x1, x2)$parameter
 
   # obtain the two sided p-value (p(t>t* | t<-t*)
-  p_val=2*pt(t, df=degree_freedom)
+  p_val=2*pt(abs(t), df=degree_freedom, lower=FALSE)
 
   # return the p-val
   return(p_val)
