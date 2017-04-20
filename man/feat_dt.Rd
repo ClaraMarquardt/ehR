@@ -5,7 +5,8 @@
 \title{Generate, format and save tabulation of the most important predictors 
 in a model.}
 \usage{
-feat_dt(feat_dt_raw, feat_imp_var_list, output_path, feat_lim = 200)
+feat_dt(feat_dt_raw, feat_imp_var_list, output_path, feat_lim = 200,
+  add_dt = NULL)
 }
 \arguments{
 \item{feat_dt_raw}{}

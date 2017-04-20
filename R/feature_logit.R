@@ -12,11 +12,12 @@
 #' @param output_folder 
 #' @param cluster_var_vector 
 #' @param output_path 
+#' @param add_dt
 #' @return
 #' @examples
 
 
-feature_logit <- function(model, output_folder, cluster_var_vector=NA, output_path) {
+feature_logit <- function(model, output_folder, cluster_var_vector=NA, output_path, add_dt=NULL) {
 
     # stats
     norm_factor_0.9 <- 1.96
@@ -39,7 +40,7 @@ feature_logit <- function(model, output_folder, cluster_var_vector=NA, output_pa
       coeff <- fread(paste0("/data/zolab/temp_misc/feature_update", current_date_time_id ,".csv"))
     
     
-  
+
   } else {
 
     # automatic (cluster.vcov ---- multiwayvcov package)
@@ -149,6 +150,7 @@ feature_logit <- function(model, output_folder, cluster_var_vector=NA, output_pa
   # return(coeff)   
   # write.csv(coeff, paste0(output_folder, output_path),row.names=F)
   
+
   # prepare wb
   wb <- createWorkbook(type="xlsx")
   sheet = createSheet(wb, "feat_importance")
@@ -177,6 +179,16 @@ feature_logit <- function(model, output_folder, cluster_var_vector=NA, output_pa
      names(feat_dt)[(char_col+1):(ncol(feat_dt)-2)]))
   }
 
+
+  # add stats
+  if(!is.null(add_dt[[1]])) {
+
+      add_dt <- add_dt[var_name %in% feat_dt$var_name]
+      feat_dt <- Reduce(function(x,y) mymerge(x, y, var_list="var_name"), 
+          list(feat_dt, add_dt))
+  }
+
+  # fomat and add to xlsx
   addDataFrame(feat_dt,sheet, row.names=FALSE, col.names=TRUE)
 
   # cell_style

@@ -12,10 +12,11 @@
 #' @param feat_imp_var_list 
 #' @param output_path 
 #' @param feat_lim 
+#' @param add_dt
 #' @return
 #' @examples
 
-feat_dt <- function(feat_dt_raw, feat_imp_var_list, output_path, feat_lim=200) {
+feat_dt <- function(feat_dt_raw, feat_imp_var_list, output_path, feat_lim=200, add_dt=NULL) {
 
       # prepare wb
       wb <- createWorkbook(type="xlsx")
@@ -45,6 +46,15 @@ feat_dt <- function(feat_dt_raw, feat_imp_var_list, output_path, feat_lim=200) {
          names(feat_dt)[(char_col+1):(ncol(feat_dt)-2)]))
       }
 
+
+      # add stats
+      if(!is.null(add_dt[[1]])) {
+        add_dt <- add_dt[var_name %in% feat_dt$var_name]
+        feat_dt <- Reduce(function(x,y) mymerge(x, y, var_list="var_name"), 
+                list(feat_dt, add_dt))
+      }
+    
+      # add to xlsx & format
       addDataFrame(feat_dt,sheet, row.names=FALSE, col.names=TRUE)
 
       # cell_style
