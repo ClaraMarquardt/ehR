@@ -1,6 +1,6 @@
 #----------------------------------------------------------------------------#
 
-# Purpose:     Shell script to update package 
+# Purpose:     Settings 
 # Author:      Clara Marquardt
 # Date:        2017
 
@@ -8,14 +8,12 @@
 #----------------------------------------------------------------------------#
 
 #----------------------------------------------------------------------------#
-#                                    CODE                                    #
+#                                  Settings                                  #
 #----------------------------------------------------------------------------#
 
-cd ${wd_path}
-
-R CMD BATCH --no-save "--args ${wd_path} ${package_name}" \
-	ehR/package_management/package_update.R \
-	ehR/package_management/package_update.Rout
+# CM 
+wd_path="/Users/claramarquardt/Google_Drive/Jobs/zolab/Mulab/other_project/method_new_repo/"
+package_name="ehR"
 
 #----------------------------------------------------------------------------#
 #                                    END                                     #

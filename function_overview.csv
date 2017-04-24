@@ -10,6 +10,7 @@
 "ed","Simulated EHR data."
 "extract_table","Extract tables from a PDF journal article."
 "feat_dt","Generate, format and save tabulation of the most important predictors in a model."
+"feature_ext_stat","Generate descriptive stats for the features in a feature set."
 "feature_logit","Generate, format and save a tabulation of the most important predictors in a logit model (glm/glmnet/speedglm)."
 "form","Convert a character vector into a formula object."
 "gagne_code","Gagne Comorbididty Score Weights."

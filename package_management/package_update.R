@@ -47,7 +47,7 @@ try(remove.packages(package_name))
 # fresh install
 #-------------------------------------------
 setwd("..")
-install(package_name, dependencies = TRUE)
+install(package_name, dependencies = FALSE)
 library(package_name,character.only = TRUE)
 
 # generate overview of package

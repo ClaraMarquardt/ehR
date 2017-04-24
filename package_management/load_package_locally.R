@@ -1,22 +1,41 @@
 #----------------------------------------------------------------------------#
 
-# Purpose:     Shell script to update package 
+# Purpose:     Load scripts locally
 # Author:      Clara Marquardt
 # Date:        2017
 
 
 #----------------------------------------------------------------------------#
 
+
+#----------------------------------------------------------------------------#
+#                                    CONTROL                                 #
+#----------------------------------------------------------------------------#
+
+print(sprintf("wd_path: %s",  wd_path))
+print(sprintf("package_name: %s",  package_name))
+
+# dependencies
+
+# paths
+setwd(wd_path)
+
 #----------------------------------------------------------------------------#
 #                                    CODE                                    #
 #----------------------------------------------------------------------------#
 
-cd ${wd_path}
+# load scripts locally
+#--------------------------------------# 
+for (x in list.files(paste0(wd_path, package_name, "/R")) {
 
-R CMD BATCH --no-save "--args ${wd_path} ${package_name}" \
-	ehR/package_management/package_update.R \
-	ehR/package_management/package_update.Rout
+  print(sprintf("source: %s", x))
+
+  source(paste0(wd_path, package_name, "/R/", x))
+
+}
 
 #----------------------------------------------------------------------------#
 #                                    END                                     #
 #----------------------------------------------------------------------------#
+
+

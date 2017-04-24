@@ -109,10 +109,6 @@ Warning: @return [theme_legend_bottom.R#10]: requires a value
 Warning: @examples [theme_legend_bottom.R#11]: requires a value
 Warning: @return [theme_remove_all.R#10]: requires a value
 Warning: @examples [theme_remove_all.R#11]: requires a value
-Writing NAMESPACE
-Writing feat_dt.Rd
-Writing feature_ext_stat.Rd
-Writing feature_logit.Rd
 There were 12 warnings (use warnings() to see them)
 > 
 > # uninstall existing versions
@@ -123,13 +119,78 @@ There were 12 warnings (use warnings() to see them)
 > try(remove.packages(package_name))
 Removing package from ‘/usr/local/lib/R/3.3/site-library’
 (as ‘lib’ is unspecified)
+Error in find.package(pkgs, lib) : there is no package called ‘ehR’
 > 
 > # fresh install
 > #-------------------------------------------
 > setwd("..")
-> install(package_name, dependencies = TRUE)
+> install(package_name, dependencies = FALSE)
 Installing ehR
-Error in curl::curl_fetch_disk(url, x$path, handle = handle) : 
-  Couldn't resolve host name
-Calls: install ... request_fetch -> request_fetch.write_disk -> <Anonymous> -> .Call
-Execution halted
+'/usr/local/Cellar/r/3.3.3_1/R.framework/Resources/bin/R' --no-site-file  \
+  --no-environ --no-save --no-restore --quiet CMD INSTALL  \
+  '/Users/claramarquardt/Google_Drive/Jobs/zolab/mulab/other_project/method_new_repo/ehR'  \
+  --library='/usr/local/lib/R/3.3/site-library' --install-tests 
+
+* installing *source* package ‘ehR’ ...
+** R
+** data
+*** moving datasets to lazyload DB
+** preparing package for lazy loading
+Warning: replacing previous import ‘data.table::month’ by ‘lubridate::month’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::hour’ by ‘lubridate::hour’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::quarter’ by ‘lubridate::quarter’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::week’ by ‘lubridate::week’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::year’ by ‘lubridate::year’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::wday’ by ‘lubridate::wday’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::second’ by ‘lubridate::second’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::minute’ by ‘lubridate::minute’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::mday’ by ‘lubridate::mday’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::yday’ by ‘lubridate::yday’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::isoweek’ by ‘lubridate::isoweek’ when loading ‘ehR’
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded
+Warning: replacing previous import ‘data.table::month’ by ‘lubridate::month’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::hour’ by ‘lubridate::hour’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::quarter’ by ‘lubridate::quarter’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::week’ by ‘lubridate::week’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::year’ by ‘lubridate::year’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::wday’ by ‘lubridate::wday’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::second’ by ‘lubridate::second’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::minute’ by ‘lubridate::minute’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::mday’ by ‘lubridate::mday’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::yday’ by ‘lubridate::yday’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::isoweek’ by ‘lubridate::isoweek’ when loading ‘ehR’
+* DONE (ehR)
+> library(package_name,character.only = TRUE)
+There were 11 warnings (use warnings() to see them)
+> 
+> # generate overview of package
+> #-------------------------------------------
+> overview <- as.data.table(library(help=package_name, 
++ 				character.only = TRUE)$info[[2]])
+> 
+> ## format
+> overview[V1 %like% "\\.$", id:=1:nrow(overview[V1 %like% "\\.$"])]
+> overview[, id:=na.locf(id, fromLast=TRUE)]
+> overview[, V1:=gsub("^[ ]*", "", V1)]
+> overview[, V1:=paste0(V1, collapse=" "), by=c("id")]
+> overview <- unique(overview, by=c("id"))
+> 
+> overview[, c("function_name"):=strsplit(V1, "   ")[[1]][1], by=c("id")]
+> overview[, c("function_desc"):=paste0(unlist(strsplit(V1, "   ")[[1]][-1]),collapse=""), 
++ 		by=c("id")]
+> overview[,function_desc:=gsub("^[ ]*", "", function_desc)]
+> overview[, c("id", "V1"):=NULL]
+> 
+> ## save
+> write.csv(overview, paste0(wd_path, package_name, "/function_overview.csv"), row.names=F)
+> 
+> #----------------------------------------------------------------------------#
+> #                                    END                                     #
+> #----------------------------------------------------------------------------#
+> 
+> proc.time()
+   user  system elapsed 
+ 11.399   0.876  15.380 
