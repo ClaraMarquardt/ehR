@@ -12,13 +12,13 @@
 #                                    CONTROL                                 #
 #----------------------------------------------------------------------------#
 
-print(sprintf("wd_path: %s",  wd_path))
+print(sprintf("package_path: %s",  package_path))
 print(sprintf("package_name: %s",  package_name))
 
 # dependencies
 
 # paths
-setwd(wd_path)
+setwd(package_path)
 
 #----------------------------------------------------------------------------#
 #                                    CODE                                    #
@@ -26,11 +26,11 @@ setwd(wd_path)
 
 # load scripts locally
 #--------------------------------------# 
-for (x in list.files(paste0(wd_path, package_name, "/R")) {
+for (x in list.files(paste0(package_path, package_name, "/R")) {
 
   print(sprintf("source: %s", x))
 
-  source(paste0(wd_path, package_name, "/R/", x))
+  source(paste0(package_path, package_name, "/R/", x))
 
 }
 
