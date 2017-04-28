@@ -12,11 +12,12 @@
 #' @param cluster_var_vector 
 #' @param output_path 
 #' @param add_dt
+#' @param feat_lim
 #' @return
 #' @examples
 
 
-feature_logit <- function(model, cluster_var_vector=NA, output_path, add_dt=NULL) {
+feature_logit <- function(model, cluster_var_vector=NA, feat_lim=200, output_path, add_dt=NULL) {
 
     # stats
     norm_factor_0.9 <- 1.96
@@ -35,15 +36,16 @@ feature_logit <- function(model, cluster_var_vector=NA, output_path, add_dt=NULL
 
         setnames(coeff, c("estimate", "std", "z", "p", "var_name"))
 
-        current_date_time_id <- paste0(gsub("_", "", as.character(format(Sys.time(), "%H_%M_%S__%d_%m_%y"))),"_", sample(1:40, 1, replace=F))
+        current_date_time_id <- paste0(gsub("_", "", as.character(format(Sys.time(), "%H_%M_%S__%d_%m_%y"))),
+          "_", sample(1:40, 1, replace=F))
       
-        write.csv(coeff, paste0("/data/zolab/temp_misc/feature_update", current_date_time_id, ".csv"), row.names=F)
-        coeff <- fread(paste0("/data/zolab/temp_misc/feature_update", current_date_time_id ,".csv"))
+        write.csv(coeff, paste0("feature_update", current_date_time_id, ".csv"), row.names=F)
+        coeff <- fread(paste0("feature_update", current_date_time_id ,".csv"))
     
      } else {
 
-      coeff <- data.table(data.frame(coef.name = dimnames(coef(model_list_1_output[[1]]))[[1]], 
-        coef.value = matrix(coef(model_list_1_output[[1]]))))
+      coeff <- data.table(data.frame(coef.name = dimnames(coef(model))[[1]], 
+        coef.value = matrix(coef(model))))
       setnames(coeff, c("var_name", "estimate"))
       coeff <- coeff[!var_name %like% "Intercept"]
       coeff <- coeff[!estimate==0]
@@ -122,8 +124,8 @@ feature_logit <- function(model, cluster_var_vector=NA, output_path, add_dt=NULL
 
     } else {
 
-      coeff <- data.table(data.frame(coef.name = dimnames(coef(model_list_1_output[[1]]))[[1]], 
-        coef.value = matrix(coef(model_list_1_output[[1]]))))
+      coeff <- data.table(data.frame(coef.name = dimnames(coef(model))[[1]], 
+        coef.value = matrix(coef(model))))
       setnames(coeff, c("var_name", "estimate"))
       coeff <- coeff[!var_name %like% "Intercept"]
       coeff <- coeff[!estimate==0]
@@ -134,6 +136,12 @@ feature_logit <- function(model, cluster_var_vector=NA, output_path, add_dt=NULL
   coeff[, estimate:=as.numeric(estimate)]
   coeff[, odds:=exp(estimate)]
   coeff[, odds:=round(odds, digits=5)]
+
+  coeff[, abs_est:=abs(estimate)]
+  setorder(coeff, -abs_est)
+  coeff[, abs_est:=NULL]
+
+  coeff <- coeff[1:feat_lim]
 
   if (class(model) !="cv.glmnet") {
   
