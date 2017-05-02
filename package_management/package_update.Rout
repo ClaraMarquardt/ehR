@@ -74,8 +74,9 @@ Warning: @examples [feat_dt.R#18]: requires a value
 Warning: @return [feature_ext_stat.R#12]: requires a value
 Warning: @examples [feature_ext_stat.R#13]: requires a value
 Warning: @param [feature_logit.R#15]: requires name and description
-Warning: @return [feature_logit.R#16]: requires a value
-Warning: @examples [feature_logit.R#17]: requires a value
+Warning: @param [feature_logit.R#16]: requires name and description
+Warning: @return [feature_logit.R#17]: requires a value
+Warning: @examples [feature_logit.R#18]: requires a value
 Warning: @return [hist_line_plot.R#25]: requires a value
 Warning: @examples [hist_line_plot.R#26]: requires a value
 Warning: @return [hochberg_adj.R#8]: requires a value
@@ -109,7 +110,8 @@ Warning: @return [theme_legend_bottom.R#10]: requires a value
 Warning: @examples [theme_legend_bottom.R#11]: requires a value
 Warning: @return [theme_remove_all.R#10]: requires a value
 Warning: @examples [theme_remove_all.R#11]: requires a value
-Writing feature_logit.Rd
+Writing subset-.result.Rd
+Writing return_mult.Rd
 There were 12 warnings (use warnings() to see them)
 > 
 > # uninstall existing versions
@@ -193,4 +195,4 @@ There were 11 warnings (use warnings() to see them)
 > 
 > proc.time()
    user  system elapsed 
- 10.920   0.986  15.650 
+ 10.749   0.617  14.499 

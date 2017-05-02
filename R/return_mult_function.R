@@ -1,11 +1,7 @@
 #----------------------------------------------------------------------------#
 
-#' Store multiple arguments returned from function as separate objects.
+#' Store multiple arguments returned from function as separate objects - function. 
 #' @export
-#' @param  topad List of elements to pad [list]
-#' @param  num Final length [integer]
-#' @param  method Whether to pad front or back [character]
-#' @param  replace What to pad with [character]
 #' @return TBC
 #' @examples
 #' \dontrun{
@@ -13,8 +9,7 @@
 #' outside of function: return_mult[obj_1, obj_2, obj_3] <- function_test()
 #' }
 
-return_mult <- structure(NA,class="result")
-"[<-.result" <<- function(x,...,value) {
+"[<-.result"  <- function(x,...,value) {
 
    args <- as.list(match.call())
    args <- args[-c(1:2,length(args))]
@@ -25,5 +20,6 @@ return_mult <- structure(NA,class="result")
    }
    x
 }
+
 
 #----------------------------------------------------------------------------#
