@@ -13,7 +13,7 @@
 #' outside of function: return_mult[obj_1, obj_2, obj_3] <- function_test()
 #' }
 
-return_mult <<- structure(NA,class="result")
+return_mult <- structure(NA,class="result")
 "[<-.result" <<- function(x,...,value) {
 
    args <- as.list(match.call())
