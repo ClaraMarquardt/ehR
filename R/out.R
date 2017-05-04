@@ -25,6 +25,10 @@ out <- function(obj, path) {
 
     saveRDS(obj, path)
 
+  } else if (path %like% "txt") {
+
+  	write.table(obj, path)
+
   }
 
 }
