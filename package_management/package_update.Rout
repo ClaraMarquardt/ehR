@@ -110,9 +110,10 @@ Warning: @return [theme_legend_bottom.R#10]: requires a value
 Warning: @examples [theme_legend_bottom.R#11]: requires a value
 Warning: @return [theme_remove_all.R#10]: requires a value
 Warning: @examples [theme_remove_all.R#11]: requires a value
-Writing subset-.result.Rd
-Writing return_mult.Rd
-There were 12 warnings (use warnings() to see them)
+Writing NAMESPACE
+Writing exist_add.Rd
+Deleting exist_.Rd
+There were 13 warnings (use warnings() to see them)
 > 
 > # uninstall existing versions
 > #-------------------------------------------
@@ -195,4 +196,4 @@ There were 11 warnings (use warnings() to see them)
 > 
 > proc.time()
    user  system elapsed 
- 10.749   0.617  14.499 
+  9.049   0.630  10.822 

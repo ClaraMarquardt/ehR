@@ -9,6 +9,7 @@
 "dt_paste","Paste elements of a frequency table into a string."
 "dt_stat","Count number of observations in a data.table over a given timeframe/a given id list."
 "ed","Simulated EHR data."
+"exist_add","Return object/object returned by expression if the object exists, return NULL otherwise."
 "extract_table","Extract tables from a PDF journal article."
 "feat_dt","Generate, format and save tabulation of the most important predictors in a model."
 "feature_ext_stat","Generate descriptive stats for the features in a feature set."
