@@ -111,9 +111,8 @@ Warning: @examples [theme_legend_bottom.R#11]: requires a value
 Warning: @return [theme_remove_all.R#10]: requires a value
 Warning: @examples [theme_remove_all.R#11]: requires a value
 Writing NAMESPACE
-Writing exist_add.Rd
-Deleting exist_.Rd
-There were 13 warnings (use warnings() to see them)
+Writing mclapply_robust.Rd
+There were 12 warnings (use warnings() to see them)
 > 
 > # uninstall existing versions
 > #-------------------------------------------
@@ -196,4 +195,4 @@ There were 11 warnings (use warnings() to see them)
 > 
 > proc.time()
    user  system elapsed 
-  9.049   0.630  10.822 
+ 10.274   0.773  12.413 
