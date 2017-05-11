@@ -11,7 +11,7 @@
 #' 	result        <- mclapply(seq(1:100), function(x) x*3)
 #' }
 
-mclapply_robust <- function(max_core=8, ...) {
+mclapply_robust <- function(max_core=8, quiet=TRUE...) {
 
 
 
@@ -21,7 +21,9 @@ mclapply_robust <- function(max_core=8, ...) {
 	} else {
 		core_count <- min(max_core, detectCores())
 	}
-	print(max_core)
+	
+	if (quiet==FALSE) ps("windows: %s / number of cores: %d", 
+		as.character(Sys.info()[['sysname']] == 'Windows'),core_count)
 
 	## execute
 	temp <- mclapply(..., mc.cores=core_count)
