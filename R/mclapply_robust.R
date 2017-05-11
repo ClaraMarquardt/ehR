@@ -11,7 +11,7 @@
 #' 	result        <- mclapply(seq(1:100), function(x) x*3)
 #' }
 
-mclapply_robust <- function(max_core=8, quiet=TRUE...) {
+mclapply_robust <- function(max_core=8, quiet=TRUE, ...) {
 
 
 
