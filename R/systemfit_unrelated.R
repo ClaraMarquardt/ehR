@@ -4,7 +4,6 @@
 #' @export
 #' @import data.table
 #' @import testit
-#' @import systemfit
 #' @param  TBC
 #' @return TBC
 #' @examples

@@ -110,7 +110,7 @@ Warning: @return [theme_legend_bottom.R#10]: requires a value
 Warning: @examples [theme_legend_bottom.R#11]: requires a value
 Warning: @return [theme_remove_all.R#10]: requires a value
 Warning: @examples [theme_remove_all.R#11]: requires a value
-Writing systemfit_unrelated.Rd
+Writing NAMESPACE
 Warning messages:
 1: character(0) 
 2: character(0) 
@@ -205,4 +205,4 @@ Warning messages:
 > 
 > proc.time()
    user  system elapsed 
- 14.148   0.803  15.515 
+ 12.360   1.007  14.776 
