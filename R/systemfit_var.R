@@ -23,7 +23,7 @@ systemfit_var <- function(group_var, df, clust="ind", cluster_var=NULL) {
     if (clust=="ind") {
       temp_cov <- vcov(temp)
     } else {
-      temp_cov <- cluster.cov(temp, df[, get(cluster_var)])
+      temp_cov <- cluster.vcov(temp, df[, get(cluster_var)])
     }
 
     temp_vcov[seq(from=length(coef(temp))*i+1, 
@@ -34,7 +34,7 @@ systemfit_var <- function(group_var, df, clust="ind", cluster_var=NULL) {
   
   }
 
-  return(temp_cov)
+  return(temp_vcov)
 
 }
 
