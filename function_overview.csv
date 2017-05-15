@@ -56,6 +56,8 @@
 "set_zero_na","Replace (in place) zeros in in data.table with another value."
 "shorten_label","Shorten a character column of a data.table/a character vector."
 "sign_star","Determine the significance (star format) of a p-value."
+"systemfit_unrelated","Generate a systemfit object from a truly unrelated system of regressions (equivalent to systemfit vs. faster)."
+"systemfit_var","Generate a varcov matrix for a system of truly unrelated equations - to be used as part of a linearHypothesis test."
 "t_fun","Perform a two-sided treatment-effect t-test (clustered/non-clustered)."
 "table_df","Convert a frequency table to a data.frame."
 "table_mod","Ordered frequency table formatted as a data.table."

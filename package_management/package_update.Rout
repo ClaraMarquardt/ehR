@@ -1,7 +1,7 @@
 
 R version 3.3.3 (2017-03-06) -- "Another Canoe"
 Copyright (C) 2017 The R Foundation for Statistical Computing
-Platform: x86_64-apple-darwin16.4.0 (64-bit)
+Platform: x86_64-apple-darwin13.4.0 (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -110,9 +110,16 @@ Warning: @return [theme_legend_bottom.R#10]: requires a value
 Warning: @examples [theme_legend_bottom.R#11]: requires a value
 Warning: @return [theme_remove_all.R#10]: requires a value
 Warning: @examples [theme_remove_all.R#11]: requires a value
-Writing NAMESPACE
-Writing mclapply_robust.Rd
-There were 12 warnings (use warnings() to see them)
+Writing systemfit_unrelated.Rd
+Warning messages:
+1: character(0) 
+2: character(0) 
+3: character(0) 
+4: character(0) 
+5: character(0) 
+6: character(0) 
+7: character(0) 
+8: character(0) 
 > 
 > # uninstall existing versions
 > #-------------------------------------------
@@ -120,7 +127,7 @@ There were 12 warnings (use warnings() to see them)
 > detach(package_spec, unload=TRUE,character.only = TRUE)
 > 
 > try(remove.packages(package_name))
-Removing package from ‘/usr/local/lib/R/3.3/site-library’
+Removing package from ‘/Library/Frameworks/R.framework/Versions/3.3/Resources/library’
 (as ‘lib’ is unspecified)
 > 
 > # fresh install
@@ -128,10 +135,11 @@ Removing package from ‘/usr/local/lib/R/3.3/site-library’
 > setwd("..")
 > install(package_name, dependencies = FALSE)
 Installing ehR
-'/usr/local/Cellar/r/3.3.3_1/R.framework/Resources/bin/R' --no-site-file  \
-  --no-environ --no-save --no-restore --quiet CMD INSTALL  \
+'/Library/Frameworks/R.framework/Resources/bin/R' --no-site-file --no-environ  \
+  --no-save --no-restore --quiet CMD INSTALL  \
   '/Users/claramarquardt/Google_Drive/Jobs/zolab/mulab/other_project/method_new_repo/ehR'  \
-  --library='/usr/local/lib/R/3.3/site-library' --install-tests 
+  --library='/Library/Frameworks/R.framework/Versions/3.3/Resources/library'  \
+  --install-tests 
 
 * installing *source* package ‘ehR’ ...
 ** R
@@ -144,11 +152,8 @@ Warning: replacing previous import ‘data.table::quarter’ by ‘lubridate::qu
 Warning: replacing previous import ‘data.table::week’ by ‘lubridate::week’ when loading ‘ehR’
 Warning: replacing previous import ‘data.table::year’ by ‘lubridate::year’ when loading ‘ehR’
 Warning: replacing previous import ‘data.table::wday’ by ‘lubridate::wday’ when loading ‘ehR’
-Warning: replacing previous import ‘data.table::second’ by ‘lubridate::second’ when loading ‘ehR’
-Warning: replacing previous import ‘data.table::minute’ by ‘lubridate::minute’ when loading ‘ehR’
 Warning: replacing previous import ‘data.table::mday’ by ‘lubridate::mday’ when loading ‘ehR’
 Warning: replacing previous import ‘data.table::yday’ by ‘lubridate::yday’ when loading ‘ehR’
-Warning: replacing previous import ‘data.table::isoweek’ by ‘lubridate::isoweek’ when loading ‘ehR’
 ** help
 *** installing help indices
 ** building package indices
@@ -159,14 +164,19 @@ Warning: replacing previous import ‘data.table::quarter’ by ‘lubridate::qu
 Warning: replacing previous import ‘data.table::week’ by ‘lubridate::week’ when loading ‘ehR’
 Warning: replacing previous import ‘data.table::year’ by ‘lubridate::year’ when loading ‘ehR’
 Warning: replacing previous import ‘data.table::wday’ by ‘lubridate::wday’ when loading ‘ehR’
-Warning: replacing previous import ‘data.table::second’ by ‘lubridate::second’ when loading ‘ehR’
-Warning: replacing previous import ‘data.table::minute’ by ‘lubridate::minute’ when loading ‘ehR’
 Warning: replacing previous import ‘data.table::mday’ by ‘lubridate::mday’ when loading ‘ehR’
 Warning: replacing previous import ‘data.table::yday’ by ‘lubridate::yday’ when loading ‘ehR’
-Warning: replacing previous import ‘data.table::isoweek’ by ‘lubridate::isoweek’ when loading ‘ehR’
 * DONE (ehR)
 > library(package_name,character.only = TRUE)
-There were 11 warnings (use warnings() to see them)
+Warning messages:
+1: replacing previous import ‘data.table::month’ by ‘lubridate::month’ when loading ‘ehR’ 
+2: replacing previous import ‘data.table::hour’ by ‘lubridate::hour’ when loading ‘ehR’ 
+3: replacing previous import ‘data.table::quarter’ by ‘lubridate::quarter’ when loading ‘ehR’ 
+4: replacing previous import ‘data.table::week’ by ‘lubridate::week’ when loading ‘ehR’ 
+5: replacing previous import ‘data.table::year’ by ‘lubridate::year’ when loading ‘ehR’ 
+6: replacing previous import ‘data.table::wday’ by ‘lubridate::wday’ when loading ‘ehR’ 
+7: replacing previous import ‘data.table::mday’ by ‘lubridate::mday’ when loading ‘ehR’ 
+8: replacing previous import ‘data.table::yday’ by ‘lubridate::yday’ when loading ‘ehR’ 
 > 
 > # generate overview of package
 > #-------------------------------------------
@@ -195,4 +205,4 @@ There were 11 warnings (use warnings() to see them)
 > 
 > proc.time()
    user  system elapsed 
- 10.274   0.773  12.413 
+ 14.148   0.803  15.515 

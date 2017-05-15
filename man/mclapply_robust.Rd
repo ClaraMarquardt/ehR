@@ -4,7 +4,7 @@
 \alias{mclapply_robust}
 \title{mclapply function useable across Mac/Windows.}
 \usage{
-mclapply_robust(max_core = 8, ...)
+mclapply_robust(max_core = 8, quiet = TRUE, ...)
 }
 \arguments{
 \item{TBC}{}
