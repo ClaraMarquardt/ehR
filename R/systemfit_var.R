@@ -29,7 +29,7 @@ systemfit_var <- function(group_var, df, clust="ind", cluster_var=NULL,
 
       res <- systemfit_obj$eq[[i+1]]$residuals
       n   <- length(res)
-      X   <- cbind(c(rep(1, n)), systemfit_obj$eq[[i+1]]$model[, 
+      X   <- cbind(c(rep(1, nrow(systemfit_obj$eq[[i+1]]$model))), systemfit_obj$eq[[i+1]]$model[, 
               c(2:ncol(systemfit_obj$eq[[i+1]]$model))])
       k   <- ncol(X)
 
