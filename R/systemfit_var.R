@@ -19,12 +19,11 @@ systemfit_var <- function(group_var, df, clust="ind", cluster_var=NULL,
 
   for (i in seq(from=0, to=length(group_var)-1)) {
 
+    temp     <- lm(group_var[[i+1]], data=df)
 
     if (clust=="ind") {
-      temp     <- lm(group_var[[i+1]], data=df)
       temp_cov <- vcov(temp)
     } else if (clust=="clust") {
-      temp     <- lm(group_var[[i+1]], data=df)
       temp_cov <- cluster.vcov(temp, df[, get(cluster_var)])
     } else if (clust=="manual") {
 
