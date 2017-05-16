@@ -4,7 +4,7 @@
 \alias{systemfit_unrelated}
 \title{Generate a systemfit object from a truly unrelated system of regressions (equivalent to systemfit vs. faster).}
 \usage{
-systemfit_unrelated(..., sample_systemfit)
+systemfit_unrelated(formula, df, sample_systemfit)
 }
 \arguments{
 \item{TBC}{}

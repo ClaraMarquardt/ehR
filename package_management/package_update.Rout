@@ -64,5 +64,146 @@ The following objects are masked from ‘package:base’:
 > #-------------------------------------------
 > setwd(paste0("./", package_name))
 > document()
+Updating ehR documentation
+Loading ehR
+Warning: @return [extract_table.R#10]: requires a value
+Warning: @examples [extract_table.R#11]: requires a value
+Warning: @param [feat_dt.R#16]: requires name and description
+Warning: @return [feat_dt.R#17]: requires a value
+Warning: @examples [feat_dt.R#18]: requires a value
+Warning: @return [feature_ext_stat.R#12]: requires a value
+Warning: @examples [feature_ext_stat.R#13]: requires a value
+Warning: @param [feature_logit.R#15]: requires name and description
+Warning: @param [feature_logit.R#16]: requires name and description
+Warning: @return [feature_logit.R#17]: requires a value
+Warning: @examples [feature_logit.R#18]: requires a value
+Warning: @return [hist_line_plot.R#25]: requires a value
+Warning: @examples [hist_line_plot.R#26]: requires a value
+Warning: @return [hochberg_adj.R#8]: requires a value
+Warning: @examples [hochberg_adj.R#9]: requires a value
+Warning: @return [load_dep.R#9]: requires a value
+Warning: @examples [load_dep.R#10]: requires a value
+Warning: @param [mean_ci.R#6]: requires name and description
+Warning: @param [mean_ci_clust.R#10]: requires name and description
+Warning: @param [median_ci.R#6]: requires name and description
+Warning: @return [model_auc.R#14]: requires a value
+Warning: @examples [model_auc.R#15]: requires a value
+Warning: @examples [one_hot_encoding.R#14]: requires a value
+Warning: @param [parse_date.R#12]: requires name and description
+Warning: @param [parse_date.R#13]: requires name and description
+Warning: @return [parse_date.R#14]: requires a value
+Warning: @examples [parse_date.R#15]: requires a value
+Warning: @return [pseudo_r2.R#8]: requires a value
+Warning: @examples [pseudo_r2.R#9]: requires a value
+Warning: @param [readRDS_merge.R#12]: requires name and description
+Warning: @return [readRDS_merge.R#13]: requires a value
+Warning: @examples [readRDS_merge.R#14]: requires a value
+Warning: @return [rocr_basic.R#15]: requires a value
+Warning: @examples [rocr_basic.R#16]: requires a value
+Warning: @return [se.R#8]: requires a value
+Warning: @examples [se.R#9]: requires a value
+Warning: @param [t_fun.R#9]: requires name and description
+Warning: @examples [t_fun.R#11]: requires a value
+Warning: @return [theme_basic.R#9]: requires a value
+Warning: @examples [theme_basic.R#10]: requires a value
+Warning: @return [theme_legend_bottom.R#10]: requires a value
+Warning: @examples [theme_legend_bottom.R#11]: requires a value
+Warning: @return [theme_remove_all.R#10]: requires a value
+Warning: @examples [theme_remove_all.R#11]: requires a value
+Writing systemfit_unrelated.Rd
+Writing systemfit_var.Rd
+Warning messages:
+1: character(0) 
+2: character(0) 
+3: character(0) 
+4: character(0) 
+5: character(0) 
+6: character(0) 
+7: character(0) 
+8: character(0) 
+> 
+> # uninstall existing versions
+> #-------------------------------------------
+> package_spec <- paste0("package:", package_name)
+> detach(package_spec, unload=TRUE,character.only = TRUE)
+> 
+> try(remove.packages(package_name))
+Removing package from ‘/Library/Frameworks/R.framework/Versions/3.3/Resources/library’
+(as ‘lib’ is unspecified)
+> 
+> # fresh install
+> #-------------------------------------------
+> setwd("..")
+> install(package_name, dependencies = FALSE)
+Installing ehR
+'/Library/Frameworks/R.framework/Resources/bin/R' --no-site-file --no-environ  \
+  --no-save --no-restore --quiet CMD INSTALL  \
+  '/Users/claramarquardt/Google_Drive/Jobs/zolab/mulab/other_project/method_new_repo/ehR'  \
+  --library='/Library/Frameworks/R.framework/Versions/3.3/Resources/library'  \
+  --install-tests 
 
-Execution halted
+* installing *source* package ‘ehR’ ...
+** R
+** data
+*** moving datasets to lazyload DB
+** preparing package for lazy loading
+Warning: replacing previous import ‘data.table::month’ by ‘lubridate::month’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::hour’ by ‘lubridate::hour’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::quarter’ by ‘lubridate::quarter’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::week’ by ‘lubridate::week’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::year’ by ‘lubridate::year’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::wday’ by ‘lubridate::wday’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::mday’ by ‘lubridate::mday’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::yday’ by ‘lubridate::yday’ when loading ‘ehR’
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded
+Warning: replacing previous import ‘data.table::month’ by ‘lubridate::month’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::hour’ by ‘lubridate::hour’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::quarter’ by ‘lubridate::quarter’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::week’ by ‘lubridate::week’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::year’ by ‘lubridate::year’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::wday’ by ‘lubridate::wday’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::mday’ by ‘lubridate::mday’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::yday’ by ‘lubridate::yday’ when loading ‘ehR’
+* DONE (ehR)
+> library(package_name,character.only = TRUE)
+Warning messages:
+1: replacing previous import ‘data.table::month’ by ‘lubridate::month’ when loading ‘ehR’ 
+2: replacing previous import ‘data.table::hour’ by ‘lubridate::hour’ when loading ‘ehR’ 
+3: replacing previous import ‘data.table::quarter’ by ‘lubridate::quarter’ when loading ‘ehR’ 
+4: replacing previous import ‘data.table::week’ by ‘lubridate::week’ when loading ‘ehR’ 
+5: replacing previous import ‘data.table::year’ by ‘lubridate::year’ when loading ‘ehR’ 
+6: replacing previous import ‘data.table::wday’ by ‘lubridate::wday’ when loading ‘ehR’ 
+7: replacing previous import ‘data.table::mday’ by ‘lubridate::mday’ when loading ‘ehR’ 
+8: replacing previous import ‘data.table::yday’ by ‘lubridate::yday’ when loading ‘ehR’ 
+> 
+> # generate overview of package
+> #-------------------------------------------
+> overview <- as.data.table(library(help=package_name, 
++ 				character.only = TRUE)$info[[2]])
+> 
+> ## format
+> overview[V1 %like% "\\.$", id:=1:nrow(overview[V1 %like% "\\.$"])]
+> overview[, id:=na.locf(id, fromLast=TRUE)]
+> overview[, V1:=gsub("^[ ]*", "", V1)]
+> overview[, V1:=paste0(V1, collapse=" "), by=c("id")]
+> overview <- unique(overview, by=c("id"))
+> 
+> overview[, c("function_name"):=strsplit(V1, "   ")[[1]][1], by=c("id")]
+> overview[, c("function_desc"):=paste0(unlist(strsplit(V1, "   ")[[1]][-1]),collapse=""), 
++ 		by=c("id")]
+> overview[,function_desc:=gsub("^[ ]*", "", function_desc)]
+> overview[, c("id", "V1"):=NULL]
+> 
+> ## save
+> write.csv(overview, paste0(wd_path, package_name, "/function_overview.csv"), row.names=F)
+> 
+> #----------------------------------------------------------------------------#
+> #                                    END                                     #
+> #----------------------------------------------------------------------------#
+> 
+> proc.time()
+   user  system elapsed 
+  9.812   0.780  12.402 

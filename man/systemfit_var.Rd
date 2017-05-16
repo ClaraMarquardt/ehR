@@ -4,7 +4,8 @@
 \alias{systemfit_var}
 \title{Generate a varcov matrix for a system of truly unrelated equations - to be used as part of a linearHypothesis test.}
 \usage{
-systemfit_var(group_var, df, clust = "ind", cluster_var = NULL)
+systemfit_var(group_var, df, clust = "ind", cluster_var = NULL,
+  systemfit_obj = NULL)
 }
 \arguments{
 \item{TBC}{}
