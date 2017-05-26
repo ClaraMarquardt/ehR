@@ -49,12 +49,24 @@ dt_stat <- function(id_list, empi_list, date_list, dt, dt_date_var, timeframe_da
   setkey(id_dt, empi, event_date_pre, event_date_end)
 
   ## prepare dt
+  print(dt)
   dt_copy <- copy(dt)
   dt_copy[,date_1:=mget(dt_date_var)]
 
   ## foverlaps
   olap <- foverlaps(dt_copy, id_dt, by.x=c("empi", dt_date_var, "date_1"), 
     nomatch=0)
+  
+  if (mode=="hour") {
+    olap[, time_to_event:=round(as.numeric(difftime(get(dt_date_var), 
+      event_date, units="hour")), digits=2)]
+  } else if (mode=="day") {
+    olap[, time_to_event:=round(as.numeric(difftime(get(dt_date_var), 
+      event_date, units="days")), digits=2)]
+
+  }
+  
+  setorder(olap, "id", "time_to_event")
 
  if (is.na(exp_list[1])) {
 
@@ -82,7 +94,7 @@ dt_stat <- function(id_list, empi_list, date_list, dt, dt_date_var, timeframe_da
   if (is.na(exp_list_agg[1])) {
     
     ## return olap_coll
-    return(olap_coll[,mget(return_var)])
+    return(list(olap_coll[,mget(return_var)], olap))
 
   } else {
    
@@ -95,7 +107,7 @@ dt_stat <- function(id_list, empi_list, date_list, dt, dt_date_var, timeframe_da
     names(stat) <- names(exp_list_agg)
   
      ## return olap_coll
-    return(list(olap_coll[,mget(return_var)], unlist(stat)))
+    return(list(olap_coll[,mget(return_var)], unlist(stat), olap))
   }
 
 
