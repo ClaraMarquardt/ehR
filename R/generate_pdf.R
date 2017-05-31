@@ -49,7 +49,7 @@ generate_pdf <- function(plot_list, graph_cat=length(plot_list), ncol_plot, nrow
 
    if(share_legend==FALSE) {
     height_value <- 7.6/(ncol_plot+0.5)
-    do.call(grid.arrange,c(onepage, list(ncol=ncol_plot, heights=rep(height_value,ncol_plot))))
+    do.call(grid.arrange,c(onepage, list(ncol=ncol_plot, heights=rep(height_value,nrow_plot))))
    } else {
      do.call(grid_arrange_shared_legend,c(onepage))
    }
