@@ -8,11 +8,30 @@
 #' @examples
 
 
-hochberg_adj <- function(p_val) {
+hochberg_adj <- function(p) {
 
-  adj_p_val <- round(p_val*(length(p_val)+1-rank(-p_val)), digits=3)
+    ## Note: code taken from the p.adjust function ['stats' package]
+    
+    method <- "hochberg"
+    n      <- length(p)
 
-  return(adj_p_val)
+    nm <- names(p)
+    p <- as.numeric(p)
+    p0 <- setNames(p, nm)
+    if (all(nna <- !is.na(p)))
+        nna <- TRUE
+    p <- p[nna]
+    lp <- length(p)
+    p0[nna] <- switch(method, hochberg = {
+        i <- lp:1L
+        o <- order(p, decreasing = TRUE)
+        ro <- order(o)
+        pmin(1, cummin((n - i + 1L) * p[o]))[ro]
+    })
+
+    return(p0)
 }
 
 #----------------------------------------------------------------------------#
+
+
