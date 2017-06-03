@@ -4,7 +4,7 @@
 \alias{hochberg_adj}
 \title{Perform a Hochberg correction of p-values to account for multiple hypothesis testing.}
 \usage{
-hochberg_adj(p_val)
+hochberg_adj(p)
 }
 \arguments{
 \item{p_val}{Vector of raw p-values [numeric].}
