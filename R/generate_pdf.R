@@ -13,7 +13,8 @@
 #' TBC
 
 generate_pdf <- function(plot_list, graph_cat=length(plot_list), ncol_plot, nrow_plot, 
-  file_path, file_name, orientation="vertical", share_legend=FALSE, quiet=FALSE) {
+  file_path, file_name, orientation="vertical", share_legend=FALSE, quiet=FALSE, 
+  height_plot=NULL, width_plot=NULL, height_overall=NULL, width_overall=NULL) {
 
   grid_arrange_shared_legend <- function(...) {
     plots <- list(...)
@@ -41,15 +42,20 @@ generate_pdf <- function(plot_list, graph_cat=length(plot_list), ncol_plot, nrow
 
   for (k in 1:graph_page) {
    if(orientation=="vertical") pdf(paste0(temp_folder_plot, "/", file_name, "_", k, ".pdf")) 
-     else pdf(paste0(temp_folder_plot, "/", file_name, "_", k, ".pdf"), height=7.6, width=11)
+     else pdf(paste0(temp_folder_plot, "/", file_name, "_", k, ".pdf"), 
+      height=ifelse(is.null(height_overall), 7.6, height_overall), 
+      width=ifelse(is.null(width_overall), 11, width_overall))
 
    temp2 <- min(temp2, length(plot_list))
 
    onepage <- plot_list[temp1:temp2]
 
    if(share_legend==FALSE) {
-    height_value <- 7.6/(ncol_plot+0.5)
-    do.call(grid.arrange,c(onepage, list(ncol=ncol_plot, heights=rep(height_value,nrow_plot))))
+    height_value <- ifelse(is.null(height_plot), list(7.6/(ncol_plot+0.5)), list(height_plot))[[1]]
+    width_value  <- ifelse(is.null(width_plot), NULL, list(width_plot))[[1]]
+    do.call(grid.arrange,c(onepage, list(ncol=ncol_plot, 
+      heights=rep(height_value,nrow_plot), 
+      widths=rep(width_value,ncol_plot))))
    } else {
      do.call(grid_arrange_shared_legend,c(onepage))
    }

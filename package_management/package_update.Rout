@@ -111,8 +111,10 @@ Warning: @examples [theme_legend_bottom.R#11]: requires a value
 Warning: @return [theme_remove_all.R#10]: requires a value
 Warning: @examples [theme_remove_all.R#11]: requires a value
 Writing NAMESPACE
-Writing hochberg_adj.Rd
-Writing make_function.Rd
+Writing corr_stat.Rd
+Writing generate_pdf.Rd
+Writing var_cat.Rd
+Writing var_cat_gen.Rd
 Warning messages:
 1: character(0) 
 2: character(0) 
@@ -207,4 +209,4 @@ Warning messages:
 > 
 > proc.time()
    user  system elapsed 
- 10.144   0.989  12.901 
+ 14.843   1.758  19.226 

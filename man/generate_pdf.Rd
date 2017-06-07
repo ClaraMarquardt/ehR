@@ -6,7 +6,8 @@
 \usage{
 generate_pdf(plot_list, graph_cat = length(plot_list), ncol_plot, nrow_plot,
   file_path, file_name, orientation = "vertical", share_legend = FALSE,
-  quiet = FALSE)
+  quiet = FALSE, height_plot = NULL, width_plot = NULL,
+  height_overall = NULL, width_overall = NULL)
 }
 \arguments{
 \item{TBC}{}
