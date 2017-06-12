@@ -19,6 +19,8 @@
 
 feature_logit <- function(model, cluster_var_vector=NA, feat_lim=200, output_path, add_dt=NULL) {
 
+
+
     # stats
     norm_factor_0.9 <- 1.96
     norm_factor_0.95 <- 1.645 
@@ -141,6 +143,9 @@ feature_logit <- function(model, cluster_var_vector=NA, feat_lim=200, output_pat
   setorder(coeff, -abs_est)
   coeff[, abs_est:=NULL]
 
+  # ensure that feat_lim appropriate
+  feat_lim <- min(feat_lim, nrow(coeff))
+
   coeff <- coeff[1:feat_lim]
 
   if (class(model) !="cv.glmnet") {
@@ -198,7 +203,8 @@ feature_logit <- function(model, cluster_var_vector=NA, feat_lim=200, output_pat
   char_col <- which(sapply(feat_dt, function(x) class(x)[1]) %in% c("character", "factor"))
   
   feat_dt[, c(num_col):=lapply(.SD, function(x) round(x, digits=4)), .SDcols=num_col]
-  setnames(feat_dt, names(feat_dt)[char_col], "var_name")
+
+  # setnames(feat_dt, names(feat_dt)[char_col], "var_name")
 
   feat_dt[, var_cat:=gsub("^([^\\.]*)(\\.).*","\\1",var_name)]
   feat_dt[, var_timeframe:=gsub(".*_timeframe_(.*)$","\\1",var_name)]
