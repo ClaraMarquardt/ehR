@@ -219,6 +219,9 @@ feature_logit <- function(model, cluster_var_vector=NA, feat_lim=200, output_pat
           list(feat_dt, add_dt))
   }
 
+  # order
+  setorder(feat_dt, -odds)
+
   # fomat and add to xlsx
   addDataFrame(feat_dt,sheet, row.names=FALSE, col.names=TRUE)
 
@@ -236,6 +239,7 @@ feature_logit <- function(model, cluster_var_vector=NA, feat_lim=200, output_pat
   
     lapply(names(cells), function(ii)setCellStyle(cells[[ii]],cs))
   }, cat=var_cat, col=var_cat_col)
+
 
   saveWorkbook(wb,output_path)
 
