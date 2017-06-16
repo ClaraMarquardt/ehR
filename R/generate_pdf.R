@@ -51,8 +51,10 @@ generate_pdf <- function(plot_list, graph_cat=length(plot_list), ncol_plot, nrow
    onepage <- plot_list[temp1:temp2]
 
    if(share_legend==FALSE) {
+    width_value  <- NULL
     height_value <- ifelse(is.null(height_plot), list(7.6/(ncol_plot+0.5)), list(height_plot))[[1]]
-    width_value  <- ifelse(is.null(width_plot), NULL, list(width_plot))[[1]]
+    width_value  <- NULL
+    width_value  <- if(!is.null(width_plot))  width_value  <- width_plot
     do.call(grid.arrange,c(onepage, list(ncol=ncol_plot, 
       heights=rep(height_value,nrow_plot), 
       widths=rep(width_value,ncol_plot))))

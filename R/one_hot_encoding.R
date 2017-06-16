@@ -23,6 +23,12 @@
 
     dt_factor <- dt[, c(var_list), with=F]
     dt_factor <- lapply(var_list, function(x) {
+        
+        # rename 
+        dt_factor[, c(x):=lapply(.SD, function(y) paste0("_", gsub("(_*)$", "", y))), 
+            .SDcols=c(x), by=1:nrow(dt_factor)]
+
+        # cast
         dt_factor_temp <- data.frame(model.matrix(~. - 1, data = dt_factor[,
             mget(x)]))
 
@@ -44,6 +50,11 @@
     dt_factor <- data.frame(dt_factor)
     dt_factor <- as.data.table(dt_factor)
 
+    # drop factor columns which end in NA
+    na_col   <- grep("_NA$", names(dt_factor), value=T)
+    dt_factor[, c(na_col):=NULL]
+
+    dt_factor[,]
     # format
     dt_factor[, `:=`(names(dt_factor), lapply(.SD, function(x) as.integer(x)))]
     dt_non_factor <- dt[, c(setdiff(names(dt), var_list)), with=F]
