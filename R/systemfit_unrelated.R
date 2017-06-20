@@ -128,7 +128,7 @@ systemfit_unrelated <- function(formula, df, sample_systemfit) {
     
    }
 
-  # key - df
+  # key - degree of freedoms
   sample_systemfit$df.residual <- nrow(df)*length(temp_model)-
               length(temp_model)*length(coef(temp_model[[1]]))
 
