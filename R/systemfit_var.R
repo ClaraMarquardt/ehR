@@ -8,8 +8,8 @@
 #' @examples
 #' TBC
 
-systemfit_var <- function(group_var, df, clust="ind", cluster_var=NULL, 
-  systemfit_obj=NULL) {
+systemfit_var <- function(group_var, df, clust="ind", 
+  cluster_var=NULL, systemfit_obj=NULL) {
 
   coef_count <- length(group_var[[1]])-1
 
@@ -19,18 +19,21 @@ systemfit_var <- function(group_var, df, clust="ind", cluster_var=NULL,
 
   for (i in seq(from=0, to=length(group_var)-1)) {
 
-    temp     <- lm(group_var[[i+1]], data=df)
+    temp      <- lm(group_var[[i+1]], data=df)
+    temp_coef <- setdiff(names(coef(temp)), "(Intercept)")
 
     if (clust=="ind") {
       temp_cov <- vcov(temp)
     } else if (clust=="clust") {
       temp_cov <- cluster.vcov(temp, df[, get(cluster_var)])
+    } else if (clust=="robust") {
+      temp_cov <- hccm(temp, "hc0")
     } else if (clust=="manual") {
 
       res <- systemfit_obj$eq[[i+1]]$residuals
       n   <- length(res)
-      X   <- cbind(c(rep(1, nrow(systemfit_obj$eq[[i+1]]$model))), systemfit_obj$eq[[i+1]]$model[, 
-              c(2:ncol(systemfit_obj$eq[[i+1]]$model))])
+      X   <- cbind(c(rep(1, nrow(systemfit_obj$eq[[i+1]]$model))), 
+        systemfit_obj$eq[[i+1]]$model[, c(temp_coef)])
       k   <- ncol(X)
 
       temp_cov <- 1/(n-k) * as.numeric(t(res)%*%res) * solve(t(X)%*%X)
