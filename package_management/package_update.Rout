@@ -93,6 +93,7 @@ Warning: @param [parse_date.R#12]: requires name and description
 Warning: @param [parse_date.R#13]: requires name and description
 Warning: @return [parse_date.R#14]: requires a value
 Warning: @examples [parse_date.R#15]: requires a value
+Warning: @param [perm_param_test.R#6]: requires name and description
 Warning: @return [pseudo_r2.R#8]: requires a value
 Warning: @examples [pseudo_r2.R#9]: requires a value
 Warning: @param [readRDS_merge.R#12]: requires name and description
@@ -110,11 +111,6 @@ Warning: @return [theme_legend_bottom.R#10]: requires a value
 Warning: @examples [theme_legend_bottom.R#11]: requires a value
 Warning: @return [theme_remove_all.R#10]: requires a value
 Warning: @examples [theme_remove_all.R#11]: requires a value
-Writing NAMESPACE
-Writing corr_stat.Rd
-Writing generate_pdf.Rd
-Writing var_cat.Rd
-Writing var_cat_gen.Rd
 Warning messages:
 1: character(0) 
 2: character(0) 
@@ -209,4 +205,4 @@ Warning messages:
 > 
 > proc.time()
    user  system elapsed 
- 14.843   1.758  19.226 
+  9.831   0.694  11.319 

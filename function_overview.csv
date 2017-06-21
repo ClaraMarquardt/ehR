@@ -45,7 +45,7 @@
 "parse_arg","Parse and assign (in parent namespace) the arguments in a function call."
 "parse_date","Automatically recognise and parse date variables."
 "perc","Calculate a percentage."
-"plot_marginal","Annotate a plot with one/two side plots."
+"perm_param_test","Permutation based F/t-test plot_marginal  Annotate a plot with one/two side plots."
 "print_memory","Print table with memory usage of objects in namespace."
 "ps","Print(sprintf(...)."
 "pseudo_r2","Calculate the pseudo-R2 value for a logistic model."
