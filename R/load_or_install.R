@@ -78,7 +78,12 @@ load_or_install <- function(package_names, custom_lib_path=FALSE,
          suppressMessages(withr::with_libpaths(new = lib_path, 
            install_github("hadley/ggplot2")))
     
-       } else if (x=="FEATure") {
+       } else if (x=="plotflow") {
+        
+         suppressMessages(withr::with_libpaths(new = lib_path, 
+           install_github("trinker/plotflow")))
+    
+      } else if (x=="FEATure") {
 
         suppressMessages(withr::with_libpaths(new = lib_path, 
            install_github("ClaraMarquardt/FEATure")))
