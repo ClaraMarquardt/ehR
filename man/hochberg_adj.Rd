@@ -2,13 +2,13 @@
 % Please edit documentation in R/hochberg_adj.R
 \name{hochberg_adj}
 \alias{hochberg_adj}
-\title{Perform a Hochberg correction of p-values to account for multiple hypothesis testing.}
+\title{Perform a Hochberg correction of p-values to account for multiple hypothesis testing [Hochberg (1988) - Step Up].}
 \usage{
 hochberg_adj(p)
 }
 \arguments{
-\item{p_val}{Vector of raw p-values [numeric].}
+\item{p}{Vector of raw p-values [numeric].}
 }
 \description{
-Perform a Hochberg correction of p-values to account for multiple hypothesis testing.
+Perform a Hochberg correction of p-values to account for multiple hypothesis testing [Hochberg (1988) - Step Up].
 }

@@ -81,6 +81,10 @@ Warning: @return [hist_line_plot.R#25]: requires a value
 Warning: @examples [hist_line_plot.R#26]: requires a value
 Warning: @return [hochberg_adj.R#8]: requires a value
 Warning: @examples [hochberg_adj.R#9]: requires a value
+Warning: @return [hochberg_adj_hyderabad.R#8]: requires a value
+Warning: @examples [hochberg_adj_hyderabad.R#9]: requires a value
+Warning: @return [holm_adj.R#8]: requires a value
+Warning: @examples [holm_adj.R#9]: requires a value
 Warning: @return [load_dep.R#9]: requires a value
 Warning: @examples [load_dep.R#10]: requires a value
 Warning: @param [mean_ci.R#6]: requires name and description
@@ -111,6 +115,11 @@ Warning: @return [theme_legend_bottom.R#10]: requires a value
 Warning: @examples [theme_legend_bottom.R#11]: requires a value
 Warning: @return [theme_remove_all.R#10]: requires a value
 Warning: @examples [theme_remove_all.R#11]: requires a value
+Writing NAMESPACE
+Writing hochberg_adj.Rd
+Writing hochberg_adj_hyderabad.Rd
+Writing holm_adj.Rd
+Writing norm_outcome.Rd
 Warning messages:
 1: character(0) 
 2: character(0) 
@@ -129,6 +138,7 @@ Warning messages:
 > try(remove.packages(package_name))
 Removing package from ‘/Library/Frameworks/R.framework/Versions/3.3/Resources/library’
 (as ‘lib’ is unspecified)
+Error in find.package(pkgs, lib) : there is no package called ‘ehR’
 > 
 > # fresh install
 > #-------------------------------------------
@@ -205,4 +215,4 @@ Warning messages:
 > 
 > proc.time()
    user  system elapsed 
-  9.831   0.694  11.319 
+ 10.460   1.127  13.442 
