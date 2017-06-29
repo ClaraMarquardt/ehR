@@ -33,7 +33,7 @@ hochberg_adj_hyderabad <- function(p) {
   names(p_val_comb) <- c(p_val_name)
 
   p_val_comb <- p_val_comb[p_name]
-  p_val_comb <- unname()
+  p_val_comb <- unname(p_val_comb)
 
   return(p_val_comb)
 
