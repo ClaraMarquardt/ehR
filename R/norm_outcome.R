@@ -18,11 +18,22 @@ norm_outcome <- function(df, outcome_list, include_missing=TRUE,
 
      if (include_missing==FALSE) {
       
+      # drop observations with missing outcome
+      df_temp <- df_temp[!is.na(get(assignment_var))]
+      ps("number of observations with a missing assignment_var (dropped): %d", 
+        nrow(df_temp_orig[is.na(get(assignment_var))]))
+
+      # drop incomplete observations
       df_temp <- df_temp[complete.cases(df_temp[, mget(c(gsub("-", "", outcome_list)))])]
       ps("number of observations: %d, number of complete observations: %d", 
         nrow(df), nrow(df_temp))
 
      } else {
+
+      # drop observations with missing outcome
+      df_temp <- df_temp[!is.na(get(assignment_var))]
+      ps("number of observations with a missing assignment_var (dropped): %d", 
+        nrow(df_temp_orig[is.na(get(assignment_var))]))
 
       # keep observations with at least one non-missing index component
       df_temp[, non_missing_count:=rowSums(sapply(.SD, function(x) !is.na(x))), 
@@ -60,7 +71,7 @@ norm_outcome <- function(df, outcome_list, include_missing=TRUE,
       treatment_sd    <- sd(df_temp[get(assignment_var)==1, get(x)])
 
       outcome_norm    <- (df_temp[, get(x)] - control_mean)/control_sd
- 
+
       return(outcome_norm)
 
      })
@@ -72,8 +83,18 @@ norm_outcome <- function(df, outcome_list, include_missing=TRUE,
 
      temp_index <- temp$index
 
-     df_temp_orig[complete.cases(df_temp_orig[, mget(c(gsub("-", "", 
-      outcome_list)))]),temp_index:=temp_index]
+     if(include_missing==FALSE) {
+
+      df_temp_orig[complete.cases(df_temp_orig[, mget(c(gsub("-", "", 
+        outcome_list)))]) & !is.na(get(assignment_var)),temp_index:=temp_index]
+
+    } else {
+      
+      df_temp_orig[, non_missing_count:=rowSums(sapply(.SD, function(x) !is.na(x))), 
+        .SDcols=gsub("-", "", outcome_list)]
+      df_temp_orig[non_missing_count>0 & !is.na(get(assignment_var)),temp_index:=temp_index]
+     
+    }
 
      return(df_temp_orig$temp_index)
 
