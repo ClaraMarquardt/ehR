@@ -25,9 +25,9 @@ norm_outcome <- function(df, outcome_list, include_missing=TRUE,
      } else {
 
       # keep observations with at least one non-missing index component
-      df_temp[, non_missing_count:=rowSums(lapply(.SD, function(x) !is.na(x))), 
+      df_temp[, non_missing_count:=rowSums(sapply(.SD, function(x) !is.na(x))), 
         .SDcols=gsub("-", "", outcome_list)]
-      df_temp <- df_temp[, non_missing_count==0]
+      df_temp <- df_temp[non_missing_count>0]
 
       ps("number of observations: %d, number of observations with at least one non-missing index component: %d", 
         nrow(df), nrow(df_temp))
