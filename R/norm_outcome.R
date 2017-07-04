@@ -7,15 +7,42 @@
 #' @examples
 #' TBC
 
-norm_outcome <- function(df, outcome_list) {
+norm_outcome <- function(df, outcome_list, include_missing=TRUE, 
+  assignment_var="treatment") {
 
      df_temp      <- copy(df)
      df_temp_orig <- copy(df)  
 
      # using only complete observations
-     df_temp <- df_temp[complete.cases(df_temp[, mget(c(gsub("-", "", outcome_list)))])]
-     ps("number of observations: %d, number of complete observations: %d", 
-      nrow(df), nrow(df_temp))
+
+
+     if (include_missing==FALSE) {
+      
+      df_temp <- df_temp[complete.cases(df_temp[, mget(c(gsub("-", "", outcome_list)))])]
+      ps("number of observations: %d, number of complete observations: %d", 
+        nrow(df), nrow(df_temp))
+
+     } else {
+
+      # keep observations with at least one non-missing index component
+      df_temp[, non_missing_count:=rowSums(lapply(.SD, function(x) !is.na(x))), 
+        .SDcols=gsub("-", "", outcome_list)]
+      df_temp <- df_temp[, non_missing_count==0]
+
+      ps("number of observations: %d, number of observations with at least one non-missing index component: %d", 
+        nrow(df), nrow(df_temp))
+
+      # impute
+      for (i in gsub("-", "", outcome_list)) {
+       
+       df_temp[is.na(get(i)) & get(assignment_var)==1, c(i):=mean(df_temp[!(is.na(get(i))) &
+        get(assignment_var)==1, get(i)])]
+       df_temp[is.na(get(i)) & get(assignment_var)==0, c(i):=mean(df_temp[!(is.na(get(i))) &
+        get(assignment_var)==0, get(i)])]
+
+      }
+
+     }
 
      temp <- sapply(outcome_list, function(x) {
 
@@ -25,13 +52,12 @@ norm_outcome <- function(df, outcome_list) {
         x <- paste0(gsub("-", "", x), "_stand")
       }
 
-
       # normalise outcomes by the control group mean/SD
-      control_mean    <- mean(df_temp[treatment==0, get(x)])
-      control_sd      <- sd(df_temp[treatment==0, get(x)])
+      control_mean    <- mean(df_temp[get(assignment_var)==0, get(x)])
+      control_sd      <- sd(df_temp[get(assignment_var)==0, get(x)])
 
-      treatment_mean  <- mean(df_temp[treatment==1, get(x)])
-      treatment_sd    <- sd(df_temp[treatment==1, get(x)])
+      treatment_mean  <- mean(df_temp[get(assignment_var)==1, get(x)])
+      treatment_sd    <- sd(df_temp[get(assignment_var)==1, get(x)])
 
       outcome_norm    <- (df_temp[, get(x)] - control_mean)/control_sd
  
@@ -46,7 +72,8 @@ norm_outcome <- function(df, outcome_list) {
 
      temp_index <- temp$index
 
-     df_temp_orig[complete.cases(df_temp_orig[, mget(c(gsub("-", "", outcome_list)))]),temp_index:=temp_index]
+     df_temp_orig[complete.cases(df_temp_orig[, mget(c(gsub("-", "", 
+      outcome_list)))]),temp_index:=temp_index]
 
      return(df_temp_orig$temp_index)
 

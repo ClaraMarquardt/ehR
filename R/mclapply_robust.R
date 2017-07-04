@@ -13,20 +13,20 @@
 
 mclapply_robust <- function(max_core=8, quiet=TRUE, ...) {
 
-
-
 	## check platform
 	if( Sys.info()[['sysname']] == 'Windows' ) {
-		core_count <- 1
+		temp <- lapply(...)
 	} else {
-		core_count <- min(max_core, detectCores())
+		if (max_core %like% "*") {
+			core_count <- as.numeric(gsub("\\*", "", max_core))
+		} else {
+			core_count <- min(max_core, detectCores())
+		}
+		temp <- mclapply(..., mc.cores=core_count)
 	}
 	
 	if (quiet==FALSE) ps("windows: %s / number of cores: %d", 
 		as.character(Sys.info()[['sysname']] == 'Windows'),core_count)
-
-	## execute
-	temp <- mclapply(..., mc.cores=core_count)
 
 	## return
 	return(temp)
