@@ -4,7 +4,8 @@
 \alias{norm_outcome}
 \title{Generate a Kling Index from a list of outcomes.}
 \usage{
-norm_outcome(df, outcome_list)
+norm_outcome(df, outcome_list, include_missing = TRUE,
+  assignment_var = "treatment")
 }
 \arguments{
 \item{TBC}{}

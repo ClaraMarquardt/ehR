@@ -107,6 +107,7 @@ Warning: @return [rocr_basic.R#15]: requires a value
 Warning: @examples [rocr_basic.R#16]: requires a value
 Warning: @return [se.R#8]: requires a value
 Warning: @examples [se.R#9]: requires a value
+Warning: @examples [summary_text.R#8]: requires a value
 Warning: @param [t_fun.R#9]: requires name and description
 Warning: @examples [t_fun.R#11]: requires a value
 Warning: @return [theme_basic.R#9]: requires a value
@@ -116,10 +117,8 @@ Warning: @examples [theme_legend_bottom.R#11]: requires a value
 Warning: @return [theme_remove_all.R#10]: requires a value
 Warning: @examples [theme_remove_all.R#11]: requires a value
 Writing NAMESPACE
-Writing hochberg_adj.Rd
-Writing hochberg_adj_hyderabad.Rd
-Writing holm_adj.Rd
 Writing norm_outcome.Rd
+Writing summary_text.Rd
 Warning messages:
 1: character(0) 
 2: character(0) 
@@ -138,7 +137,6 @@ Warning messages:
 > try(remove.packages(package_name))
 Removing package from ‘/Library/Frameworks/R.framework/Versions/3.3/Resources/library’
 (as ‘lib’ is unspecified)
-Error in find.package(pkgs, lib) : there is no package called ‘ehR’
 > 
 > # fresh install
 > #-------------------------------------------
@@ -215,4 +213,4 @@ Warning messages:
 > 
 > proc.time()
    user  system elapsed 
- 10.460   1.127  13.442 
+ 10.843   1.135  13.950 
