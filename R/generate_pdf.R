@@ -69,10 +69,13 @@ generate_pdf <- function(plot_list, graph_cat=length(plot_list), ncol_plot, nrow
   
   }
 
-  plotflow:::mergePDF(in.file=paste(file.path(temp_folder_plot, dir(temp_folder_plot)), 
-    collapse=" "),file=paste0(file_path, file_name, "_combined.pdf"))
+  # ensure that the file list is correctly sorted 
+  file_list <- file.path(temp_folder_plot, dir(temp_folder_plot))
+  file_list <- file_list[order(gsub("(.*)(_)([0-9]*)$", "\\3", file_list))]
 
- unlink(temp_folder_plot, recursive=TRUE)
+  plotflow:::mergePDF(in.file=paste(file_list, collapse=" "),file=paste0(file_path, file_name, "_combined.pdf"))
+
+  unlink(temp_folder_plot, recursive=TRUE)
 
 }
 
