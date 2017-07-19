@@ -27,7 +27,7 @@ feature_logit <- function(model, cluster_var_vector=NA, feat_lim=200, output_pat
 
     if (is.na(cluster_var_vector[1])) {
 
-      if (class(model)[[1]] !="cv.glmnet") {
+      if (!(class(model)[[1]] %in% c("cv.glmnet", "glmnet","lognet"))) {
 
         logit_model_output     <- summary(model)
         coeff_raw              <- logit_model_output$coefficients
@@ -56,7 +56,7 @@ feature_logit <- function(model, cluster_var_vector=NA, feat_lim=200, output_pat
 
   } else {
 
-    if (class(model)[[1]] !="cv.glmnet") {
+   if (!(class(model)[[1]] %in% c("cv.glmnet", "glmnet","lognet"))) {
       # automatic (cluster.vcov ---- multiwayvcov package)
       #----------------------------------------------------------------------------#
       var_cov_adj_f <- cluster.vcov(model, cluster_var_vector)
@@ -148,7 +148,7 @@ feature_logit <- function(model, cluster_var_vector=NA, feat_lim=200, output_pat
 
   coeff <- coeff[1:feat_lim]
 
-  if (class(model)[[1]] !="cv.glmnet") {
+   if (!(class(model)[[1]] %in% c("cv.glmnet", "glmnet","lognet"))) {
   
     coeff[, p:=as.numeric(p)]
   
