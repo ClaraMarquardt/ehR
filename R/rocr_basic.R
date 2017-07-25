@@ -14,7 +14,7 @@
 #' @return
 #' @examples
 
-rocr_basic <- function(pred_list, outcome_list, model_name,  title, path ) {
+rocr_basic <- function(pred_list, outcome_list, model_name,  title, path, point=NULL, label_offset=0.02 ) {
 
   rocr_val  <- mapply(function(pred, y) {list(predictions=pred , labels=y)}, 
     				pred=pred_list, y=outcome_list, SIMPLIFY=F)
@@ -33,6 +33,9 @@ rocr_basic <- function(pred_list, outcome_list, model_name,  title, path ) {
   abline(0,1,col="grey30", lty=2, lwd=0.5)
 
   text(0.7,0.05,model_name, cex=0.5)
+
+  points(point[[1]], point[[2]], col = "blue", cex = 0.5)
+  text(point[[1]], point[[2]]-label_offset, point[[3]], cex = 0.5)
 
   lapply(rocr, function(x) {
     plot(x,col="darkgreen", lty=1, frame= FALSE, box.lwd=0.001, xlim = c(0,1), ylim=c(0,1), 
