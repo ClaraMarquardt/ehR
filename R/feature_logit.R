@@ -17,7 +17,8 @@
 #' @examples
 
 
-feature_logit <- function(model, cluster_var_vector=NA, feat_lim=200, output_path, add_dt=NULL) {
+feature_logit <- function(model, cluster_var_vector=NA, feat_lim=200, output_path, 
+  add_dt=NULL, mode="default") {
 
 
 
@@ -189,6 +190,18 @@ feature_logit <- function(model, cluster_var_vector=NA, feat_lim=200, output_pat
   coeff <- coeff[, mget(var_coeff)]
   setnames(coeff, var_coeff_name)
 
+  if (mode=="min_sign") {
+
+    drop_var <- c("estimate", grep("std", names(coeff), value=T))
+    coeff[, c(drop_var):=NULL]
+
+    if ("odds_CI_0.9_min_clust" %in% names(coeff)) {
+
+      coeff[, c("odds_CI_0.9_min", "odds_CI_0.9_max", "odds_CI_0.95_min", "odds_CI_0.95_max"):=NULL]
+    }
+
+  }
+
   # return(coeff)   
   # write.csv(coeff, paste0(output_folder, output_path),row.names=F)
   
@@ -220,7 +233,15 @@ feature_logit <- function(model, cluster_var_vector=NA, feat_lim=200, output_pat
   }
 
   # order
-  setorder(feat_dt, -odds)
+  if (mode=="default") {
+
+    setorder(feat_dt, -odds)
+
+  } else if (mode=="min_sign") {
+    
+    setorder(feat_dt, -p)
+
+  }
 
   # fomat and add to xlsx
   addDataFrame(feat_dt,sheet, row.names=FALSE, col.names=TRUE)
