@@ -58,6 +58,7 @@ feature_logit <- function(model, cluster_var_vector=NA, feat_lim=200, output_pat
   } else {
 
    if (!(class(model)[[1]] %in% c("cv.glmnet", "glmnet","lognet"))) {
+      
       # automatic (cluster.vcov ---- multiwayvcov package)
       #----------------------------------------------------------------------------#
       var_cov_adj_f <- cluster.vcov(model, cluster_var_vector)
@@ -113,7 +114,7 @@ feature_logit <- function(model, cluster_var_vector=NA, feat_lim=200, output_pat
       ## obtain coefficients,p-value, SE
       coeff_std_standard        <- coeftest(model) 
       coeff_std_adj_f           <- coeftest(model, var_cov_adj_f)
-      # coeff_std_adj_man         <- coeftest(model, var_cov_adj_man)
+      # coeff_std_adj_man       <- coeftest(model, var_cov_adj_man)
 
       # print(coeff_std_standard[c(1:10),])
       # print(coeff_std_adj_f[c(1:10),])
@@ -239,7 +240,8 @@ feature_logit <- function(model, cluster_var_vector=NA, feat_lim=200, output_pat
 
   } else if (mode=="min_sign") {
     
-    setorder(feat_dt, -p)
+    p_val <- grep("p$|p_clust",names(feat_dt), value=T)
+    setorderv(feat_dt, -p_val)
 
   }
 
