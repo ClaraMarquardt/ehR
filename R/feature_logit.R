@@ -239,7 +239,7 @@ feature_logit <- function(model, cluster_var_vector=NA, feat_lim=200, output_pat
   } else if (mode=="min_sign") {
     
     p_val <- grep("p$|p_clust",names(feat_dt), value=T)
-    setorderv(feat_dt, p_vals)
+    setorderv(feat_dt, p_val)
 
   }
 
