@@ -232,14 +232,14 @@ feature_logit <- function(model, cluster_var_vector=NA, feat_lim=200, output_pat
   }
 
   # order
-  if (mode=="default") {
+  if (mode=="default" | class(model)[[1]] %in% c("cv.glmnet", "glmnet","lognet")) {
 
     setorder(feat_dt, -odds)
 
   } else if (mode=="min_sign") {
     
     p_val <- grep("p$|p_clust",names(feat_dt), value=T)
-    setorderv(feat_dt, p_val, order=-1)
+    setorderv(feat_dt, p_vals)
 
   }
 
