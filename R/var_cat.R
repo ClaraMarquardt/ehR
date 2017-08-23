@@ -30,8 +30,8 @@ var_cat <- function(dt, var_name, class_scheme, round=FALSE) {
   dt[, paste0("var_temp", "_cat"):=cut(get("var_temp"), breaks=c(class_scheme_var[[1]]), 
     labels=FALSE, include.lowest=TRUE)]
   
-  cat("\n\n\n\nselected classification scheme - note 1st/last cat -> NA/unclassified:\n\n")
-  lapply(class_scheme_var[[4]], function(x) cat(paste0("\n", x)))
+  # cat("\n\n\n\nselected classification scheme - note 1st/last cat -> NA/unclassified:\n\n")
+  # lapply(class_scheme_var[[4]], function(x) cat(paste0("\n", x)))
 
   dt[, paste0("var_temp", "_cat_name"):=class_scheme_var[[4]][-c(1,
     length(class_scheme_var[[4]]))][get(paste0("var_temp", "_cat"))]]
