@@ -11,7 +11,7 @@
 #                                  Settings                                  #
 #----------------------------------------------------------------------------#
 
-# CM 
+# Clara Marquardt
 wd_path="/Users/claramarquardt/Google_Drive/Jobs/zolab/Mulab/other_project/method_new_repo/"
 package_name="ehR"
 
