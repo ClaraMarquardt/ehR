@@ -1,5 +1,5 @@
 Package: ehR
-Title: A collection of useful functions.
+Title: A collection of useful EHR relevant functions.
 Version: 0.0.0.9000
 Authors@R: person("Clara", "Marquardt", email = "marquardt.clara@gmail.com", role = c("aut", "cre"))
 Description: ...

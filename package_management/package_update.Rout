@@ -1,7 +1,7 @@
 
-R version 3.3.3 (2017-03-06) -- "Another Canoe"
+R version 3.4.1 (2017-06-30) -- "Single Candle"
 Copyright (C) 2017 The R Foundation for Statistical Computing
-Platform: x86_64-apple-darwin13.4.0 (64-bit)
+Platform: x86_64-apple-darwin16.7.0 (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -66,68 +66,74 @@ The following objects are masked from ‘package:base’:
 > document()
 Updating ehR documentation
 Loading ehR
-Warning: @return [extract_table.R#10]: requires a value
-Warning: @examples [extract_table.R#11]: requires a value
-Warning: @param [feat_dt.R#16]: requires name and description
-Warning: @return [feat_dt.R#17]: requires a value
-Warning: @examples [feat_dt.R#18]: requires a value
-Warning: @return [feature_ext_stat.R#12]: requires a value
-Warning: @examples [feature_ext_stat.R#13]: requires a value
-Warning: @param [feature_logit.R#15]: requires name and description
-Warning: @param [feature_logit.R#16]: requires name and description
-Warning: @return [feature_logit.R#17]: requires a value
-Warning: @examples [feature_logit.R#18]: requires a value
 Warning: @return [hist_line_plot.R#25]: requires a value
 Warning: @examples [hist_line_plot.R#26]: requires a value
-Warning: @return [hochberg_adj.R#8]: requires a value
-Warning: @examples [hochberg_adj.R#9]: requires a value
-Warning: @return [hochberg_adj_hyderabad.R#8]: requires a value
-Warning: @examples [hochberg_adj_hyderabad.R#9]: requires a value
-Warning: @return [holm_adj.R#8]: requires a value
-Warning: @examples [holm_adj.R#9]: requires a value
 Warning: @return [load_dep.R#9]: requires a value
 Warning: @examples [load_dep.R#10]: requires a value
 Warning: @param [mean_ci.R#6]: requires name and description
 Warning: @param [mean_ci_clust.R#10]: requires name and description
 Warning: @param [median_ci.R#6]: requires name and description
-Warning: @return [model_auc.R#14]: requires a value
-Warning: @examples [model_auc.R#15]: requires a value
-Warning: @examples [one_hot_encoding.R#14]: requires a value
 Warning: @param [parse_date.R#12]: requires name and description
 Warning: @param [parse_date.R#13]: requires name and description
 Warning: @return [parse_date.R#14]: requires a value
 Warning: @examples [parse_date.R#15]: requires a value
-Warning: @param [perm_param_test.R#6]: requires name and description
-Warning: @return [pseudo_r2.R#8]: requires a value
-Warning: @examples [pseudo_r2.R#9]: requires a value
-Warning: @param [readRDS_merge.R#12]: requires name and description
-Warning: @return [readRDS_merge.R#13]: requires a value
-Warning: @examples [readRDS_merge.R#14]: requires a value
-Warning: @return [rocr_basic.R#15]: requires a value
-Warning: @examples [rocr_basic.R#16]: requires a value
-Warning: @return [se.R#8]: requires a value
-Warning: @examples [se.R#9]: requires a value
-Warning: @examples [summary_text.R#8]: requires a value
 Warning: @param [t_fun.R#9]: requires name and description
 Warning: @examples [t_fun.R#11]: requires a value
 Warning: @return [theme_basic.R#9]: requires a value
 Warning: @examples [theme_basic.R#10]: requires a value
 Warning: @return [theme_legend_bottom.R#10]: requires a value
 Warning: @examples [theme_legend_bottom.R#11]: requires a value
-Warning: @return [theme_remove_all.R#10]: requires a value
-Warning: @examples [theme_remove_all.R#11]: requires a value
 Writing NAMESPACE
-Writing norm_outcome.Rd
-Writing summary_text.Rd
-Warning messages:
-1: character(0) 
-2: character(0) 
-3: character(0) 
-4: character(0) 
-5: character(0) 
-6: character(0) 
-7: character(0) 
-8: character(0) 
+Deleting chunkify_group.Rd
+Deleting chunkify.Rd
+Deleting exist_add.Rd
+Deleting extract_table.Rd
+Deleting feat_dt.Rd
+Deleting feature_ext_stat.Rd
+Deleting feature_logit.Rd
+Deleting form.Rd
+Deleting hochberg_adj_hyderabad.Rd
+Deleting hochberg_adj.Rd
+Deleting holm_adj.Rd
+Deleting ingest_meta.Rd
+Deleting insert_col.Rd
+Deleting inv_lapply.Rd
+Deleting inv_mapply.Rd
+Deleting jgc.Rd
+Deleting list_function.Rd
+Deleting list_space.Rd
+Deleting list_table.Rd
+Deleting make_function.Rd
+Deleting mclapply_robust.Rd
+Deleting model_auc.Rd
+Deleting norm_outcome.Rd
+Deleting one_hot_encoding.Rd
+Deleting out.Rd
+Deleting pad.Rd
+Deleting parse_arg.Rd
+Deleting perc.Rd
+Deleting perm_param_test.Rd
+Deleting plot_marginal.Rd
+Deleting print_memory.Rd
+Deleting ps.Rd
+Deleting pseudo_r2.Rd
+Deleting readRDS_merge.Rd
+Deleting return_mult.Rd
+Deleting rocr_basic.Rd
+Deleting se.Rd
+Deleting sign_star.Rd
+Deleting subset-.result.Rd
+Deleting summary_text.Rd
+Deleting systemfit_unrelated.Rd
+Deleting systemfit_var.Rd
+Deleting table_df.Rd
+Deleting table_mod.Rd
+Deleting theme_remove_all.Rd
+Deleting var_cat_gen.Rd
+Deleting var_cat.Rd
+Deleting write_append_csv.Rd
+Deleting write_xlsx_mod.Rd
+There were 14 warnings (use warnings() to see them)
 > 
 > # uninstall existing versions
 > #-------------------------------------------
@@ -135,7 +141,7 @@ Warning messages:
 > detach(package_spec, unload=TRUE,character.only = TRUE)
 > 
 > try(remove.packages(package_name))
-Removing package from ‘/Library/Frameworks/R.framework/Versions/3.3/Resources/library’
+Removing package from ‘/usr/local/lib/R/3.4/site-library’
 (as ‘lib’ is unspecified)
 > 
 > # fresh install
@@ -143,11 +149,10 @@ Removing package from ‘/Library/Frameworks/R.framework/Versions/3.3/Resources/
 > setwd("..")
 > install(package_name, dependencies = FALSE)
 Installing ehR
-'/Library/Frameworks/R.framework/Resources/bin/R' --no-site-file --no-environ  \
+'/usr/local/Cellar/r/3.4.1_2/lib/R/bin/R' --no-site-file --no-environ  \
   --no-save --no-restore --quiet CMD INSTALL  \
   '/Users/claramarquardt/Google_Drive/Jobs/zolab/mulab/other_project/method_new_repo/ehR'  \
-  --library='/Library/Frameworks/R.framework/Versions/3.3/Resources/library'  \
-  --install-tests 
+  --library='/usr/local/lib/R/3.4/site-library' --install-tests 
 
 * installing *source* package ‘ehR’ ...
 ** R
@@ -160,8 +165,11 @@ Warning: replacing previous import ‘data.table::quarter’ by ‘lubridate::qu
 Warning: replacing previous import ‘data.table::week’ by ‘lubridate::week’ when loading ‘ehR’
 Warning: replacing previous import ‘data.table::year’ by ‘lubridate::year’ when loading ‘ehR’
 Warning: replacing previous import ‘data.table::wday’ by ‘lubridate::wday’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::second’ by ‘lubridate::second’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::minute’ by ‘lubridate::minute’ when loading ‘ehR’
 Warning: replacing previous import ‘data.table::mday’ by ‘lubridate::mday’ when loading ‘ehR’
 Warning: replacing previous import ‘data.table::yday’ by ‘lubridate::yday’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::isoweek’ by ‘lubridate::isoweek’ when loading ‘ehR’
 ** help
 *** installing help indices
 ** building package indices
@@ -172,19 +180,14 @@ Warning: replacing previous import ‘data.table::quarter’ by ‘lubridate::qu
 Warning: replacing previous import ‘data.table::week’ by ‘lubridate::week’ when loading ‘ehR’
 Warning: replacing previous import ‘data.table::year’ by ‘lubridate::year’ when loading ‘ehR’
 Warning: replacing previous import ‘data.table::wday’ by ‘lubridate::wday’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::second’ by ‘lubridate::second’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::minute’ by ‘lubridate::minute’ when loading ‘ehR’
 Warning: replacing previous import ‘data.table::mday’ by ‘lubridate::mday’ when loading ‘ehR’
 Warning: replacing previous import ‘data.table::yday’ by ‘lubridate::yday’ when loading ‘ehR’
+Warning: replacing previous import ‘data.table::isoweek’ by ‘lubridate::isoweek’ when loading ‘ehR’
 * DONE (ehR)
 > library(package_name,character.only = TRUE)
-Warning messages:
-1: replacing previous import ‘data.table::month’ by ‘lubridate::month’ when loading ‘ehR’ 
-2: replacing previous import ‘data.table::hour’ by ‘lubridate::hour’ when loading ‘ehR’ 
-3: replacing previous import ‘data.table::quarter’ by ‘lubridate::quarter’ when loading ‘ehR’ 
-4: replacing previous import ‘data.table::week’ by ‘lubridate::week’ when loading ‘ehR’ 
-5: replacing previous import ‘data.table::year’ by ‘lubridate::year’ when loading ‘ehR’ 
-6: replacing previous import ‘data.table::wday’ by ‘lubridate::wday’ when loading ‘ehR’ 
-7: replacing previous import ‘data.table::mday’ by ‘lubridate::mday’ when loading ‘ehR’ 
-8: replacing previous import ‘data.table::yday’ by ‘lubridate::yday’ when loading ‘ehR’ 
+There were 11 warnings (use warnings() to see them)
 > 
 > # generate overview of package
 > #-------------------------------------------
@@ -213,4 +216,4 @@ Warning messages:
 > 
 > proc.time()
    user  system elapsed 
- 10.843   1.135  13.950 
+ 22.401   1.517  30.069 
