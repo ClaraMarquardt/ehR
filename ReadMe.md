@@ -48,7 +48,6 @@ loadfonts()
 ````
 
 **Development**
-- Package is actively being developed and extended  - see the ehR project board for a list of open issues
 
 - To contribute:
 ````

@@ -9,6 +9,11 @@
 #' @return
 #' @examples
 
+
+# Theme functions are currently only guaranteed to work with pdf formats - this is caused by 
+# their reliance on non-standard R fonts (rendered compatible with pdf through 
+# the extrafont/extrafontdb package)
+
 theme_legend_bottom <- function(title_size=0.5, text_size=0.4, tick_size=0.08,
   legend_width=0.5, legend_height=0.2, hjust_title=0.5, font_gen ="URWHelvetica", 
   col_gen  ="grey50") 

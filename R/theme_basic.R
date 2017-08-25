@@ -8,6 +8,10 @@
 #' @return
 #' @examples
 
+# Theme functions are currently only guaranteed to work with pdf formats - this is caused by 
+# their reliance on non-standard R fonts (rendered compatible with pdf through 
+# the extrafont/extrafontdb package)
+
 theme_basic <-  function(axis_size=0.5, title_size=8, subtitle_size=6, 
                   font_gen ="URWHelvetica", col_gen="grey50")  
   theme_bw() +
