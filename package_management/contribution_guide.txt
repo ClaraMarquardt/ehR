@@ -1,0 +1,21 @@
+#----------------------------------------------------------------------------#
+
+## Basic style guidelines
+
+- Naming: Use '_' rather than '.' or CamelCase to separate words / Avoid plurals 
+  where possible
+
+- Parameters: Provide a definition of each parameters incl. its type / Provide a 
+  default parameter value where possible
+
+- Presentation: Use an existing function as a template
+
+- Examples: Provide a working example making use of the sample data as useful/necessary
+
+- Dependencies/Import & Export: Export each function / Import all dependencies 
+  (then use the functions as usual, i.e. without the need to explitly specify the package) (*)
+
+* Note: This is a temporary set-up. In future versions dependency imports will 
+  be reduced (using importFrom and/or :: syntax)
+
+#----------------------------------------------------------------------------#

@@ -64,3 +64,9 @@ git push origin [branch name]
 library(devtools)
 install_git("git://github.com/ClaraMarquardt/ehR.git", branch = "[branch name])
 ````
+- Package mangaement tools
+````
+<!-- - Structure
+- Dependencies
+- Dev function -->
+````

@@ -1,0 +1,25 @@
+Package: plotflow
+Type: Package
+Title: Tools to Speed Up Workflow Associated with Plotting
+Version: 0.1.0
+Date: 2016-02-17
+Author: Tyler Rinker & Ananda Mahto
+Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
+Description: Plotting functions not found in other plotting packages.
+Depends: R (>= 3.0.0), ggplot2
+Imports: dplyr, grid, graphics, gtable, gridExtra
+Suggests: GGally, ggdendro, ggthemes, ggmap, gplots, plotrix, reshape2,
+        scales
+License: GPL-2
+RoxygenNote: 5.0.1
+Built: R 3.3.3; ; 2017-08-29 18:49:26 UTC; unix
+RemoteType: github
+RemoteHost: https://api.github.com
+RemoteRepo: plotflow
+RemoteUsername: trinker
+RemoteRef: master
+RemoteSha: 30dff9f1d2177390754e92650af58017cf21bc05
+GithubRepo: plotflow
+GithubUsername: trinker
+GithubRef: master
+GithubSHA1: 30dff9f1d2177390754e92650af58017cf21bc05

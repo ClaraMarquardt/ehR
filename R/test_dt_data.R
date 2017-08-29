@@ -1,16 +1,13 @@
 #----------------------------------------------------------------------------#
 
-#' @title Load dependencies (dev function). 
+#' Test cohort. 
 #'
-#' @description /
+#' Cohort-style data.table to faciliate function/code testing and validation. 
 #'
-#' @export
-#' @return
-#' @examples
+#' @docType data
+#' 
+#' @usage data(test_dt)
 
-load_dep <- function() {
-
-	# load dependencies
-}
+"test_dt"
 
 #----------------------------------------------------------------------------#

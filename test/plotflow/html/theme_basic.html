@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: ggplot2 Theme with No Background or Gridlines.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for theme_basic {plotflow}"><tr><td>theme_basic {plotflow}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>ggplot2 Theme with No Background or Gridlines.</h2>
+
+<h3>Description</h3>
+
+<p>A ggplot2 theme with no background and no gridlines.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+theme_basic(x = FALSE, y = FALSE, plot.box = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>logical.  If <code>TRUE</code> vertical gridlines are added.</p>
+</td></tr>
+<tr valign="top"><td><code>y</code></td>
+<td>
+<p>logical.  If <code>TRUE</code> horizontal gridlines are added.</p>
+</td></tr>
+<tr valign="top"><td><code>plot.box</code></td>
+<td>
+<p>logical.  If <code>TRUE</code> a full box surrounds the plot area.  If <code>FALSE</code> only the x and y axis are shown.</p>
+</td></tr>
+</table>
+
+
+<h3>Note</h3>
+
+<p>Both x and y can not be <code>TRUE</code>.  Use 
+<code><a href="../../ggplot2/html/theme_bw.html">theme_bw</a></code> instead.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../ggplot2/html/theme.html">theme</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+ggplot(mtcars, aes(factor(cyl))) + geom_bar() + theme_basic()
+ggplot(mtcars, aes(factor(cyl))) + geom_bar() + theme_basic(x = TRUE)
+ggplot(mtcars, aes(factor(cyl))) + geom_bar() + theme_basic(y = TRUE)
+ggplot(mtcars, aes(factor(cyl))) + geom_bar() + theme_basic(x = TRUE, y = TRUE)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>plotflow</em> version 0.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

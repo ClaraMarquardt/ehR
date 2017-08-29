@@ -20,7 +20,7 @@ print(sprintf("wd_path: %s",  wd_path))
 print(sprintf("package_name: %s",  package_name))
 
 # dependencies
-library("devtools")
+library(devtools)
 library(roxygen2)
 library(data.table)
 library(zoo)
@@ -50,7 +50,7 @@ setwd("..")
 install(package_name, dependencies = FALSE)
 library(package_name,character.only = TRUE)
 
-# generate overview of package
+# generate package overview
 #-------------------------------------------
 overview <- as.data.table(library(help=package_name, 
 				character.only = TRUE)$info[[2]])
@@ -64,6 +64,9 @@ overview <- unique(overview, by=c("id"))
 
 overview[, c("function_name"):=strsplit(V1, "   ")[[1]][1], by=c("id")]
 overview[, c("function_desc"):=paste0(unlist(strsplit(V1, "   ")[[1]][-1]),collapse=""), 
+		by=c("id")]
+overview[function_desc=="", function_name:=strsplit(V1, " ")[[1]][1], by=c("id")]
+overview[function_desc=="", function_desc:=paste0(unlist(strsplit(V1, " ")[[1]][-1]),collapse=" "), 
 		by=c("id")]
 overview[,function_desc:=gsub("^[ ]*", "", function_desc)]
 overview[, c("id", "V1"):=NULL]

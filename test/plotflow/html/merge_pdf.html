@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Merge Differnt Sized Plots</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for merge_pdf {plotflow}"><tr><td>merge_pdf {plotflow}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Merge Differnt Sized Plots</h2>
+
+<h3>Description</h3>
+
+<p>Allows for merging of different sized R plots.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+merge_pdf(n.plots, file, widths = 8, heights = 8, n.lines = 1)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>n.plots</code></td>
+<td>
+<p>The number of plots to be combined.</p>
+</td></tr>
+<tr valign="top"><td><code>file</code></td>
+<td>
+<p>A connection, or a character string naming the file to print to.</p>
+</td></tr>
+<tr valign="top"><td><code>widths</code></td>
+<td>
+<p>A vector of widths equal to <code>n.plots</code> or a single value 
+that will be used for all plot widths.</p>
+</td></tr>
+<tr valign="top"><td><code>heights</code></td>
+<td>
+<p>A vector of heights equal to <code>n.plots</code> or a single value 
+that will be used for all plot widths.</p>
+</td></tr>
+<tr valign="top"><td><code>n.lines</code></td>
+<td>
+<p>A vector of integer values indicating the number of lines each 
+plotting sequance will take.  Default is 1 line each.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>Returns a single combined plot of various sizes.
+</p>
+
+
+<h3>Note</h3>
+
+<p>To use with ggplot the plotting sequance must be wrapped with 
+<code>plot()</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+merge_pdf(3, file = "foo.pdf", widths = c(7, 7, 10), heights = c(6, 10, 7))
+plot(1:10)
+plot(1:10, pch=19)
+plot(1:10, col="red", pch=19)
+
+library(ggplot2)
+p &lt;- ggplot(mtcars, aes(factor(cyl), mpg)) + geom_boxplot()
+merge_pdf(2, file = "bar.pdf", widths = c(7, 10), heights = c(6, 10))
+plot(1:10)
+print(p)
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>plotflow</em> version 0.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

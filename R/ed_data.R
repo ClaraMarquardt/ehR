@@ -1,8 +1,8 @@
 #----------------------------------------------------------------------------#
 
-#' Simulated EHR data.
+#' Simulated EHR data - ED. 
 #'
-#' Simulated EHR data (no PHI constraints) featuring ed data for ~500 patients
+#' Simulated EHR data (no PHI constraints) featuring ED data for ~500 patients
 #'
 #' @docType data
 #'

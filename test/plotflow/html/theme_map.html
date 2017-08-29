@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: ggplot2 Theme for Mapping.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for theme_map {plotflow}"><tr><td>theme_map {plotflow}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>ggplot2 Theme for Mapping.</h2>
+
+<h3>Description</h3>
+
+<p>A ggplot2 theme with no background, gridlines, border, labels, or ticks.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+theme_map()
+</pre>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../ggplot2/html/theme.html">theme</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+require("maps") 
+states &lt;- data.frame(map("state", plot=FALSE)[c("x","y")]) 
+(usamap &lt;- qplot(x, y, data=states, geom="path")) 
+usamap + theme_map()
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>plotflow</em> version 0.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

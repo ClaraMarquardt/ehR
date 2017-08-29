@@ -1,8 +1,8 @@
 Package: ehR
-Title: A collection of useful EHR relevant functions.
+Title: A collection of R functions designed to facilitate the interaction with and analysis of ehR data.
 Version: 0.0.0.9000
-Authors@R: person("Clara", "Marquardt", email = "marquardt.clara@gmail.com", role = c("aut", "cre"))
-Description: ...
+Authors@R: person("Clara", "Marquardt", email = "marquardt.clara@gmail.com", role = c("aut", "cre")), person("Shreyas", "Lakhtakia", email="slakhtakia@bwh.harvard.edu", role=c("aut", "cre"))
+Description: /
 Depends: R (>= 3.3.1)
 License: ...
 Encoding: UTF-8

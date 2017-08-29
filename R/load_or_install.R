@@ -1,143 +1,127 @@
 #----------------------------------------------------------------------------#
 
-#' Load or install R packages (public or local).
+#' Load or install R packages (from CRAN or Github)
 #' @export
 #' @import data.table
 #' @import devtools
-#' @param  TBC
-#' @return TBC
+#' @param  package_list List of package names which are to be installed/loaded (list - character).
+#' @param custom_lib_path Custom library path (character) [Default: Default library path].
+#' @param custom_repo R repository from which to download packages [Default: https://cran.rstudio.com"]
+#' @param custom_package_version Whether to take into account version specifications for key packages (data.table, ggplot2) (logical - TRUE/FALSE) [Default: TRUE]. 
+#' @param verbose Verbosity (logical - TRUE/FALSE) [Default: TRUE]. 
+#' @return List of packages which were succesfully installed/loaded. 
 #' @examples
-#' TBC
+#' package <- list("data.table", "trinker/plotflow")
+#' load_or_install(package_list=package, custom_lib_path=paste0(getwd(), "/test/"), 
+#' verbose=TRUE)
+
+load_or_install <- function(package_list, custom_lib_path="", 
+  custom_repo="https://cran.rstudio.com", custom_package_version=TRUE, 
+  verbose=TRUE) {  
 
 
-load_or_install <- function(package_names, custom_lib_path=FALSE, 
-  custom_path=NA, verbose=FALSE, local_package=FALSE, 
-  local_package_path=NA) {  
-
-
-  # obtain & save default path
+  # library path
   # -----------------------------
-  library(devtools)
-  dev_mode(FALSE)
-  default_path     <- .libPaths()[1]
 
-  # dev tools & dev mode
-  # -----------------------------
+  ## default
+  lib_path     <- .libPaths()[1]
+
+  ## custom 
+  if (custom_lib_path!="") {
+
+    if (!dir.exists(custom_lib_path)) {
+      dir.create(custom_lib_path)
+    }
+
+    lib_path   <- custom_lib_path
+
+  } 
+
+  print(sprintf("lib_path: %s", lib_path))
+
+  # devtools
+  # ----------------------------
   library(devtools)
-  # set to dev_mode 
   dev_mode(TRUE)
 
-  # lib path
-  # -----------------------------
-  if (custom_lib_path==TRUE) {
+  # install 
+  # ----------------------------
+  invisible(lapply(package_list, function(x) if(!x %in% c(installed.packages(
+       lib.loc=lib_path))) {
+  
 
-    if (!dir.exists(custom_path)) {
-      dir.create(custom_path)
-    }
+    # cran package
+    if (!(x %like% "/")) {
 
-    if (!("dev" %in% list.files(custom_path))) {
-      dir.create(paste0(custom_path, "/dev"))
-    }
+      if (verbose==TRUE) {
 
-    lib_path     <- custom_path
-    lib_dev_path <- paste0(custom_path, "/dev")
+        print(sprintf("Fresh Install (CRAN): %s", x))
 
-    print(sprintf("lib_path: %s", lib_path))
-
-  } else if (custom_lib_path==FALSE) {
-
-    lib_path     <- default_path
-    lib_dev_path <- default_path
-
-    print(sprintf("lib_path: %s", lib_path))
-
-  }
-
-  if (local_package==FALSE) {
-
-     # install (if required, i.e. not yet installed)  
-     # -----------------------------
-     
-     ## extended - handle special cases
-     lapply(package_names, function(x) if(!x %in% c(installed.packages(
-       lib.loc=lib_path), installed.packages(lib.loc=lib_dev_path))) {
-    
-       print(sprintf("Fresh Install: %s", x))
-    
-    
-       # install
-       if (x=="data.table") {
-    
-         suppressMessages(withr::with_libpaths(new = lib_path,
-           install_version("data.table", version = "1.9.6",
-           repos = "http://cran.us.r-project.org",
-           dependencies=TRUE)))
-    
-       } else if (x=="ggplot2") {
-        
-         suppressMessages(withr::with_libpaths(new = lib_path, 
-           install_github("hadley/ggplot2")))
-    
-       } else if (x=="plotflow") {
-        
-         suppressMessages(withr::with_libpaths(new = lib_path, 
-           install_github("trinker/plotflow")))
-    
-      } else if (x=="FEATure") {
-
-        suppressMessages(withr::with_libpaths(new = lib_path, 
-           install_github("ClaraMarquardt/FEATure")))
-    
-       } else {
-    
-         suppressMessages(install.packages(x,repos="http://cran.cnr.berkeley.edu/", 
-           dependencies=TRUE, lib=lib_path))
-    
       }
-   
-  })
- 
-  } else if (local_package==TRUE) {
 
-    mapply(function(x,path) if(!x %in% c(installed.packages(
-       lib.loc=lib_path), installed.packages(lib.loc=lib_dev_path))) {
-   
-
-      print(sprintf("Fresh Install: %s", x))
+      if (custom_package_version==TRUE & x %in% c("data.table", "ggplot2")) {
     
-      # navigate to project directory
-      setwd(path)
+          # special case - "data.table" (1.9.6 version)
+          if (x=="data.table") {
+    
+            suppressMessages(withr::with_libpaths(new = lib_path,
+              install_version("data.table", version = "1.9.6",
+              repos = "http://cran.us.r-project.org",
+              dependencies=TRUE)))
+    
+          # special case - "ggplot" (dev version)
+          } else if (x=="ggplot2") {
+        
+            suppressMessages(withr::with_libpaths(new = lib_path, 
+              install_github("hadley/ggplot2")))
 
-      # install 
+          }
+    
+         # general
+         } else {
+    
+            suppressMessages(install.packages(x,repos=custom_repo, 
+               dependencies=TRUE, lib=lib_path))
+    
+         }
+
+    # github package
+    } else {
+
+      if (verbose==TRUE) {
+
+        print(sprintf("Fresh Install (Github): %s", x))
+
+      }
+
       suppressMessages(withr::with_libpaths(new = lib_path, 
-          devtools::install()))
- 
+           install_github(x)))
 
-  }, x=package_names, path=local_package_path)
-
-}
+    }
+   
+  }))
 
   # load
   # -----------------------------
 
-  packages_loaded <- lapply(package_names, function(x) {
+  package_loaded <- lapply(package_list, function(x) {
+    
     if (verbose==TRUE) {
       print(sprintf("Loading: %s", x))
     }
 
-    suppressMessages(library(x,
-        character.only=TRUE, quietly=TRUE,verbose=FALSE, 
-        lib.loc=lib_path))
+    suppressMessages(library(gsub("(.*)/(.*)", "\\2", x),character.only=TRUE, quietly=TRUE,
+        verbose=FALSE, lib.loc=lib_path))
 
   })
 
   # output
   # -----------------------------
-  cat("\n\n*****************\n\nThe Following Packages Were Succesfully Loaded:\n\n")
-  print(packages_loaded[[length(package_names)]])
+  cat("\n\n*****************\n\nThe Following Packages Were Succesfully Installed/Loaded:\n\n")
+  print(package_loaded[[length(package_list)]])
   cat("\n*****************\n\n")
 
-  rm("packages_loaded")
+  rm("package_loaded")
 
 } 
 

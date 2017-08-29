@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Fill facet_wrap By Column</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for fill_by_column {plotflow}"><tr><td>fill_by_column {plotflow}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Fill facet_wrap By Column</h2>
+
+<h3>Description</h3>
+
+<p>Alter the data set to fill ggplot2's <code><a href="../../ggplot2/html/facet_wrap.html">facet_wrap</a></code> by 
+column rather than row.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+fill_by_column(dataframe, fact, ncol = 2)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dataframe</code></td>
+<td>
+<p>A data.frame object.</p>
+</td></tr>
+<tr valign="top"><td><code>fact</code></td>
+<td>
+<p>The factor to be reordered (re-leveled) to fill by column.</p>
+</td></tr>
+<tr valign="top"><td><code>ncol</code></td>
+<td>
+<p>Number of columns to make the plot</p>
+</td></tr>
+</table>
+
+
+<h3>Author(s)</h3>
+
+<p>jem77bfp (stackoverflow.com) and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;
+</p>
+
+
+<h3>References</h3>
+
+<p><a href="http://stackoverflow.com/a/12893273/1000343">http://stackoverflow.com/a/12893273/1000343</a>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+library(ggplot2); library(reshape2)
+dat &lt;- aggregate(cbind(vs, am, gear, cyl) ~ carb, mtcars, sum)
+dat$carb &lt;- factor(dat$carb, rev(dat$carb[order(rowSums(dat[, -1]))]))
+mdat &lt;- melt(dat)
+
+ggplot(mdat, aes(x = variable)) +
+  geom_bar(stat="count", aes(fil=variable, weights = value)) +
+  facet_wrap(~carb, ncol = 2) + coord_flip()
+
+ggplot(fill_by_column(mdat, "carb"), aes(x = variable)) +
+  geom_bar(stat="count", aes(fil=variable, weights = value)) +
+  facet_wrap(~carb, ncol = 2) + coord_flip()
+
+ggplot(fill_by_column(mdat, "carb", 3), aes(x = variable)) +
+  geom_bar(stat="count", aes(fil=variable, weights = value)) +
+  facet_wrap(~carb, ncol = 3) + coord_flip()
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>plotflow</em> version 0.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

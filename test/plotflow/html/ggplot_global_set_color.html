@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Globally Set ggplot2 Colors/Fills</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for ggplot_global_set_color {plotflow}"><tr><td>ggplot_global_set_color {plotflow}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Globally Set ggplot2 Colors/Fills</h2>
+
+<h3>Description</h3>
+
+<p>Globally set the color and fill of ggplot2.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ggplot_global_set_color(color = "black", alter.fill = TRUE,
+  alter.color = TRUE, reset = TRUE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>color</code></td>
+<td>
+<p>A single color character string.</p>
+</td></tr>
+<tr valign="top"><td><code>alter.fill</code></td>
+<td>
+<p>logical.  If <code>TRUE</code> fill is globally altered.</p>
+</td></tr>
+<tr valign="top"><td><code>alter.color</code></td>
+<td>
+<p>logical.  If <code>TRUE</code> colour is globally altered.</p>
+</td></tr>
+<tr valign="top"><td><code>reset</code></td>
+<td>
+<p>logical.  If colour and fill are reset to black before applying 
+new color.</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p><a href="http://stackoverflow.com/a/21175042/1000343">http://stackoverflow.com/a/21175042/1000343</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../ggplot2/html/update_geom_defaults.html">update_geom_defaults</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+ggplot_global_set_color("purple")
+
+ggplot(mtcars, aes(factor(cyl))) + geom_bar()
+ggplot(mtcars, aes(hp, mpg, group = factor(cyl))) + geom_point()
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>plotflow</em> version 0.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

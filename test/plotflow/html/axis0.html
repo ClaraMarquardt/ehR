@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Adjust Space Between Axis in ggplot2</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for axis0 {plotflow}"><tr><td>axis0 {plotflow}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Adjust Space Between Axis in ggplot2</h2>
+
+<h3>Description</h3>
+
+<p><code>axis0</code> - Adjust Space Between x/y Axis in ggplot2.
+</p>
+<p><code>y0</code> - Adjust Space Between y Axis in ggplot2.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+axis0(max, scale = "continuous", axis = "y")
+
+y0(max, scale = "continuous")
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>max</code></td>
+<td>
+<p>The upper/right-most edge (upper ylim/xlim numeric value).</p>
+</td></tr>
+<tr valign="top"><td><code>scale</code></td>
+<td>
+<p>A ggplot scale type (e.g. &quot;continuous&quot;, &quot;deiscrete&quot;, etc.)</p>
+</td></tr>
+<tr valign="top"><td><code>axis</code></td>
+<td>
+<p>The axis to operate on (&quot;x&quot; or &quot;y&quot;).</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p><a href="http://stackoverflow.com/a/20220737/1000343">http://stackoverflow.com/a/20220737/1000343</a>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../ggplot2/html/scale_y_continuous.html">scale_y_continuous</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+ggplot(reorder_by(cyl, ~-cyl , mtcars, length), aes(x=as.factor(cyl))) + 
+    geom_bar()  + 
+    theme_apa() + 
+    y0(cushion(as.factor(mtcars$cyl))) +
+    xlab("Cylinders") + 
+    ylab("Total")
+
+library(dplyr)
+mtcars2 &lt;- mtcars %.% group_by(cyl) %.% summarise(n=length(cyl))
+ggplot(mtcars2, aes(y=as.factor(cyl), x=n)) + 
+    geom_point()  + 
+    theme_apa() + 
+    x0(16)
+
+ggplot(mtcars, aes(x=hp, y=mpg)) + 
+  geom_point()  + 
+  theme_apa() + 
+  x0(max(mtcars$hp) + 10) + 
+  y0(max(mtcars$mpg) + 5)
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>plotflow</em> version 0.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

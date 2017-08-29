@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Two Choice Horizontal Stacked Bar</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for yes_no_bar {plotflow}"><tr><td>yes_no_bar {plotflow}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Two Choice Horizontal Stacked Bar</h2>
+
+<h3>Description</h3>
+
+<p>Create a two choice horizontal stacked bar chart in the style of base graphics.
+Default color scheme makes it easy to throw into slides and posters as an
+infographic style plot.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+yes_no_bar(n.yes, n.no = NULL, n = NULL, labs = c("Yes", "No"),
+  digits = 1, fill = c("#51A651", "white"), color = "#CAE4CA",
+  border = "grey70", size = 10, include.percent = c(TRUE, FALSE))
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>n.yes</code></td>
+<td>
+<p>Number yes (integer).  User must supply 2 of the first three
+parameters (<code>n.yes</code>, <code>n.no</code>, or <code>n</code>).</p>
+</td></tr>
+<tr valign="top"><td><code>n.no</code></td>
+<td>
+<p>Number no (integer).</p>
+</td></tr>
+<tr valign="top"><td><code>n</code></td>
+<td>
+<p>Total number (integer).</p>
+</td></tr>
+<tr valign="top"><td><code>labs</code></td>
+<td>
+<p>The labels to use for the two choices that correspond to 
+<code>n.yes</code> and <code>n.no</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>digits</code></td>
+<td>
+<p>Digits to use in the percents.</p>
+</td></tr>
+<tr valign="top"><td><code>fill</code></td>
+<td>
+<p>The bar fill colors</p>
+</td></tr>
+<tr valign="top"><td><code>color</code></td>
+<td>
+<p>The text color.</p>
+</td></tr>
+<tr valign="top"><td><code>border</code></td>
+<td>
+<p>The border color.</p>
+</td></tr>
+<tr valign="top"><td><code>size</code></td>
+<td>
+<p>The text size.</p>
+</td></tr>
+<tr valign="top"><td><code>include.percent</code></td>
+<td>
+<p>A logical vector of 1-2 (if 1 the second will be 
+<code>FALSE</code>) stating if percents should be included.  The length of 2 
+corresponds to the 2 choices; <code>n.yes</code> and <code>n.no</code>.  If a single value
+is given it is recycled.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>Returns a <code>ggplot</code> object.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+yes_no_bar(111, 66)
+yes_no_bar(111, 66, fill=c("pink", "ivory"), color="purple")
+yes_no_bar(55, n = 166, labs = c("True", "False"))
+yes_no_bar(2345, 3456, labs = c("Boy", "Girl"), fill=c("lightblue", "pink"), 
+    color="grey50", include.percent = TRUE)
+yes_no_bar(2345, 3456, labs = c("Boy", "Girl"), fill=c("lightblue", "pink"), 
+    color="grey50", include.percent = FALSE)
+yes_no_bar(9999, n = 22166, fill=c("green", "pink"), 
+    labs = c("Go:", "Stop"), color = "grey30", digits=0)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>plotflow</em> version 0.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

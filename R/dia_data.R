@@ -1,8 +1,8 @@
 #----------------------------------------------------------------------------#
 
-#' Simulated EHR data.
+#' Simulated EHR data - Diagnoses. 
 #'
-#' Simulated EHR data (no PHI constraints) featuring dia data for ~500 patients
+#' Simulated EHR data (no PHI constraints) featuring diagnosis data for ~500 patients
 #'
 #' @docType data
 #'

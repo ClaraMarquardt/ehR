@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Order a Factor by Numeric Variable(s)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for reorder_by {plotflow}"><tr><td>reorder_by {plotflow}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Order a Factor by Numeric Variable(s)</h2>
+
+<h3>Description</h3>
+
+<p>Create a new dataframe with a factor reordered (re-leveled) by numeric 
+variable(s).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+reorder_by(fact, by, data, FUN = NULL, df = TRUE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>fact</code></td>
+<td>
+<p>The factor to be reordered (re-leveled).</p>
+</td></tr>
+<tr valign="top"><td><code>by</code></td>
+<td>
+<p>A formula to order the factor by.</p>
+</td></tr>
+<tr valign="top"><td><code>data</code></td>
+<td>
+<p>A <code>data.frame</code> object.</p>
+</td></tr>
+<tr valign="top"><td><code>FUN</code></td>
+<td>
+<p>A function to compute the summary statistics which can be applied 
+to all data subsets.</p>
+</td></tr>
+<tr valign="top"><td><code>df</code></td>
+<td>
+<p>logical.  If <code>TRUE</code> a dataframe is returned.  If <code>FALSE</code>
+a factor vector is returned.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>Returns a re-ordered (re-leveled) dataframe, factor vector, or levels.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Thomas Wutzler and Tyler Rinker &lt;tyler.rinker@gmail.com&gt;.
+</p>
+
+
+<h3>References</h3>
+
+<p>The majority of this code is taken directly from Thomas Wutzler's
+blog post that has since been removed/redirected.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+## EXAMPLE 1 - no aggregation ##
+
+## Make a fake data set
+dat &lt;- aggregate(cbind(mpg, hp, disp)~carb, mtcars, mean)
+dat$carb &lt;- factor(dat$carb)
+
+## compare levels (data set looks the same though)
+dat$carb
+reorder_by(carb, ~-hp + -mpg, data = dat)$carb
+
+library(ggplot2)
+## Unordered bars
+ggplot(dat, aes(x=carb, y=mpg)) + 
+    geom_bar(stat="identity") + 
+    coord_flip()
+
+## Ordered bars
+ggplot(reorder_by(carb, ~mpg, dat), aes(x=carb, y=mpg)) + 
+    geom_bar(stat="identity") + 
+    coord_flip()
+    
+## Return just the vector with new levels
+reorder_by(carb, ~-hp + -mpg, dat, df=FALSE)
+
+## EXAMPLE 2 - with aggregation ##
+
+mtcars2 &lt;- reorder_by(gear, ~hp + -carb, mtcars, mean)
+
+## Without re-leveling gear
+ggplot(mtcars, aes(mpg, hp)) + 
+    geom_point(aes(color=factor(cyl))) + 
+    facet_grid(gear~.)
+
+## After re-leveling gear
+ggplot(mtcars2, aes(mpg, hp)) + 
+    geom_point(aes(color=factor(cyl))) + 
+    facet_grid(gear~.)
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>plotflow</em> version 0.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

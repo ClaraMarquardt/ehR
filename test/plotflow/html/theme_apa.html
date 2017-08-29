@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: ggplot2 Theme for APA Publications</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for theme_apa {plotflow}"><tr><td>theme_apa {plotflow}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>ggplot2 Theme for APA Publications</h2>
+
+<h3>Description</h3>
+
+<p>A ggplot2 theme with no background and Times New Roman font.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+theme_apa(plot.box = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>plot.box</code></td>
+<td>
+<p>logical.  If <code>TRUE</code> a full box surrounds the plot area.  If <code>FALSE</code> only the x and y axis are shown.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../ggplot2/html/theme.html">theme</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+ggplot(reorder_by(cyl, ~-cyl , mtcars, length), aes(x=as.factor(cyl))) + 
+    geom_bar()  + 
+    theme_apa() + 
+    y0(cushion(as.factor(mtcars$cyl))) +
+    xlab("Cylinders") + 
+    ylab("Total")
+
+ggplot(reorder_by(cyl, ~-cyl , mtcars, length), aes(x=as.factor(cyl))) + 
+    geom_bar()  + 
+    theme_apa(plot.box=T) + 
+    y0(cushion(as.factor(mtcars$cyl))) +
+    xlab("Cylinders") + 
+    ylab("Total")
+
+ggplot(reorder_by(cyl, ~-cyl , mtcars, length), aes(x=as.factor(cyl))) + 
+    geom_bar()  + 
+    theme_basic() +
+    theme_apa() + 
+    y0(cushion(as.factor(mtcars$cyl))) +
+    xlab("Cylinders") + 
+    ylab("Total")
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>plotflow</em> version 0.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>
