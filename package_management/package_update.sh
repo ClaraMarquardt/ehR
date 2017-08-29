@@ -15,9 +15,10 @@
 # - Assume that in direotory containing the ehR repository/folder
 # - Does not update data sets (use devtools::use_data([object],overwrite=TRUE))
 
-R CMD BATCH --no-save "--args $pwd ehR" \
-	package_management/package_update.R \
-	package_management/package_update.Rout
+R CMD BATCH --no-save ehR/package_management/package_update.R \
+	ehR/package_management/package_update.Rout
+
+[ -e "ehR/package_management/package_update.Rout" ] & rm ehR/package_management/package_update.Rout
 
 #----------------------------------------------------------------------------#
 #                                    END                                     #

@@ -13,8 +13,8 @@
 #----------------------------------------------------------------------------#
 
 # parameters
-wd_path         <- commandArgs(trailingOnly = TRUE)[1]
-package_name    <- commandArgs(trailingOnly = TRUE)[2]
+wd_path         <- paste0(getwd(), "/")
+package_name    <- "ehR"
 
 print(sprintf("wd_path: %s",  wd_path))
 print(sprintf("package_name: %s",  package_name))

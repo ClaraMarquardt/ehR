@@ -2,20 +2,31 @@
 % Please edit documentation in R/load_or_install.R
 \name{load_or_install}
 \alias{load_or_install}
-\title{Load or install R packages (public or local).}
+\title{Load or install R packages (from CRAN or Github)}
 \usage{
-load_or_install(package_names, custom_lib_path = FALSE, custom_path = NA,
-  verbose = FALSE, local_package = FALSE, local_package_path = NA)
+load_or_install(package_list, custom_lib_path = "",
+  custom_repo = "https://cran.rstudio.com", custom_package_version = TRUE,
+  verbose = TRUE)
 }
 \arguments{
-\item{TBC}{}
+\item{package_list}{List of package names which are to be installed/loaded (list - character).}
+
+\item{custom_lib_path}{Custom library path (character) [Default: Default library path].}
+
+\item{custom_repo}{R repository from which to download packages [Default: https://cran.rstudio.com"]}
+
+\item{custom_package_version}{Whether to take into account version specifications for key packages (data.table, ggplot2) (logical - TRUE/FALSE) [Default: TRUE].}
+
+\item{verbose}{Verbosity (logical - TRUE/FALSE) [Default: TRUE].}
 }
 \value{
-TBC
+List of packages which were succesfully installed/loaded.
 }
 \description{
-Load or install R packages (public or local).
+Load or install R packages (from CRAN or Github)
 }
 \examples{
-TBC
+package <- list("data.table", "trinker/plotflow")
+load_or_install(package_list=package, custom_lib_path=paste0(getwd(), "/test/"), 
+verbose=TRUE)
 }

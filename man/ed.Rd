@@ -3,12 +3,12 @@
 \docType{data}
 \name{ed}
 \alias{ed}
-\title{Simulated EHR data.}
+\title{Simulated EHR data - ED.}
 \format{An object of class \code{data.table} (inherits from \code{data.frame}) with 869 rows and 11 columns.}
 \usage{
 data(ed)
 }
 \description{
-Simulated EHR data (no PHI constraints) featuring ed data for ~500 patients
+Simulated EHR data (no PHI constraints) featuring ED data for ~500 patients
 }
 \keyword{datasets}

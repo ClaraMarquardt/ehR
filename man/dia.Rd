@@ -3,12 +3,12 @@
 \docType{data}
 \name{dia}
 \alias{dia}
-\title{Simulated EHR data.}
+\title{Simulated EHR data - Diagnoses.}
 \format{An object of class \code{data.table} (inherits from \code{data.frame}) with 5893 rows and 9 columns.}
 \usage{
 data(dia)
 }
 \description{
-Simulated EHR data (no PHI constraints) featuring dia data for ~500 patients
+Simulated EHR data (no PHI constraints) featuring diagnosis data for ~500 patients
 }
 \keyword{datasets}
