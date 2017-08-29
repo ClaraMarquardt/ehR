@@ -31,7 +31,7 @@
 #' dt_modify(dt=sample_dt, mode="set_missing_na")
 #' print(sample_dt)
 
-dt_modify <- function(dt, mode, replace=NA, col_name=names(dt)) {
+dt_modify <- function(dt, mode, replace="DEFAULT", col_name=names(dt)) {
 
 	# Point Person: Clara
 
@@ -47,7 +47,7 @@ dt_modify <- function(dt, mode, replace=NA, col_name=names(dt)) {
 		}
 
 		# execute function
-		if (is.na(replace)) replace <- 0
+		if (replace=="DEFAULT") replace <- 0
 		set_na_zero(dt=dt, replace=replace, subset_col=col_name)
 
 	# [2] set_zero_na
@@ -61,7 +61,7 @@ dt_modify <- function(dt, mode, replace=NA, col_name=names(dt)) {
 		}
 
 		# execute function
-		if (is.na(replace)) replace <- NA
+		if (replace=="DEFAULT") replace <- NA
 		set_zero_na(dt=dt, replace=replace, subset_col=col_name)
 
 	# [3] set_missing_na
@@ -76,7 +76,7 @@ dt_modify <- function(dt, mode, replace=NA, col_name=names(dt)) {
 		}
 
 		# execute function
-		if (is.na(replace)) replace <- NA
+		if (replace=="DEFAULT") replace <- NA
 		set_missing_na(dt=dt, replace=replace, subset_col=col_name)
 
 	}
