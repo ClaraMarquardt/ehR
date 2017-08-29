@@ -4,7 +4,7 @@
 #' @export
 #' @import data.table
 #' @import devtools
-#' @param  package_list List of package names which are to be installed/loaded (list - character).
+#' @param package_list List of package names which are to be installed/loaded (list - character).
 #' @param custom_lib_path Custom library path (character) [Default: Default library path].
 #' @param custom_repo R repository from which to download packages [Default: https://cran.rstudio.com"]
 #' @param custom_package_version Whether to take into account version specifications for key packages (data.table, ggplot2) (logical - TRUE/FALSE) [Default: TRUE]. 
@@ -19,6 +19,7 @@ load_or_install <- function(package_list, custom_lib_path="",
   custom_repo="https://cran.rstudio.com", custom_package_version=TRUE, 
   verbose=TRUE) {  
 
+  # Point Person: Clara
 
   # library path
   # -----------------------------

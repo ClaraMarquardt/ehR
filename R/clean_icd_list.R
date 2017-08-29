@@ -20,6 +20,8 @@
 
 clean_icd_list <- function(range_table, code_col, name_col, decimal=TRUE, validate=FALSE) {
   
+  # Point Person: Jasmeet
+
   # omit codes which are excluded/commented out (rows that start with "#")
   range_table <- range_table[!(range_table[[code_col]] %like% "#" | range_table[[name_col]] %like% "#") ]
   
