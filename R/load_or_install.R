@@ -35,6 +35,7 @@ load_or_install <- function(package_list, custom_lib_path="",
     }
 
     lib_path   <- custom_lib_path
+    .libPaths(custom_lib_path)
 
   } 
 
@@ -43,16 +44,15 @@ load_or_install <- function(package_list, custom_lib_path="",
   # devtools
   # ----------------------------
   library(devtools)
-  dev_mode(TRUE)
 
   # install 
   # ----------------------------
-  invisible(lapply(package_list, function(x) if(!x %in% c(installed.packages(
+  invisible(lapply(package_list, function(x) if(!gsub("(.*)/(.*)", "\\2", x) %in% c(installed.packages(
        lib.loc=lib_path))) {
   
 
     # cran package
-    if (!(x %like% "/")) {
+    if (length(grep("/", x, value=T))==0) {
 
       if (verbose==TRUE) {
 
@@ -60,31 +60,27 @@ load_or_install <- function(package_list, custom_lib_path="",
 
       }
 
-      if (custom_package_version==TRUE & x %in% c("data.table", "ggplot2")) {
     
-          # special case - "data.table" (1.9.6 version)
-          if (x=="data.table") {
+      # special case - "data.table" (1.9.6 version)
+      if (x=="data.table" & custom_package_version==TRUE) {
     
-            suppressMessages(withr::with_libpaths(new = lib_path,
-              install_version("data.table", version = "1.9.6",
-              repos = "http://cran.us.r-project.org",
-              dependencies=TRUE)))
+        suppressMessages(withr::with_libpaths(new = lib_path,
+            install_version("data.table", version = "1.9.6",
+            repos = custom_repo,
+            dependencies=TRUE)))
     
-          # special case - "ggplot" (dev version)
-          } else if (x=="ggplot2") {
+      # special case - "ggplot" (dev version)
+      } else if (x=="ggplot2" & custom_package_version==TRUE) {
         
-            suppressMessages(withr::with_libpaths(new = lib_path, 
-              install_github("hadley/ggplot2")))
+          suppressMessages(withr::with_libpaths(new = lib_path, 
+            install_github("hadley/ggplot2")))
 
-          }
+       } else {
     
-         # general
-         } else {
+          suppressMessages(install.packages(x,repos=custom_repo, 
+              dependencies=TRUE, lib=lib_path))
     
-            suppressMessages(install.packages(x,repos=custom_repo, 
-               dependencies=TRUE, lib=lib_path))
-    
-         }
+        }
 
     # github package
     } else {
@@ -111,8 +107,18 @@ load_or_install <- function(package_list, custom_lib_path="",
       print(sprintf("Loading: %s", x))
     }
 
-    suppressMessages(library(gsub("(.*)/(.*)", "\\2", x),character.only=TRUE, quietly=TRUE,
+    
+    if (length(grep(x, installed.packages(lib.loc=lib_path), value=T))>0) {
+
+      suppressMessages(library(gsub("(.*)/(.*)", "\\2", x),character.only=TRUE, quietly=TRUE,
         verbose=FALSE, lib.loc=lib_path))
+
+    } else {
+      
+      suppressMessages(library(gsub("(.*)/(.*)", "\\2", x),character.only=TRUE, quietly=TRUE,
+        verbose=FALSE))
+
+    }
 
   })
 

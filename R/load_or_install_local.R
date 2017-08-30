@@ -17,32 +17,7 @@ load_or_install_local <- function(package_list, custom_lib_path="", verbose=TRUE
 
   # Point Person: Clara
 
-  # library path
-  # -----------------------------
-
-  ## default
-  lib_path     <- .libPaths()[1]
-
-  ## custom 
-  if (custom_lib_path!="") {
-
-    if (!dir.exists(custom_lib_path)) {
-      dir.create(custom_lib_path)
-    }
-
-    lib_path   <- custom_lib_path
-
-  } 
-
-  print(sprintf("lib_path: %s", lib_path))
-
-  # devtools
-  # ----------------------------
-  library(devtools)
-  dev_mode(TRUE)
-
-
-  # install 
+  # load - functions & data 
   # ----------------------------
   invisible(lapply(package_list, function(x)  {
 
