@@ -12,7 +12,7 @@
 #----------------------------------------------------------------------------#
 
 ## Notes:
-# - Assume that in direotory containing the ehR repository/folder
+# - Assume that in directory containing the ehR repository/folder
 # - Does not update data sets (use devtools::use_data([object],overwrite=TRUE))
 
 R CMD BATCH --no-save ehR/package_management/package_update.R \

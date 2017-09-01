@@ -1,5 +1,7 @@
 "function_name","function_desc"
+"beautify_var_overview","Convert ""var_overview"" returned by Clara Marquardt's var_overview function into a production ready Excel file, with a separate tab for an overview of the data and a different one for a list of summary statistics from the data."
 "clean_icd_list","Expand a list of icd9 code ranges."
+"code_to_human","A function that turns code based variable names to human friendly names, useful in particular for converting variable names with underscores to more easily interpretable words as axis labels in plots and in spreadsheets."
 "corr_stat","Generate a correlation matrix, summary statistics and a distribution graph for the variables in a given dt."
 "cum_dt","Count number of observations in a data.table falling into different bins of an identifier variable."
 "dem","Simulated EHR data - Demograhics."
@@ -10,6 +12,11 @@
 "freq_table_comb","Combine elements of a frequency table into a (character) string or formatted table."
 "gagne_code","Gagne Comorbididty Score Weights."
 "gagne_score_calc","Calculate Gagne scores for a given set of patients over a given time period prior to t0."
+<<<<<<< HEAD
+=======
+"ggplot_footnote_summary","A function that, given a ggplot object, list of summaries (each obtained using summary() in base R), a name for each summary object and an output file, returns (and saves) a version of the plot with a the summary (summaries) at the bottom of the plot."
+"group_race","Convert nuanced, specific races in a data.table into this aggregated set: white, black, hispanic, other."
+>>>>>>> 57494191600c876ce7ff151fb741f525ba3c1e37
 "hist_line_plot","Generate and save a predicted vs. actual probability (i.e. calibration plot)."
 "load_dep","Load dependencies (DEV function - to be used only for internal testing and development)."
 "load_or_install","Load or install R packages (from CRAN or Github)."
@@ -19,6 +26,13 @@
 "median_ci","Calculate the confidence interval for a sample median."
 "merge_pdf","Merge a list of PDFs into a multi-page PDF."
 "multi_merge","Sequentially merge a list of data.tables on a given set of variables (inner-join)."
+<<<<<<< HEAD
+=======
+"multiformat_glm","Given a list of logistic regressions, *performed using glm()* format, return and optionally, write the results side-by-side to csv."
+"multiformat_lm","Given a list of OLS regressions, *performed using lm()* format, return and optionally, write the results side-by-side in a csv."
+"multiformat_plm","Given a list of OLS regressions on panel data, *performed using plm()* (in order to obtain clustered SEs), format, return and optionally, write the results side-by-side in a csv."
+"multiformat_regression","Given a list of formulae (as strings), type of regression, and data, run listed regressions, return formatted results, & optionally write to f ile. OLS, OLS with clustered SE, logistic regressions currently supported."
+>>>>>>> 57494191600c876ce7ff151fb741f525ba3c1e37
 "parse_date","Automatically recognise and parse date variables."
 "shorten_label","Shorten a character column of a data.table/a character vector."
 "t_fun","Perform a two-sided treatment-effect t-test (clustered/non-clustered)."

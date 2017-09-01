@@ -52,7 +52,11 @@ try(remove.packages(package_name))
 #-------------------------------------------
 setwd("..")
 install(package_name, dependencies = TRUE)
+<<<<<<< HEAD
 library(package_name, character.only = TRUE)
+=======
+library(package_name,character.only = TRUE)
+>>>>>>> 57494191600c876ce7ff151fb741f525ba3c1e37
 
 # generate package overview
 #-------------------------------------------
