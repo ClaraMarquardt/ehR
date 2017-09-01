@@ -3,7 +3,7 @@
 \docType{data}
 \name{test_dt}
 \alias{test_dt}
-\title{Test cohort.}
+\title{Simulated cohort & feature set.}
 \format{An object of class \code{data.table} (inherits from \code{data.frame}) with 10000 rows and 13 columns.}
 \usage{
 data(test_dt)

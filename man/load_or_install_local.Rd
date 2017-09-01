@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_or_install_local.R
 \name{load_or_install_local}
 \alias{load_or_install_local}
-\title{Load or install R packages (Local)}
+\title{Load or install R packages (Local).}
 \usage{
 load_or_install_local(package_list, custom_lib_path = "", verbose = TRUE)
 }
@@ -17,7 +17,7 @@ load_or_install_local(package_list, custom_lib_path = "", verbose = TRUE)
 List of packages which were succesfully installed/loaded.
 }
 \description{
-Load or install R packages (Local)
+Load or install R packages (Local).
 }
 \examples{
 \dontrun{

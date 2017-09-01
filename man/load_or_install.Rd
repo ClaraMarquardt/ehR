@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_or_install.R
 \name{load_or_install}
 \alias{load_or_install}
-\title{Load or install R packages (from CRAN or Github)}
+\title{Load or install R packages (from CRAN or Github).}
 \usage{
 load_or_install(package_list, custom_lib_path = "",
   custom_repo = "https://cran.rstudio.com", custom_package_version = TRUE,
@@ -23,7 +23,7 @@ load_or_install(package_list, custom_lib_path = "",
 List of packages which were succesfully installed/loaded.
 }
 \description{
-Load or install R packages (from CRAN or Github)
+Load or install R packages (from CRAN or Github).
 }
 \examples{
 package <- list("data.table", "trinker/plotflow")
