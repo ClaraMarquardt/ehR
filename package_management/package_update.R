@@ -32,6 +32,10 @@ setwd(wd_path)
 #                                    CODE                                    #
 #----------------------------------------------------------------------------#
 
+# 
+#-------------------------------------------
+
+
 # update the documentation
 #-------------------------------------------
 setwd(paste0("./", package_name))
@@ -47,8 +51,8 @@ try(remove.packages(package_name))
 # fresh install
 #-------------------------------------------
 setwd("..")
-install(package_name, dependencies = FALSE)
-library(package_name,character.only = TRUE)
+install(package_name, dependencies = TRUE)
+library(package_name, character.only = TRUE)
 
 # generate package overview
 #-------------------------------------------

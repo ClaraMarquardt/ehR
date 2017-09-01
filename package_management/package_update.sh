@@ -18,7 +18,7 @@
 R CMD BATCH --no-save ehR/package_management/package_update.R \
 	ehR/package_management/package_update.Rout
 
-[ -e "ehR/package_management/package_update.Rout" ] & rm ehR/package_management/package_update.Rout
+# [ -e "ehR/package_management/package_update.Rout" ] & rm ehR/package_management/package_update.Rout
 
 #----------------------------------------------------------------------------#
 #                                    END                                     #

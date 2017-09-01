@@ -1,19 +1,19 @@
 #----------------------------------------------------------------------------#
-#' @title Basic ggplot theme
-#' Note: By default the theme is compatible with PDF formats only
-#' @export
-#' @import ggplot2
-#' @import extrafont
-#' @import extrafontdb
-#' @return / 
-#' @examples 
-#' test_plot <- ggplot(data=dia[1:100]) + 
-#'     geom_bar(aes(x=dia_code)) + 
-#'     lab(
-#'       title="Test Title", 
-#'       subtitle="Test Subtitle", 
-#'       x="Diagnosis Code", 
-#'       y="Frequency (Number of Observations)")
+' @title Basic ggplot theme
+' Note: By default the theme is compatible with PDF formats only
+' @export
+' @import ggplot2
+' @import extrafont
+' @import extrafontdb
+' @return / 
+' @examples 
+' test_plot <- ggplot(data=dia[1:100]) + 
+'     geom_bar(aes(x=dia_code)) + 
+'     lab(
+'       title="Test Title", 
+'       subtitle="Test Subtitle", 
+'       x="Diagnosis Code", 
+'       y="Frequency (Number of Observations)")
 #'     theme_basic()
 
 
