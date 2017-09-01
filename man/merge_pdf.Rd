@@ -2,19 +2,24 @@
 % Please edit documentation in R/merge_pdf.R
 \name{merge_pdf}
 \alias{merge_pdf}
-\title{Merge a list of PDFs into a multi-paage PDF.}
+\title{Merge a list of PDFs into a multi-page PDF.}
 \usage{
-merge_pdf(input_file_list, output_file_name, quiet = FALSE)
+merge_pdf(input_pdf_list, output_file_name)
 }
 \arguments{
-\item{TBC}{}
+\item{input_pdf_list}{List of file paths to the individual PDF files which are to be merged (list - character).}
+
+\item{output_file_name}{Path/filename at which the merged PDF file is to be saved (character).}
 }
 \value{
-TBC
+Merged PDF saved to specified path.
 }
 \description{
-Merge a list of PDFs into a multi-paage PDF.
+Merge a list of PDFs into a multi-page PDF.
 }
 \examples{
-TBC
+\dontrun{
+input_pdf_list <- list("[path.pdf]", "[path.pdf]") 
+merge_pdf(input_pdf_list=input_pdf_list, output_file_name="merge_pdf_test.pdf")
+}
 }
