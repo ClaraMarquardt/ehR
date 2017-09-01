@@ -1,6 +1,6 @@
 #----------------------------------------------------------------------------#
 
-#' Test cohort. 
+#' Simulated cohort & feature set.  
 #'
 #' Cohort-style data.table to faciliate function/code testing and validation. 
 #'

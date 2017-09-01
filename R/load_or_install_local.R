@@ -1,6 +1,6 @@
 #----------------------------------------------------------------------------#
 
-#' Load or install R packages (Local)
+#' Load or install R packages (Local).
 #' @export
 #' @import data.table
 #' @import devtools

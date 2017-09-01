@@ -1,6 +1,6 @@
 #----------------------------------------------------------------------------#
 
-#' Load or install R packages (from CRAN or Github)
+#' Load or install R packages (from CRAN or Github).
 #' @export
 #' @import data.table
 #' @import devtools

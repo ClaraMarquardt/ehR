@@ -43,7 +43,7 @@ library(extrafontdb)
 font_import()
 loadfonts()
 
-# * note that there may still be problems when using the themes on a plot saved in a non-PDF format (open issue)
+# * note that there may still be problems when using the themes on a plot saved in a non-PDF format
 
 ````
 
@@ -60,13 +60,17 @@ git checkout -b [branch name]
 # 3. Push all changes to the branch (assuming all changes have been committed)
 git push origin [branch name]
 
+* Note: Please see the contribution guide prior to committing any changes: 'package_management/contribution_guide.txt'
+
 # 4. Test by installing from the branch
 library(devtools)
 install_git("git://github.com/ClaraMarquardt/ehR.git", branch = "[branch name])
 ````
 - Package management tools
 ````
+See 'package_management/' for 
+- (a) a script to update the package ('package_update.sh')
+- (b) a script to load the package data and functions locally (rather than as a package) ('load_package_locally.R') 
 
-## Work in progress
 
 ````

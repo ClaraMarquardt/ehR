@@ -15,23 +15,23 @@
 #' ## mode - set_na_zero
 #' sample_dt[c(1,3,4), ':='(test_col=c(NA, -Inf), test_col_1=NA)]
 #' print(sample_dt)
-#' dt_modify(dt=sample_dt, mode="set_na_zero", col_name=c("test_col"))
+#' dt_replace(dt=sample_dt, mode="set_na_zero", col_name=c("test_col"))
 #' print(sample_dt)
 
 #' ## mode - set_zero_na
 #' sample_dt[c(1,3,4), ':='(test_col=0, test_col_1=0)]
 #' print(sample_dt)
-#' dt_modify(dt=sample_dt, mode="set_zero_na", col_name=c("test_col_1"))
+#' dt_replace(dt=sample_dt, mode="set_zero_na", col_name=c("test_col_1"))
 #' print(sample_dt)
 #' 
 #' ## mode - set_missing_na
 #' sample_dt[, ':='(test_col=as.character(test_col), test_col_1=as.character(test_col_1))]
 #' sample_dt[c(1,3,4), ':='(test_col=" ", test_col_1="     ")]
 #' print(sample_dt)
-#' dt_modify(dt=sample_dt, mode="set_missing_na")
+#' dt_replace(dt=sample_dt, mode="set_missing_na")
 #' print(sample_dt)
 
-dt_modify <- function(dt, mode, replace="DEFAULT", col_name=names(dt)) {
+dt_replace <- function(dt, mode, replace="DEFAULT", col_name=names(dt)) {
 
 	# Point Person: Clara
 
