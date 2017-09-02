@@ -46,6 +46,6 @@ print("Test Examples - NOT automatically executed")
 #' @examples 
 #' orig_table <- copy(gagne_code) 
 #' print(orig_table$code)        
-#' code_table  <- clean_icd_list(range_table=orig_table, code_col="code", name_col="condition", decimal=FALSE, validate=FALSE) 
+#' code_table <- clean_icd_list(range_table=orig_table, code_col="code", name_col="condition", decimal=FALSE, validate=FALSE) 
 #' print(code_table)
 ```
