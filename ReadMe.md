@@ -8,16 +8,16 @@ install_github("claramarquardt/ehR",dependencies = TRUE)
 library(ehR)
 ```  
 **Documentation**
-- See function_overview.csv for an overview of all the functions (and data sets) included in the package 
+- See 'function_overview.csv' for an overview of all the functions (and data sets) included in the package 
 
-**Datasets**  
-The package contains the following data sets:
-- 'dia': Simulated EHR diagnosis data for 500 patients
-- 'ed': Simulated EHR ED visit data for 500 patients
-- 'dem': Simulated EHR demographics data for 500 patients
-- 'test_dt': Simulated cohort & feature set
-- 'gagne_code': ICD9 code - gagne co-morbidity category crosswalk (http://scholar.harvard.edu/gagne/software/combined-comorbidity-score) [* note the crosswalk included in the package includes gagne categories that are assigned a 0 weight (these are not included in the here referenced, publicly available version of the crosswalk)]
-- 'zocat': ICD9 code - zocat crosswalk
+**Datasets & Crosswalks**  
+The package contains the following data sets and crosswalks:
+- _dia_: Simulated EHR diagnosis data for 500 patients
+- _ed_: Simulated EHR ED visit data for 500 patients
+- _dem_: Simulated EHR demographics data for 500 patients
+- _test_dt_: Simulated cohort & feature set
+- _gagne_code_: ICD9 code - gagne co-morbidity category crosswalk (http://scholar.harvard.edu/gagne/software/combined-comorbidity-score) [* note the crosswalk included in the package includes gagne categories that are assigned a 0 weight (these are not included in the here referenced, publicly available version of the crosswalk)]
+- _zocat_: ICD9 code - zocat crosswalk
 
 **Notes**
 - [1] Requires the newest version of devtools (https://github.com/hadley/devtools) to be installed
@@ -44,13 +44,13 @@ library(extrafontdb)
 font_import()
 loadfonts()
 
-# * note that there may still be problems when using the themes on a plot saved in a non-PDF format
+# Note: There may still be problems when using the themes on a plot saved in a non-PDF format
 
 ````
 
 **Development**
 
-- To contribute:
+- To Contribute:
 ````
 # 1. Clone the repo
 git clone https://github.com/ClaraMarquardt/ehR.git
@@ -77,13 +77,13 @@ library(devtools)
 install_git("git://github.com/ClaraMarquardt/ehR.git", branch = "[branch name])
 ````
 
-- Package management tools
+- Package Management Tools
 ````
 See 'package_management/' for 
 
 - (a) a script to update the package ('package_update.sh')
 
 - (b) a script to load the package data and functions locally (rather than as a
-	package) ('load_package_locally.R') 
+package) ('load_package_locally.R') 
 
 ````
