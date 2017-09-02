@@ -20,10 +20,7 @@ print("Test Examples - NOT automatically executed")
 
 - Documentation (Function): 
 
-* Function titles/description fields need to end with a '.' to ensure that the function_overview.csv file is correctly generated. Titles should be short (1 line at most). Where no description is given the field should be presented as a place holder
-````
-#' \
-````
+* Function titles/description fields need to end with a '.' to ensure that the function_overview.csv file is correctly generated. Titles should be short (1 line at most). Where no description is given the field should be presented as a place holder: #' \
 
 * The overall structure of the header file should follow the following example:
 
