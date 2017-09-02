@@ -69,7 +69,8 @@ git checkout -b [branch name]
 # 3. Push all changes to the branch (assuming all changes have been committed)
 git push origin [branch name]
 
-* Note: Please see the contribution guide prior to committing any changes: 'package_management/contribution_guide.txt'
+* Note: Please see the contribution guide prior to committing 
+any changes: 'package_management/contribution_guide.txt'
 
 # 4. Test by installing from the branch
 library(devtools)
