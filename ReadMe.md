@@ -58,8 +58,10 @@ git clone https://github.com/ClaraMarquardt/ehR.git
 # 2. Make/Save any changes 
 - Ensure that all dependencies are included in @import statements at the function top and are 
 listed in the Imports (CRAN Dependency)/ Remotes (Github Dependency) fields of the DESCRIPTION file
-- Recompile the package by executing the 'package_management/package_update.sh' script (Note: Prior to compilation all dependencies need to be (manually) installed)
-- Confirm that the compilation was successful by checking the 'package_management/package_update.Rout' file and the 'function_overview.csv'
+- Recompile the package by executing the 'package_management/package_update.sh' script (Note: Prior to 
+compilation all dependencies need to be (manually) installed)
+- Confirm that the compilation was successful by checking the 'package_management/package_update.Rout' 
+file and the 'function_overview.csv'
 
 # 2. Create a new branch
 git checkout -b [branch name]
@@ -80,8 +82,7 @@ See 'package_management/' for
 
 - (a) a script to update the package ('package_update.sh')
 
-- (b) a script to load the package data and functions locally (rather than as a package) ('load_package_locally.R') 
-
-
+- (b) a script to load the package data and functions locally (rather 
+than as a package) ('load_package_locally.R') 
 
 ````
