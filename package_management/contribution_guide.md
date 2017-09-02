@@ -20,21 +20,20 @@ print("Test Examples - NOT automatically executed")
 
 - **_Function-Level Documentation_**:
 
-* Function titles/description fields need to end with a '.' to ensure that the function_overview.csv file is correctly generated. Titles should be short (1 line at most). Where no description is given the field should be presented as a place holder: #' \
+-- Function titles/description fields need to end with a '.' to ensure that the function_overview.csv file is correctly generated. Titles should be short (1 line at most). Where no description is given the field should be presented as a place holder: #' \
 
-* The overall structure of the header file should follow the following example:
+-- The overall structure of the header file should follow the following example:
 
 ```
 #' Expand a list of icd9 code ranges. 
 #' 
-#' \
+#' Expand a list of icd9 code ranges into a data.table with all (valid) codes falling into the specified ranges.
 #' 
 #' @details Maintainer: Clara Marquardt
 #' 
 #' @export
 #' @import icd
 #' @import data.table
-#' @import magrittr
 #' 
 #' @param range_table data.table containing a column with icd9 code ranges and code range names (data.table).
 #' @param code_col name of the column containing the icd9 code ranges (see the below example) - commented out rows (start with '#') are ignored (character). 
