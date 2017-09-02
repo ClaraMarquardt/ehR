@@ -83,7 +83,7 @@ See 'package_management/' for
 
 - (a) a script to update the package ('package_update.sh')
 
-- (b) a script to load the package data and functions locally (rather 
-than as a package) ('load_package_locally.R') 
+- (b) a script to load the package data and functions locally (rather than as a
+	package) ('load_package_locally.R') 
 
 ````
