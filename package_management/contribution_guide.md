@@ -1,5 +1,3 @@
-#----------------------------------------------------------------------------#
-
 ## Basic style guidelines
 
 - Naming: Use '_' rather than '.' or CamelCase to separate words / Avoid plurals 
@@ -55,6 +53,3 @@ print("Test Examples - NOT automatically executed")
 #' code_table  <- clean_icd_list(range_table=orig_table, code_col="code", name_col="condition", decimal=FALSE, validate=FALSE) 
 #' print(code_table)
 ````
-
-
-#----------------------------------------------------------------------------#
