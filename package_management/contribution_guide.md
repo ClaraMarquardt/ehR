@@ -20,9 +20,9 @@ print("Test Examples - NOT automatically executed")
 
 - **_Function-Level Documentation_**:
 
--- Function titles/description fields need to end with a '.' to ensure that the function_overview.csv file is correctly generated. Titles should be short (1 line at most). Where no description is given the field should be presented as a place holder: #' \
+	[x] Function titles/description fields need to end with a '.' to ensure that the function_overview.csv file is correctly generated. Titles should be short (1 line at most). Where no description is given the field should be presented as a place holder: #' \
 
--- The overall structure of the header file should follow the following example:
+	[x] The overall structure of the header file should follow the following example:
 
 ```
 #' Expand a list of icd9 code ranges. 
