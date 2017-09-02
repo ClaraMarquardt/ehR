@@ -49,3 +49,8 @@ print("Test Examples - NOT automatically executed")
 #' code_table <- clean_icd_list(range_table=orig_table, code_col="code", name_col="condition", decimal=FALSE, validate=FALSE) 
 #' print(code_table)
 ```
+
+- **_Conventional Parameter Names_**: While each added function will require it's own set of parameters, the functional nature of many is common across various methods in the package, for example, a `data.table` containing the source information / data that needs to be transformed. For uniformity, simplicity and to avoid sheer forgetfulness, the authors suggest using the following conventional variable names for parameters to the extent possible:
+	- `data`:For any `data.frame` or `data.table` that requires transformation / is the source of data in any manner
+	- `start_date`: Any date that represents the start of the timeframe of interest. By default, readers may assume that this date is **inclusive** when specified as part of a range.
+	- `end_date`: Analogous to `start_date`, and used to indicate when the timeframe of interest will terminate. Like `start_date`, this date is also understood to be **inclusive** when specified as part of a range, unless otherwise mentioned explicitly.
