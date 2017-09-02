@@ -16,8 +16,8 @@ multi_merge(dt_list, key_var, allow.cartesian = FALSE)
 \value{
 Merged data.table.
 }
-\description{
-Sequentially merge a list of data.tables on a given set of variables (inner-join).
+\details{
+Maintainer: Clara Marquardt
 }
 \examples{
 dt_list   <- list(ed[1:100], dia[1:100], dem[1:100])

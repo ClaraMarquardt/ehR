@@ -9,3 +9,6 @@ load_dep()
 \description{
 Add any (temporary) dependencies as @import statements.
 }
+\details{
+Maintainer: Clara Marquardt
+}

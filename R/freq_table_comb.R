@@ -1,32 +1,36 @@
 #----------------------------------------------------------------------------#
 
 #' Combine elements of a frequency table into a (character) string or formatted table. 
+#' 
+#' \
+#' 
+#' @details Maintainer:Maintainer: Clara Marquardt
+#' 
 #' @export
 #' @import data.table
+#' 
 #' @param freq_table frequency table (table(x) output).
-#' @param expl_text text which is to be appended at the end of the string (e.g. "(% of diagnoses)") (character). 
+#' @param expl_text text which is to be appended at the end of the string (e.g. "(Percent of diagnoses)") (character). 
 #' @param element_number number of rows of the frequency table which are to be included (integer) [default:10].  
 #' @param sort whether to sort the frequency table (descending order) (logical - TRUE/FALSE) [default: TRUE].
 #' @param item_sep symbol used to separate the elements in the string (character) [default: "//"]. 
 #' @param string_table whether to return a string or table (character - "string"/"table") [default: "string"].
 #' @param text_col name of text column (character) [default: automatically identify column based on column types]. 
 #' @param number_col name of number column (character) [default: automatically identify column based on column types]. 
+#' 
 #' @return formatted (character) string or data.table. 
+#' 
 #' @examples
 #' freq_table_raw  <- table(dia$dia_name)
-#' 
-#' freq_string <- freq_table_comb(freq_table=freq_table_raw, expl_text="% of Principal Diagnoses", 
+#' freq_string <- freq_table_comb(freq_table=freq_table_raw, expl_text="Percent of Principal Diagnoses", 
 #' element_number=10, sort=TRUE, item_sep="/", string_table="string")
 #' print(freq_string)
-#' 
-#' freq_table <- freq_table_comb(freq_table=freq_table_raw, expl_text="% of Principal Diagnoses", 
+#' freq_table <- freq_table_comb(freq_table=freq_table_raw, expl_text="Percent of Principal Diagnoses", 
 #' element_number=10, sort=TRUE, item_sep="/", string_table="table")
 #' print(freq_table)
 
 freq_table_comb <- function(freq_table, expl_text, element_number=10, sort=TRUE, 
   string_table="string", item_sep="/", text_col=NA, number_col=NA ) {
-
-  # Point Person: Clara
 
   # format frequency table
   freq_table <- data.frame(freq_table)

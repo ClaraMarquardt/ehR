@@ -1,27 +1,33 @@
 #----------------------------------------------------------------------------#
 
 #' Expand a list of icd9 code ranges. 
+#' 
+#' \
+#' 
+#' @details Maintainer: Clara Marquardt
+#' 
 #' @export
 #' @import icd
 #' @import data.table
 #' @import magrittr
+#' 
 #' @param range_table data.table containing a column with icd9 code ranges and code range names (data.table).
 #' @param code_col name of the column containing the icd9 code ranges (see the below example) - commented out rows (start with '#') are ignored (character). 
 #' @param name_col name of the column containing the code range names (character).  
 #' @param decimal whether or not the icd9 codes are in decimal format (logical - TRUE/FALSE) [default: TRUE]. 
 #' @param validate whether or not to subset to 'defined' icd9 codes (see www.rdocumentation.org/packages/icd/versions/2.2/topics/icd_expand_range for more detail) (logical - TRUE/FALSE) [default: FALSE]. 
+#' 
 #' @return data.table with the expanded icd9 code list and the associated code range names. 
+#' 
 #' @examples
-#' orig_table <- copy(gagne_code) ## use the gagne_code sample data set
-#' print(orig_table$code)         ## print the code range column
+#' orig_table <- copy(gagne_code) 
+#' print(orig_table$code)        
 #' code_table  <- clean_icd_list(range_table=orig_table, code_col="code", name_col="condition", decimal=FALSE, validate=FALSE) 
 #' print(code_table)
 
 
 clean_icd_list <- function(range_table, code_col, name_col, decimal=TRUE, validate=FALSE) {
   
-  # Point Person: Jasmeet
-
   # omit codes which are excluded/commented out (rows that start with "#")
   range_table <- range_table[!(range_table[[code_col]] %like% "#" | range_table[[name_col]] %like% "#") ]
   

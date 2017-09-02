@@ -4,11 +4,11 @@
 #'
 #' Cohort-style data.table to faciliate function/code testing and validation. 
 #'
+#' @details Maintainer: Clara Marquardt
+#' 
 #' @docType data
 #' 
 #' @usage data(test_dt)
-
-# Point Person: Clara
 
 "test_dt"
 

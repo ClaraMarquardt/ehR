@@ -22,11 +22,13 @@ load_or_install(package_list, custom_lib_path = "",
 \value{
 List of packages which were succesfully installed/loaded.
 }
-\description{
-Load or install R packages (from CRAN or Github).
+\details{
+Maintainer: Clara Marquardt
 }
 \examples{
+\dontrun{
 package <- list("data.table", "trinker/plotflow")
 load_or_install(package_list=package, custom_lib_path=paste0(getwd(), "/test/"), 
 verbose=TRUE)
+}
 }

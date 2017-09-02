@@ -2,32 +2,30 @@
 % Please edit documentation in R/var_overview.R
 \name{var_overview}
 \alias{var_overview}
-\title{Generate an overview of a dataset.}
+\title{Generate a basic overview of a dataset.}
 \usage{
-var_overview(DT, alt_id = NA, alt_id_name = "", var_def_merge = FALSE,
-  var_def_file = NA, observation_unit = NA, file_title = NA)
+var_overview(orig_dt, observation_unit = NA, alt_id = NA,
+  alt_id_name = "observations", file_title = NA)
 }
 \arguments{
-\item{DT}{Name of DT for which summary stats are to be generated}
+\item{orig_dt}{data.table for which the overview is to be generated (data.table).}
 
-\item{alt_id, alt_id}{name Name of id variable on the basis of which to generate the 
-observation count (set to NA if no relevant identfier exists)}
+\item{observation_unit}{Observation unit (character).}
 
-\item{var_def_merge}{Whether to merge in csv file with variable definitions}
+\item{alt_id}{name of column corresponding to the alt_id_name (character).}
 
-\item{var_def_file}{Path of csv file with variable definitions merged in if var_def_merge==TRUE}
+\item{alt_id_name}{alternative observation unit, e.g. "patients" in a diagnosis file with multiple diagnoses per patient (character).}
 
-\item{observation_unit}{Unit of observation (e.g."diagnoses","encounters")}
-
-\item{file_title}{Dataset title to printed at the top of the summary statistics}
+\item{file_title}{file title (printed at the top of the overview) (character).}
 }
 \value{
 Overview of dataset [data.table]
 }
-\description{
-Generate an overview of a dataset.
+\details{
+Maintainer: Clara Marquardt
 }
 \examples{
-summary_stat <- var_overview(dia, alt_id="empi", alt_id_name="patient",observation_unit="diagnoses", 
+summary_dt <- var_overview(dia, alt_id="empi", alt_id_name="patients",observation_unit="diagnoses", 
 file_title="dia.rda" )
+print(str(summary_dt))
 }

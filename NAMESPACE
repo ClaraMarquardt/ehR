@@ -3,52 +3,34 @@
 export(beautify_var_overview)
 export(clean_icd_list)
 export(code_to_human)
-export(corr_stat)
-export(cum_dt)
 export(dt_replace)
-export(dt_stat)
 export(freq_table_comb)
-export(gagne_score_calc)
-<<<<<<< HEAD
-=======
+export(generate_pdf)
 export(ggplot_footnote_summary)
 export(group_race)
->>>>>>> 57494191600c876ce7ff151fb741f525ba3c1e37
-export(hist_line_plot)
 export(load_dep)
 export(load_or_install)
 export(load_or_install_local)
-export(mean_ci)
-export(mean_ci_clust)
-export(median_ci)
-export(merge_pdf)
+export(merge_PDF)
 export(multi_merge)
-<<<<<<< HEAD
-=======
 export(multiformat_glm)
 export(multiformat_lm)
 export(multiformat_plm)
 export(multiformat_regression)
->>>>>>> 57494191600c876ce7ff151fb741f525ba3c1e37
-export(parse_date)
-export(shorten_label)
-export(t_fun)
+export(theme_basic)
 export(var_overview)
 import(data.table)
 import(devtools)
-<<<<<<< HEAD
-=======
+import(extrafont)
+import(extrafontdb)
 import(ggplot2)
+import(grid)
 import(gridExtra)
->>>>>>> 57494191600c876ce7ff151fb741f525ba3c1e37
 import(icd)
-import(lubridate)
 import(magrittr)
 import(plm)
 import(plotflow)
-<<<<<<< HEAD
-=======
 import(rowr)
+import(scales)
 import(splitstackshape)
 import(xlsx)
->>>>>>> 57494191600c876ce7ff151fb741f525ba3c1e37

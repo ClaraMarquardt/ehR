@@ -18,8 +18,8 @@ dt_replace(dt, mode, replace = "DEFAULT", col_name = names(dt))
 \value{
 data.table modified in place
 }
-\description{
-Perform a set of common in-place modifications on a data.table.
+\details{
+Maintainer: Clara Marquardt
 }
 \examples{
 sample_dt <- copy(test_dt)

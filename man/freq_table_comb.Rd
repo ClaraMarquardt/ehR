@@ -11,7 +11,7 @@ freq_table_comb(freq_table, expl_text, element_number = 10, sort = TRUE,
 \arguments{
 \item{freq_table}{frequency table (table(x) output).}
 
-\item{expl_text}{text which is to be appended at the end of the string (e.g. "(% of diagnoses)") (character).}
+\item{expl_text}{text which is to be appended at the end of the string (e.g. "(Percent of diagnoses)") (character).}
 
 \item{element_number}{number of rows of the frequency table which are to be included (integer) [default:10].}
 
@@ -28,17 +28,15 @@ freq_table_comb(freq_table, expl_text, element_number = 10, sort = TRUE,
 \value{
 formatted (character) string or data.table.
 }
-\description{
-Combine elements of a frequency table into a (character) string or formatted table.
+\details{
+Maintainer:Maintainer: Clara Marquardt
 }
 \examples{
 freq_table_raw  <- table(dia$dia_name)
-
-freq_string <- freq_table_comb(freq_table=freq_table_raw, expl_text="\% of Principal Diagnoses", 
+freq_string <- freq_table_comb(freq_table=freq_table_raw, expl_text="Percent of Principal Diagnoses", 
 element_number=10, sort=TRUE, item_sep="/", string_table="string")
 print(freq_string)
-
-freq_table <- freq_table_comb(freq_table=freq_table_raw, expl_text="\% of Principal Diagnoses", 
+freq_table <- freq_table_comb(freq_table=freq_table_raw, expl_text="Percent of Principal Diagnoses", 
 element_number=10, sort=TRUE, item_sep="/", string_table="table")
 print(freq_table)
 }

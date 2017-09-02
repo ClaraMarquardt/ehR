@@ -16,8 +16,8 @@ load_or_install_local(package_list, custom_lib_path = "", verbose = TRUE)
 \value{
 List of packages which were succesfully installed/loaded.
 }
-\description{
-Load or install R packages (Local).
+\details{
+Maintainer: Clara Marquardt
 }
 \examples{
 \dontrun{

@@ -21,12 +21,12 @@ clean_icd_list(range_table, code_col, name_col, decimal = TRUE,
 \value{
 data.table with the expanded icd9 code list and the associated code range names.
 }
-\description{
-Expand a list of icd9 code ranges.
+\details{
+Maintainer: Clara Marquardt
 }
 \examples{
-orig_table <- copy(gagne_code) ## use the gagne_code sample data set
-print(orig_table$code)         ## print the code range column
+orig_table <- copy(gagne_code) 
+print(orig_table$code)        
 code_table  <- clean_icd_list(range_table=orig_table, code_col="code", name_col="condition", decimal=FALSE, validate=FALSE) 
 print(code_table)
 }

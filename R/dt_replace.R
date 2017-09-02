@@ -1,13 +1,21 @@
 #----------------------------------------------------------------------------#
 
 #' Perform a set of common in-place modifications on a data.table. 
+#'
+#' \
+#'
+#' @details Maintainer: Clara Marquardt
+#'
 #' @export
 #' @import data.table
+#'
 #' @param dt Data.table which is to be modified in place (data.table). 
 #' @param mode Modification which is to be performed ((i) set_na_zero (replace: Na, inf, -inf -> 0) (ii) set_zero_na (replace: 0 -> NA), (iii) set_missing_na (replace: " "* -> NA) (character).
 #' @param replace Value used to replace the existing values (character) [Default: Mode-specific (see above)]
 #' @param col_name Vector of column names which are to be modified (vector - character) [Default: All columns in the dt]. 
+#' 
 #' @return data.table modified in place
+#'
 #' @examples
 #' sample_dt <- copy(test_dt)
 #' sample_dt[, ':='(test_col=prediction, test_col_1=control_cat_3)]
@@ -32,8 +40,6 @@
 #' print(sample_dt)
 
 dt_replace <- function(dt, mode, replace="DEFAULT", col_name=names(dt)) {
-
-	# Point Person: Clara
 
 	# [1] set_na_zero
 	if (mode=="set_na_zero") {
