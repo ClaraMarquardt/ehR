@@ -1,5 +1,5 @@
 Package: ehR
-Title: A collection of R functions designed to facilitate the interaction with and analysis of ehR data.
+Title: A collection of R functions designed to facilitate the interaction with and analysis of EHR data.
 Version: 0.0.0.9000
 Authors@R: c(person("Clara", "Marquardt", email = "marquardt.clara@gmail.com", role = c("cre")), person("Shreyas", "Lakhtakia", email="slakhtakia@bwh.harvard.edu", role=c("aut")))
 Description: /
@@ -8,5 +8,5 @@ License: ...
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1.9000
-Imports: data.table, ggplot2, grid, gridExtra, plotflow, scales, dplyr, rJava, reader, icd, devtools, xlsx, lubridate, parallel, testit, extrafont, extrafontdb, plm, rowr, splitstackshape
+Imports: data.table, ggplot2, grid, gridExtra, plotflow, scales, dplyr, rJava, reader, icd, devtools, xlsx, lubridate, parallel, testit, extrafont, extrafontdb, plm, rowr, splitstackshape, magrittr
 Remotes: trinker/plotflow

@@ -2,30 +2,27 @@
 % Please edit documentation in R/multiformat_glm.R
 \name{multiformat_glm}
 \alias{multiformat_glm}
-\title{Given a list of logistic regressions, *performed using glm()* format, 
-return and optionally, write the results side-by-side to csv.}
+\title{: Format a given list of glm() regression objects for easy presentation.}
 \usage{
 multiformat_glm(glm_list, output_file = NA, formula_list = NA,
   title_list = "", ndigit = 5)
 }
 \arguments{
-\item{glm_list}{a list() of glm model objects}
+\item{glm_list}{a list() of glm model objects (list of glm objects)}
 
-\item{output_file}{the file path (with ".csv" extension) to write the results to, if no value provided, no output file will be created}
+\item{output_file}{the file path (with ".csv" extension) to write the results to, if no value provided, no output file will be created (character)}
 
-\item{formula_list}{optional list of custom formulae to provide to print in results (code pulls regression formula call by default)}
+\item{formula_list}{optional list of custom formulae to provide to print in results (code pulls regression formula call by default) (list of character)}
 
-\item{title_list}{optional list of titles for each regression in the list to write atop output file (blank by default)}
+\item{title_list}{optional list of titles for each regression in the list to write atop output file (blank by default) (list of character)}
 
-\item{ndigit}{level of precision in output, 5 by default}
+\item{ndigit}{level of precision in output, 5 by default (integer)}
 }
 \value{
-matrix containing formatted results from the provided regression list
+matrix containing formatted results from the provided regression list (matrix)
 }
 \description{
-Inspired by: 
-https://www.r-bloggers.com/export-r-results-tables-to-excel-please-dont-kick-me-out-of-your-club/
-Author: Shreyas Lakhtakia (slakhtakia [at] bwh.harvard.edu)
+: Given a list of logistic regressions, *performed using glm()* format, return and optionally, write the results side-by-side to csv.
 }
 \examples{
 dem[, died := 0, ]

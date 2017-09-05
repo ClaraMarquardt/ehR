@@ -2,19 +2,17 @@
 % Please edit documentation in R/code_to_human.R
 \name{code_to_human}
 \alias{code_to_human}
-\title{A function that turns code based variable names to human friendly names,
-useful in particular for converting variable names with underscores to 
-more easily interpretable words as axis labels in plots and in spreadsheets.}
+\title{: Format code variable names to proper names.}
 \usage{
 code_to_human(code_string, capitalization_length = 1)
 }
 \arguments{
-\item{code_string}{The string variable you would like to transform.}
+\item{code_string}{The string variable you would like to transform. (character)}
 
-\item{capitalization_length}{The length at or below which, substrings should be turned into all CAPS}
+\item{capitalization_length}{The length at or below which, substrings should be turned into all CAPS (integer)}
 }
 \description{
-Author: Shreyas Lakhtakia, slakhtakia [at] bwh.harvard.edu
+: A function that turns code based variable names to human friendly names, useful in particular for converting variable names with underscores to more easily interpretable words as axis labels in plots and in spreadsheets.
 }
 \examples{
 code_to_human("age_years") \\#"Age Years"

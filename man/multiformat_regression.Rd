@@ -2,31 +2,29 @@
 % Please edit documentation in R/multiformat_regression.R
 \name{multiformat_regression}
 \alias{multiformat_regression}
-\title{Given a list of formulae (as strings), type of regression, and data, 
-run listed regressions, return formatted results, & optionally  write to f
-ile. OLS, OLS with clustered SE, logistic regressions currently supported.}
+\title{: Format a given list of regression objects for easy presentation.}
 \usage{
 multiformat_regression(type, formula_list, data, output_file = NA,
   title_list = NA, ndigit = 5, cluster_se_by = NA)
 }
 \arguments{
-\item{type}{character string of regression type, one of: "ols", "logistic" [all equations must be for the same class of regression]}
+\item{type}{character string of regression type, one of: "ols", "logistic" [all equations must be for the same class of regression] (character)}
 
-\item{formula_list}{a list() of character strings specifying regression equations}
+\item{formula_list}{a list() of character strings specifying regression equations (list of character)}
 
-\item{data}{a data.table (or data.frame) containing (among others,) ALL the regression variables specified in all formulae}
+\item{data}{a data.table (or data.frame) containing (among others,) ALL the regression variables specified in all formulae (data.table)}
 
-\item{output_file}{the file path (with ".csv" extension) to write the results to, if no value provided, no output file will be created}
+\item{output_file}{the file path (with ".csv" extension) to write the results to, if no value provided, no output file will be created (character)}
 
-\item{title_list}{optional list of titles for each regression in the list to write atop output file (blank by default)}
+\item{title_list}{optional list of titles for each regression in the list to write atop output file (blank by default) (list of character)}
 
-\item{ndigit}{level of precision in output, 5 by default}
+\item{ndigit}{level of precision in output, 5 by default (integer)}
 }
 \value{
-matrix containing formatted results from the provided regression list
+matrix containing formatted results from the provided regression list (matrix)
 }
 \description{
-Author: Shreyas Lakhtakia (slakhtakia [at] bwh.harvard.edu)
+: Given a list of formulae (as strings), type of regression, and data, run listed regressions, return formatted results, & optionally  write to file. OLS, OLS with clustered SE, and logistic regressions currently supported.
 }
 \examples{
 glm_reg_list <- list("died ~ age", "died ~ age + gender", "died ~ age + gender + race")

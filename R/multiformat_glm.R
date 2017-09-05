@@ -1,21 +1,20 @@
 #----------------------------------------------------------------------------#
 
-#' Given a list of logistic regressions, *performed using glm()* format, 
-#' return and optionally, write the results side-by-side to csv. 
+#' @title: Format a given list of glm() regression objects for easy presentation.
 #' 
-#' Inspired by: 
-#' https://www.r-bloggers.com/export-r-results-tables-to-excel-please-dont-kick-me-out-of-your-club/
-#' Author: Shreyas Lakhtakia (slakhtakia [at] bwh.harvard.edu)
+#' @description: Given a list of logistic regressions, *performed using glm()* format, return and optionally, write the results side-by-side to csv. 
+#' 
+#' @detail: Maintained by: Shreyas Lakhtakia; Inspired by: https://www.r-bloggers.com/export-r-results-tables-to-excel-please-dont-kick-me-out-of-your-club/
 #' 
 #' @export
 #' @import data.table
 #' @import rowr
-#' @param glm_list a list() of glm model objects
-#' @param output_file the file path (with ".csv" extension) to write the results to, if no value provided, no output file will be created
-#' @param formula_list optional list of custom formulae to provide to print in results (code pulls regression formula call by default)
-#' @param title_list optional list of titles for each regression in the list to write atop output file (blank by default)
-#' @param ndigit level of precision in output, 5 by default
-#' @return matrix containing formatted results from the provided regression list
+#' @param glm_list a list() of glm model objects (list of glm objects)
+#' @param output_file the file path (with ".csv" extension) to write the results to, if no value provided, no output file will be created (character)
+#' @param formula_list optional list of custom formulae to provide to print in results (code pulls regression formula call by default) (list of character)
+#' @param title_list optional list of titles for each regression in the list to write atop output file (blank by default) (list of character)
+#' @param ndigit level of precision in output, 5 by default (integer)
+#' @return matrix containing formatted results from the provided regression list (matrix)
 #' @examples
 #' dem[, died := 0, ]
 #' dem[tolower(vital_status) %like% "deceased", died := 1, ]

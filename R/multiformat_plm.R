@@ -1,23 +1,21 @@
 #----------------------------------------------------------------------------#
 
-#' Given a list of OLS regressions on panel data, *performed using plm()* 
-#' (in order to obtain clustered SEs), format, return and optionally, write 
-#' the results side-by-side in a csv. 
+#' @title: Format a given list of plm() regression objects for easy presentation.
 #' 
-#' Inspired by: 
-#' https://www.r-bloggers.com/export-r-results-tables-to-excel-please-dont-kick-me-out-of-your-club/
-#' Author: Shreyas Lakhtakia (slakhtakia [at] bwh.harvard.edu)
+#' @description:Given a list of OLS regressions on panel data, *performed using plm()* (in order to obtain clustered SEs), format, return and optionally, write the results side-by-side in a csv. 
+#' 
+#' @detail: Maintained by: Shreyas Lakhtakia; Inspired by: https://www.r-bloggers.com/export-r-results-tables-to-excel-please-dont-kick-me-out-of-your-club/
 #' 
 #' @export
 #' @import plm
 #' @import data.table
 #' @import rowr
-#' @param plm_list a list() of plm model objects
-#' @param output_file the file path (with ".csv" extension) to write the results to, if no value provided, no output file will be created
-#' @param formula_list optional list of custom formulae to provide to print in results (code pulls regression formula call by default)
-#' @param title_list optional list of titles for each regression in the list to write atop output file (blank by default)
-#' @param ndigit level of precision in output, 5 by default
-#' @return matrix containing formatted results from the provided regression list
+#' @param plm_list a list() of plm model objects (list of plm objects)
+#' @param output_file the file path (with ".csv" extension) to write the results to, if no value provided, no output file will be created (character)
+#' @param formula_list optional list of custom formulae to provide to print in results (code pulls regression formula call by default) (list of character)
+#' @param title_list optional list of titles for each regression in the list to write atop output file (blank by default) (list of character)
+#' @param ndigit level of precision in output, 5 by default (integer)
+#' @return matrix containing formatted results from the provided regression list (matrix)
 #' @examples
 #' TBC
 
@@ -107,7 +105,7 @@ multiformat_plm <- function(plm_list, output_file = NA, formula_list = NA, title
 	# drop first two columns which are blank (as a result of formatting in a loop with no exceptions for the first regression)
 	composite_matrix <- composite_matrix[, -(1:2)]
 
-	# write resuts if output file specified
+	# write results if output file specified
 	if(!is.na(output_file)) {
 		write.table(composite_matrix, file=output_file, row.names=FALSE, col.names = FALSE, sep = ",")
 		print(paste0("Output ", output_file, " created successfully."))

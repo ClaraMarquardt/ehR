@@ -1,26 +1,25 @@
 #----------------------------------------------------------------------------#
 
-#' Convert "var_overview" returned by Clara Marquardt's var_overview function
-#' into a production ready Excel file, with a separate tab for an overview of
-#' the data and a different one for a list of summary statistics from the data.
+#' @title: Format a given var_overview() outcome as a formatted two tab .xlsx sheet.
 #' 
-#' References:
-#' var_overview() from generic_function.R in methods_new
-#' http://www.sthda.com/english/wiki/r-xlsx-package-a-quick-start-guide-to-manipulate-excel-files-in-r
-#' Author: Shreyas Lakhtakia, slakhtakia [at] bwh.harvard.edu 
+#' @description: Convert "var_overview" returned by Clara Marquardt's var_overview function into a production ready Excel file, with a separate tab for an overview of the data and a different one for a list of summary statistics from the data.
+#' 
+#' @detail: Maintained by: Shreyas Lakhtakia; References: var_overview(), http://www.sthda.com/english/wiki/r-xlsx-package-a-quick-start-guide-to-manipulate-excel-files-in-r
 #'
 #' @export
 #' @import splitstackshape
 #' @import data.table
 #' @import xlsx
-#' @param var_overview_dt df returned by var_overview()
-#' @param data_definition_dt notes to be appended at the end of the overview, such              as variable definitions and other points. This *MUST* be a 2 COLUMN data.table
-#' @param output_file path and filename to output resulting Excel to
-#' @param source source of data / cohort name (to print in Excel)
-#' @param sheet_title Title of overview sheet 
+#' @param var_overview_dt df returned by var_overview() (data.frame from var_overview)
+#' @param data_definition_dt notes to be appended at the end of the overview, such              as variable definitions and other points. This *MUST* be a 2 COLUMN data.table (data.table)
+#' @param output_file path and filename to output resulting Excel to (character)
+#' @param source source of data / cohort name (to print in Excel) (character)
+#' @param sheet_title Title of overview sheet (character)
 #' @examples
-#' var_overview_dt <- var_overview(dem)
-#' beautify_var_overview(var_overview_dt = var_overview_dt, output_file = "Summary.xlsx")
+#' \dontrun{
+#'      var_overview_dt <- var_overview(dem)
+#' 		beautify_var_overview(var_overview_dt = var_overview_dt, output_file = "Summary.xlsx")
+#' }
 
 beautify_var_overview <- function(var_overview_dt, data_definition_dt = NA, output_file, source = "", sheet_title = "Data Summary") {
 
@@ -35,7 +34,6 @@ beautify_var_overview <- function(var_overview_dt, data_definition_dt = NA, outp
 	  setCellValue(sheetTitle[[1,1]], title)
 	  setCellStyle(sheetTitle[[1,1]], titleStyle)
 	}
-	# source("/data/zolab/icmp_/code/functions/code_to_human.R")
 
 	library(splitstackshape)
 	library(xlsx)

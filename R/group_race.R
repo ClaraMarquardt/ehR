@@ -1,16 +1,17 @@
 #----------------------------------------------------------------------------#
 
-#' Convert nuanced, specific races in a data.table into this aggregated set:
-#' {white, black, hispanic, other}.
+#' @title: Classify given race as one of the conventional medical groups- white, black, hispanic, other.
 #' 
-#' Author: Shreyas Lakhtakia (slakhtakia [at] bwh.harvard.edu)
+#' @description Convert a column in a data.table containing nuanced, specific races into the aggregated set: {white, black, hispanic, other} that is more commonly found in US medical literature.
+#' 
+#' @detail: Maintained by: Shreyas Lakhtakia
 #' 
 #' @export
 #' @import data.table
-#' @param data a data.table with the column containing races
-#' @param race_col a string specifying the name of column containing race info, "race" by default
-#' @param inplace if TRUE old race column is replaced with aggregated race infor, if FALSE (default), a new column called "race_group" is added 
-#' @return data.table with the a new race_group column containing aggregated race / old column replaced with this column if inplace = TRUE
+#' @param data a data.table with the column containing races (data.table)
+#' @param race_col a string specifying the name of column containing race info, "race" by default (character)
+#' @param inplace if TRUE old race column is replaced with aggregated race infor, if FALSE (default), a new column called "race_group" is added (logical)
+#' @return data.table with the a new race_group column containing aggregated race / old column replaced with this column if inplace = TRUE (data.table)
 #' @examples
 #' mod_dem <- group_race(dem, inplace = TRUE)
 #' unique(mod_dem[, race, ], by = "race")

@@ -1,22 +1,22 @@
 #----------------------------------------------------------------------------#
 
-#' Given a list of formulae (as strings), type of regression, and data, 
-#' run listed regressions, return formatted results, & optionally  write to f
-#' ile. OLS, OLS with clustered SE, logistic regressions currently supported.
+#' @title: Format a given list of regression objects for easy presentation.
 #' 
-#' Author: Shreyas Lakhtakia (slakhtakia [at] bwh.harvard.edu)
+#' @description: Given a list of formulae (as strings), type of regression, and data, run listed regressions, return formatted results, & optionally  write to file. OLS, OLS with clustered SE, and logistic regressions currently supported.
+#' 
+#' @detail: Maintained by: Shreyas Lakhtakia
 #' 
 #' @export
 #' @import plm
 #' @import data.table
 #' @import rowr
-#' @param type character string of regression type, one of: "ols", "logistic" [all equations must be for the same class of regression]
-#' @param formula_list a list() of character strings specifying regression equations
-#' @param data a data.table (or data.frame) containing (among others,) ALL the regression variables specified in all formulae
-#' @param output_file the file path (with ".csv" extension) to write the results to, if no value provided, no output file will be created
-#' @param title_list optional list of titles for each regression in the list to write atop output file (blank by default)
-#' @param ndigit level of precision in output, 5 by default
-#' @return matrix containing formatted results from the provided regression list
+#' @param type character string of regression type, one of: "ols", "logistic" [all equations must be for the same class of regression] (character)
+#' @param formula_list a list() of character strings specifying regression equations (list of character)
+#' @param data a data.table (or data.frame) containing (among others,) ALL the regression variables specified in all formulae (data.table)
+#' @param output_file the file path (with ".csv" extension) to write the results to, if no value provided, no output file will be created (character)
+#' @param title_list optional list of titles for each regression in the list to write atop output file (blank by default) (list of character)
+#' @param ndigit level of precision in output, 5 by default (integer)
+#' @return matrix containing formatted results from the provided regression list (matrix)
 #' @examples
 #' glm_reg_list <- list("died ~ age", "died ~ age + gender", "died ~ age + gender + race")
 #' multiformat_regression(type = "logistic", formula_list = reg_list, data = dem)
@@ -61,7 +61,7 @@ multiformat_regression <- function(type, formula_list, data, output_file = NA,ti
 								ndigit = ndigit) # format
 			} else{
 				# NOT SUPPORTED AT PRESENT
-				stop("Clustering of standard errors in logistic regression models is not currently supported.\nConsider contributing to this code; email: slakhtakia@bwh.harvard.edu")
+				stop("Clustering of standard errors in logistic regression models is not currently supported.\nConsider contributing to this code.")
 			}
 		},
 		{
