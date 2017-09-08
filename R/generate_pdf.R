@@ -4,7 +4,7 @@
 #' 
 #' \
 #' 
-#' @details Maintainer: Clara Marquardt
+#' @details Maintained by: Clara Marquardt
 #' 
 #' @export
 #' @import ggplot2
@@ -13,11 +13,11 @@
 #' @import gridExtra
 #' @import scales 
 #' 
-#' @param ggplot_list List of ggplot objects (list - ggplot).
+#' @param ggplt_list List of ggplot objects (list - ggplot).
 #' @param ncol_plot Number of plot columns on each page of the final PDF (integer) [default: 3]. 
 #' @param nrow_plot Number of plot rows on each page of the final PDF (integer) [default: 3]. 
-#' @param file_path Path where the final PDF is to be saved ("...../") (character).
-#' @param file_name Namer under which the final PDF is to be saved ("...pdf") (character).
+#' @param output_path Path where the final PDF is to be saved ("...../") (character).
+#' @param output_file Namer under which the final PDF is to be saved ("...pdf") (character).
 #' @param orientation Page orientation of the final PDF (character - "vertical"/"horizontal") [default: "vertical"].
 #' @param share_legend Whether or not all plots on a page are to share one legend (logical - TRUE/FALSE) [default: FALSE].
 #' @param quiet Whether to print status updates as individual pages are generated (logical - TRUE/FALSE) [default: FALSE].
@@ -29,17 +29,17 @@
 #'	geom_bar(aes(x=dia_code)) + 
 #'	theme_basic()
 #' plot_list <- list(plot_1, plot_1, plot_1, plot_1,plot_1, plot_1, plot_1)
-#' generate_pdf(ggplot_list=plot_list, ncol_plot=3, nrow_plot=2, 
-#'  file_path="", file_name="merge_pdf_test", orientation="horizontal", 
+#' generate_pdf(ggplt_list=plot_list, ncol_plot=3, nrow_plot=2, 
+#'  output_path="", output_file="merge_pdf_test", orientation="horizontal", 
 #'  share_legend=FALSE, quiet=FALSE) 
 #'}
 
-generate_pdf <- function(ggplot_list, ncol_plot=3, nrow_plot=3, 
-  file_path, file_name, orientation="vertical", share_legend=FALSE, quiet=FALSE, 
+generate_pdf <- function(ggplt_list, ncol_plot=3, nrow_plot=3, 
+  output_path, output_file, orientation="vertical", share_legend=FALSE, quiet=FALSE, 
   height_plot=NULL, width_plot=NULL, height_overall=NULL, width_overall=NULL) {
   
   # define parameters
-  graph_cat <- length(ggplot_list)
+  graph_cat <- length(ggplt_list)
   graph_count <- nrow_plot*ncol_plot
   graph_page <- ceiling(graph_cat/(graph_count))
 
@@ -68,8 +68,8 @@ generate_pdf <- function(ggplot_list, ncol_plot=3, nrow_plot=3,
 
    for (k in 1:graph_page) {
     
-    if(orientation=="vertical") pdf(paste0(temp_folder_plot, "/", file_name, "_", k, ".pdf")) 
-     else pdf(paste0(temp_folder_plot, "/", file_name, "_", k, ".pdf"), 
+    if(orientation=="vertical") pdf(paste0(temp_folder_plot, "/", output_file, "_", k, ".pdf")) 
+     else pdf(paste0(temp_folder_plot, "/", output_file, "_", k, ".pdf"), 
       height=ifelse(is.null(height_overall), 7.6, height_overall), 
       width=ifelse(is.null(width_overall), 11, width_overall))
 
@@ -110,7 +110,7 @@ generate_pdf <- function(ggplot_list, ncol_plot=3, nrow_plot=3,
 
   # merge the generated PDF & save
   merge_PDF(input_pdf_list=file_list,
-  	output_file_name=paste0(file_path, file_name, "_combined.pdf"))
+  	output_output_file=paste0(output_path, output_file, "_combined.pdf"))
 
   # delete the temporary folder
   unlink(temp_folder_plot, recursive=TRUE)

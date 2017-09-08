@@ -4,11 +4,9 @@
 #'
 #' Add any (temporary) dependencies as @import statements. 
 #' 
-#' @details Maintainer: Clara Marquardt
+#' @details Maintained by: Clara Marquardt
 #' 
 #' @export
-
-
 
 load_dep <- function() {
 

@@ -30,6 +30,7 @@
 multiformat_regression <- function(type, formula_list, data, output_file = NA,title_list = NA, ndigit = 5, cluster_se_by = NA){
 	switch(type,
 		ols = {
+			
 			############### ORDINARY LEAST SQ REGRESSION ###############
 			if(is.na(cluster_se_by)){
 				# NOT PANEL DATA / NO CLUSTERING OF STANDARD ERRORS

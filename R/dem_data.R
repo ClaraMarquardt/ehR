@@ -4,7 +4,7 @@
 #'
 #' Simulated EHR data (no PHI constraints) featuring demographics data for ~500 patients.
 #'
-#' @details Maintainer: Clara Marquardt
+#' @details Maintained by: Clara Marquardt
 #' 
 #' @docType data
 #'

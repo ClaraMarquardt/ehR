@@ -15,8 +15,8 @@
 #' @param summary_title_vec Vector of strings to be used as titles for the summary (summaries) (vector/array of character)
 #' @param ndigit Decimal precision to use in writing the summary statistics (integer)
 #' @param font fontfamily used in writing footnote, "Helvetica" by default (character)
-#' @param fontsize footnote text size, 8 by default (numeric)
-#' @param fontcolor color of footnote text, dark grey by default (character expressing hex or RGB color)
+#' @param font_size footnote text size, 8 by default (numeric)
+#' @param font_color color of footnote text, dark grey by default (character expressing hex or RGB color)
 #' @param output_file Path and filename to save resulting plot with footnote as (NA, means don't save - default) (character)
 #' 
 #' @examples
@@ -26,7 +26,7 @@
 #' 		ggplot_footnote_summary(ggplt = age_distribution, summary_list = gender_summary, summary_title_vec = c("Female", "   Male"), output_file = "age_distribution_by_gender.png")
 #' }
 
-ggplot_footnote_summary <- function(ggplt, summary_list, summary_title_vec, ndigit = 3, font = "Helvetica", fontsize = 8, fontcolor = "#3A3F3F", output_file = NA){
+ggplot_footnote_summary <- function(ggplt, summary_list, summary_title_vec, ndigit = 3, font = "Helvetica", font_size = 8, font_color = "#3A3F3F", output_file = NA){
 
 	##################### concatenate summary list ################
 
@@ -38,7 +38,7 @@ ggplot_footnote_summary <- function(ggplt, summary_list, summary_title_vec, ndig
 
 	g <- arrangeGrob(ggplt, 
 					 bottom = textGrob(footnote_string, x = 0, hjust = -0.2, vjust=0.2, 
-					 	 gp = gpar(fontfamily = font, fontsize = fontsize, col = fontcolor))
+					 	 gp = gpar(fontfamily = font, font_size = font_size, col = font_color))
 					 )
 	if(!is.na(output_file)){
 		ggsave(output_file, g)

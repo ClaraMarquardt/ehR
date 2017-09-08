@@ -4,7 +4,7 @@
 #'
 #' \ 
 #'
-#' @details Maintainer: Clara Marquardt
+#' @details Maintained by: Clara Marquardt
 #'
 #' @export
 #' @import data.table
@@ -26,7 +26,7 @@
 
 load_or_install <- function(package_list, custom_lib_path="", 
   custom_repo="https://cran.rstudio.com", custom_package_version=TRUE, 
-  verbose=TRUE) {  
+  quiet=FALSE) {  
 
   # Point Person: Clara
 
@@ -63,7 +63,7 @@ load_or_install <- function(package_list, custom_lib_path="",
     # cran package
     if (length(grep("/", x, value=T))==0) {
 
-      if (verbose==TRUE) {
+      if (quiet==FALSE) {
 
         print(sprintf("Fresh Install (CRAN): %s", x))
 
@@ -94,7 +94,7 @@ load_or_install <- function(package_list, custom_lib_path="",
     # github package
     } else {
 
-      if (verbose==TRUE) {
+      if (quiet==FALSE) {
 
         print(sprintf("Fresh Install (Github): %s", x))
 
@@ -112,7 +112,7 @@ load_or_install <- function(package_list, custom_lib_path="",
 
   package_loaded <- lapply(package_list, function(x) {
     
-    if (verbose==TRUE) {
+    if (quiet==FALSE) {
       print(sprintf("Loading: %s", x))
     }
 

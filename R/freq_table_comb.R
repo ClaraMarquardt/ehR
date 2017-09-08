@@ -4,12 +4,12 @@
 #' 
 #' \
 #' 
-#' @details Maintainer:Maintainer: Clara Marquardt
+#' @details Maintained by: Clara Marquardt
 #' 
 #' @export
 #' @import data.table
 #' 
-#' @param freq_table frequency table (table(x) output).
+#' @param data frequency table (table(x) output).
 #' @param expl_text text which is to be appended at the end of the string (e.g. "(Percent of diagnoses)") (character). 
 #' @param element_number number of rows of the frequency table which are to be included (integer) [default:10].  
 #' @param sort whether to sort the frequency table (descending order) (logical - TRUE/FALSE) [default: TRUE].
@@ -21,34 +21,34 @@
 #' @return formatted (character) string or data.table. 
 #' 
 #' @examples
-#' freq_table_raw  <- table(dia$dia_name)
-#' freq_string <- freq_table_comb(freq_table=freq_table_raw, expl_text="Percent of Principal Diagnoses", 
+#' data_raw  <- table(dia$dia_name)
+#' freq_string <- freq_table_comb(data=data_raw, expl_text="Percent of Principal Diagnoses", 
 #' element_number=10, sort=TRUE, item_sep="/", string_table="string")
 #' print(freq_string)
-#' freq_table <- freq_table_comb(freq_table=freq_table_raw, expl_text="Percent of Principal Diagnoses", 
+#' data <- freq_table_comb(data=data_raw, expl_text="Percent of Principal Diagnoses", 
 #' element_number=10, sort=TRUE, item_sep="/", string_table="table")
-#' print(freq_table)
+#' print(data)
 
-freq_table_comb <- function(freq_table, expl_text, element_number=10, sort=TRUE, 
+freq_table_comb <- function(data, expl_text, element_number=10, sort=TRUE, 
   string_table="string", item_sep="/", text_col=NA, number_col=NA ) {
 
   # format frequency table
-  freq_table <- data.frame(freq_table)
+  data <- data.frame(data)
   
   # identify columns
-  if (is.na(text_col)) text_col <- names(freq_table)[which(sapply(freq_table,function(x) 
+  if (is.na(text_col)) text_col <- names(data)[which(sapply(data,function(x) 
     class(x)[1]) %in% c("character", "factor"))]
-  if (is.na(number_col)) number_col <- names(freq_table)[which(sapply(freq_table,function(x) 
+  if (is.na(number_col)) number_col <- names(data)[which(sapply(data,function(x) 
     !(class(x)[1] %in% c("character","factor"))))]
 
   # order
-  freq_table[[text_col]] <- as.character(freq_table[[text_col]] )
-  if (sort==TRUE) freq_table <- freq_table[with(freq_table, rev(order(get(number_col)))),]
-  freq_table <- freq_table[1:element_number,]
+  data[[text_col]] <- as.character(data[[text_col]] )
+  if (sort==TRUE) data <- data[with(data, rev(order(get(number_col)))),]
+  data <- data[1:element_number,]
 
   # generate string
   if (string_table=="string")  { 
-      comb <- paste0(freq_table[[text_col]], " - ", freq_table[[number_col]],  
+      comb <- paste0(data[[text_col]], " - ", data[[number_col]],  
           " ", item_sep," ", collapse=" ")
       comb <- gsub(paste0(" ", item_sep," $"), "",comb)
       comb <- paste0(expl_text, ": ", comb)
@@ -57,9 +57,9 @@ freq_table_comb <- function(freq_table, expl_text, element_number=10, sort=TRUE,
 
     } else if (string_table=="table") {
 
-     comb <- lapply(1:nrow(freq_table), function(x) {
+     comb <- lapply(1:nrow(data), function(x) {
 
-        comb <- paste0(freq_table[[text_col]][x], " - ", freq_table[[number_col]][x],
+        comb <- paste0(data[[text_col]][x], " - ", data[[number_col]][x],
            " ",item_sep," ", collapse=" ")
         comb <- gsub(paste0(" ",item_sep," $"), "",comb)
         comb <- paste(comb, expl_text)

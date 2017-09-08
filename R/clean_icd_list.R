@@ -4,14 +4,14 @@
 #' 
 #' \
 #' 
-#' @details Maintainer: Clara Marquardt
+#' @details Maintained by: Clara Marquardt
 #' 
 #' @export
 #' @import icd
 #' @import data.table
 #' @import magrittr
 #' 
-#' @param range_table data.table containing a column with icd9 code ranges and code range names (data.table).
+#' @param data data.table containing a column with icd9 code ranges and code range names (data.table).
 #' @param code_col name of the column containing the icd9 code ranges (see the below example) - commented out rows (start with '#') are ignored (character). 
 #' @param name_col name of the column containing the code range names (character).  
 #' @param decimal whether or not the icd9 codes are in decimal format (logical - TRUE/FALSE) [default: TRUE]. 
@@ -22,18 +22,18 @@
 #' @examples
 #' orig_table <- copy(gagne_code) 
 #' print(orig_table$code)        
-#' code_table  <- clean_icd_list(range_table=orig_table, code_col="code", name_col="condition", decimal=FALSE, validate=FALSE) 
+#' code_table  <- clean_icd_list(data=orig_table, code_col="code", name_col="condition", decimal=FALSE, validate=FALSE) 
 #' print(code_table)
 
 
-clean_icd_list <- function(range_table, code_col, name_col, decimal=TRUE, validate=FALSE) {
+clean_icd_list <- function(data, code_col, name_col, decimal=TRUE, validate=FALSE) {
   
   # omit codes which are excluded/commented out (rows that start with "#")
-  range_table <- range_table[!(range_table[[code_col]] %like% "#" | range_table[[name_col]] %like% "#") ]
+  data <- data[!(data[[code_col]] %like% "#" | data[[name_col]] %like% "#") ]
   
   # codes are separated by semicolon  - split
-  x <- range_table[[code_col]] %>% strsplit(";")
-  names(x) <- range_table[[name_col]]
+  x <- data[[code_col]] %>% strsplit(";")
+  names(x) <- data[[name_col]]
 
   # define a function to expand ranges
   expand_and_convert <- function(code) {

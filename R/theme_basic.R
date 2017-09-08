@@ -4,7 +4,7 @@
 #'
 #' \
 #' 
-#' @details Maintainer: Clara Marquardt
+#' @details Maintained by: Clara Marquardt
 #'
 #' @export
 #' @import ggplot2
@@ -14,7 +14,7 @@
 #' @param title_size Font size - title (numeric) [default: 8].
 #' @param subtitle_size Font size - sub title (numeric) [default: 6].
 #' @param axis_size Font size - axes labels (numeric) [default: 0.5].
-#' @param font_gen Font type (character) [default: "URWHelvetica"].
+#' @param font Font type (character) [default: "URWHelvetica"].
 #' @param col_gen Font color (character) [default: "grey50"].
 #' @param legend_title_size  Font size - legend title (numeric) [default: 0.5].
 #' @param legend_text_size Font size - legend text (numeric) [default: 0.4].
@@ -39,9 +39,11 @@
 #'}
 
 theme_basic <-  function(axis_size=0.5, title_size=8, subtitle_size=6, 
-                  font_gen ="URWHelvetica", col_gen="grey50", 
+                  font ="URWHelvetica", col_gen="grey50", 
                   legend_title_size=0.5, legend_text_size=0.4, legend_tick_size=0.08, 
                   legend_width=0.5, legend_height=0.2, legend_hjust_title=0.5)  { 
+
+
 
   ## pre-built base theme
   theme_bw() +
@@ -50,19 +52,19 @@ theme_basic <-  function(axis_size=0.5, title_size=8, subtitle_size=6,
   #
   theme(
     axis.text.x = element_text(size=rel(axis_size), colour = col_gen,
-      family=font_gen),
+      family=font),
     axis.text.y = element_text(size=rel(axis_size), colour = col_gen,
-      family=font_gen), 
+      family=font), 
     axis.title.x = element_text(size=rel(axis_size), colour = col_gen,
-    family=font_gen),
+    family=font),
       axis.title.y = element_text(size=rel(axis_size), colour = col_gen,
-    family=font_gen),
+    family=font),
     plot.title = element_text(size = title_size, colour = col_gen, face = "bold",
-      family=font_gen),
+      family=font),
     plot.subtitle = element_text(size = subtitle_size, colour = col_gen, 
-      face = "plain",family=font_gen),
+      face = "plain",family=font),
     plot.caption = element_text(size = (subtitle_size-1), colour = col_gen, 
-      face = "plain",family=font_gen),
+      face = "plain",family=font),
   #
   # basic theme extension - legend bottom
   #
@@ -71,9 +73,9 @@ theme_basic <-  function(axis_size=0.5, title_size=8, subtitle_size=6,
     legend.key.width=unit(legend_width,"cm"),
     axis.ticks.length=unit(legend_tick_size,"cm"),
     legend.title=element_text(size=rel(legend_title_size), colour=col_gen, 
-      family=font_gen, hjust=legend_hjust_title, face="plain"),
+      family=font, hjust=legend_hjust_title, face="plain"),
     legend.text=element_text(size=rel(legend_text_size), colour=col_gen, 
-     family=font_gen)
+     family=font)
    )
 
 }

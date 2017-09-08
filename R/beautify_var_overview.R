@@ -21,7 +21,8 @@
 #' 		beautify_var_overview(var_overview_dt = var_overview_dt, output_file = "Summary.xlsx")
 #' }
 
-beautify_var_overview <- function(var_overview_dt, data_definition_dt = NA, output_file, source = "", sheet_title = "Data Summary") {
+beautify_var_overview <- function(var_overview_dt, data_definition_dt = NA, output_file, 
+							source = "", sheet_title = "Data Summary") {
 
 	# dependencies: Helper function to add titles
 	# - sheet : sheet object to contain the title

@@ -4,7 +4,7 @@
 #'
 #' Weights used to derive Gagne Comborbidity Scores.
 #'
-#' @details Maintainer: Clara Marquardt
+#' @details Maintained by: Clara Marquardt
 #' 
 #' @docType data
 #' 

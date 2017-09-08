@@ -4,11 +4,12 @@
 #'
 #' Crosswalk between icd9 diagnosis codes and zocat diagnosis categories.
 #'
+#' @details Maintained by: Clara Marquardt
+#'
 #' @docType data
 #' 
 #' @usage data(zocat)
 
-# Point Person: Clara
 
 "zocat"
 
