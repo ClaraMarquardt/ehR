@@ -20,7 +20,7 @@ print("Test Examples - NOT automatically executed")
 
 - **Function-Level Documentation**:
 
-	- Function titles/description fields need to end with a '.' to ensure that the function_overview.csv file is correctly generated. Titles should be short (1 line at most). Where no description is given the field should be presented as a place holder: #' \
+	- Function titles/description fields need to end with a '.' to ensure that the function_overview.csv file is correctly generated. Titles should be short (1 line at most). Where no description is given the field should be presented as a place holder: `#' \`
 
 	- The overall structure of the header (Roxygen) section should follow the following template:
 
@@ -39,14 +39,15 @@ print("Test Examples - NOT automatically executed")
 #' @param code_col name of the column containing the icd9 code ranges (see the below example) 
 #' @param name_col name of the column containing the code range names (character).  
 #' @param decimal whether or not the icd9 codes are in decimal format (logical - TRUE/FALSE) [default: TRUE]. 
-#' @param validate whether or not to subset to 'defined' icd9 codes (\source{www.rdocumentation.org/packages/icd/versions/2.2/topics/icd_expand_range}) (logical - TRUE/FALSE) [default: FALSE]. 
+#' @param validate see (\source{rdocumentation.org/packages/icd/versions/2.2/topics/icd_expand_range}) (logical - TRUE/FALSE) [default: FALSE]. 
 #' 
 #' @return data.table with the expanded icd9 code list and the associated code range names. 
 #' 
 #' @examples 
 #' orig_table <- copy(gagne_code) 
 #' print(orig_table$code)        
-#' code_table <- clean_icd_list(range_table=orig_table, code_col="code", name_col="condition", decimal=FALSE, validate=FALSE) 
+#' code_table <- clean_icd_list(range_table=orig_table, code_col="code", 
+#'			name_col="condition", decimal=FALSE, validate=FALSE) 
 #' print(code_table)
 ```
 
