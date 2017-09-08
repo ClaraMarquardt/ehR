@@ -1,9 +1,9 @@
 ## Basic Style Guidelines
 
-- **Naming**: Use '_' rather than '.' or CamelCase to separate words / Avoid plurals 
+- **Names**: Use '_' rather than '.' or CamelCase to separate words / Avoid plurals 
   where possible
 
-- **Parameters**: Provide a definition of each parameters incl. its type / Provide a 
+- **Parameter Definition**: Provide a definition of each parameters incl. its type / Provide a 
   default parameter value where possible
 
 - **Presentation**: Use an existing function as a template
@@ -15,7 +15,7 @@ print("Test Examples - NOT automatically executed")
 }
 ```
 
-- **Dependencies/Import & Export**: Export each function / Import all dependencies 
+- **Dependencies and Import/Export Statements**: Export each function / Import all dependencies 
   (then use the functions as usual, i.e. without the need to explicitly specify the package) (*) [This is a temporary set-up. In future versions dependency imports will be reduced (using importFrom and/or :: syntax)]
 
 - **Function-Level Documentation**:
@@ -51,7 +51,7 @@ print("Test Examples - NOT automatically executed")
 #' print(code_table)
 ```
 
-- **Conventional Parameter Names**: While each added function will require it's own set of parameters, the functional nature of many is common across various methods in the package, for example, a `data.table` containing the source information / data that needs to be transformed. For uniformity, simplicity and to avoid sheer forgetfulness, the authors suggest using the following conventional variable names for parameters to the extent possible:
+- **Parameter Names**: While each added function will require it's own set of parameters, the functional nature of many is common across various methods in the package, for example, a `data.table` containing the source information / data that needs to be transformed. For uniformity, simplicity and to avoid sheer forgetfulness, the authors suggest using the following conventional variable names for parameters to the extent possible:
 
 	- `data`: For any `data.frame` or `data.table` that requires transformation / is the source of data in any manner
 	
