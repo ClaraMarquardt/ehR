@@ -15,10 +15,10 @@ print("Test Examples - NOT automatically executed")
 }
 ```
 
-- **_Dependencies/Import & Export_**: Export each function / Import all dependencies 
+- **Dependencies/Import & Export**: Export each function / Import all dependencies 
   (then use the functions as usual, i.e. without the need to explicitly specify the package) (*) [This is a temporary set-up. In future versions dependency imports will be reduced (using importFrom and/or :: syntax)]
 
-- **_Function-Level Documentation_**:
+- **Function-Level Documentation**:
 
 	[x] Function titles/description fields need to end with a '.' to ensure that the function_overview.csv file is correctly generated. Titles should be short (1 line at most). Where no description is given the field should be presented as a place holder: #' \
 
