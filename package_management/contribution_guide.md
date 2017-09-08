@@ -20,9 +20,9 @@ print("Test Examples - NOT automatically executed")
 
 - **Function-Level Documentation**:
 
-	[x] Function titles/description fields need to end with a '.' to ensure that the function_overview.csv file is correctly generated. Titles should be short (1 line at most). Where no description is given the field should be presented as a place holder: #' \
+	- Function titles/description fields need to end with a '.' to ensure that the function_overview.csv file is correctly generated. Titles should be short (1 line at most). Where no description is given the field should be presented as a place holder: #' \
 
-	[x] The overall structure of the header (Roxygen) section should follow the following template:
+	- The overall structure of the header (Roxygen) section should follow the following template:
 
 ```
 #' Expand a list of icd9 code ranges. 
@@ -50,7 +50,7 @@ print("Test Examples - NOT automatically executed")
 #' print(code_table)
 ```
 
-- **_Conventional Parameter Names_**: While each added function will require it's own set of parameters, the functional nature of many is common across various methods in the package, for example, a `data.table` containing the source information / data that needs to be transformed. For uniformity, simplicity and to avoid sheer forgetfulness, the authors suggest using the following conventional variable names for parameters to the extent possible:
+- **Conventional Parameter Names**: While each added function will require it's own set of parameters, the functional nature of many is common across various methods in the package, for example, a `data.table` containing the source information / data that needs to be transformed. For uniformity, simplicity and to avoid sheer forgetfulness, the authors suggest using the following conventional variable names for parameters to the extent possible:
 
 	- `data`: For any `data.frame` or `data.table` that requires transformation / is the source of data in any manner
 	
