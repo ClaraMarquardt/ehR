@@ -1,14 +1,14 @@
 ## Basic Style Guidelines
 
-- **_Naming_**: Use '_' rather than '.' or CamelCase to separate words / Avoid plurals 
+- **Naming**: Use '_' rather than '.' or CamelCase to separate words / Avoid plurals 
   where possible
 
-- **_Parameters_**: Provide a definition of each parameters incl. its type / Provide a 
+- **Parameters**: Provide a definition of each parameters incl. its type / Provide a 
   default parameter value where possible
 
-- **_Presentation_**: Use an existing function as a template
+- **Presentation**: Use an existing function as a template
 
-- **_Examples_**: Provide a working example making use of the sample data as useful/necessary. As necessary examples should be prevented from automatically running during compilation usign the 'dontrun' syntax
+- **Examples**: Provide a working example making use of the sample data as useful/necessary. As necessary examples should be prevented from automatically running during compilation usign the 'dontrun' syntax
 ```
 @examples \dontrun{
 print("Test Examples - NOT automatically executed")
