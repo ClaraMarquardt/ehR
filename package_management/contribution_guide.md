@@ -39,7 +39,7 @@ print("Test Examples - NOT automatically executed")
 #' @param code_col name of the column containing the icd9 code ranges (see the below example) 
 #' @param name_col name of the column containing the code range names (character).  
 #' @param decimal whether or not the icd9 codes are in decimal format (logical - TRUE/FALSE) [default: TRUE]. 
-#' @param validate see (\source{rdocumentation.org/packages/icd/versions/2.2/topics/icd_expand_range}) (logical - TRUE/FALSE) [default: FALSE]. 
+#' @param validate see (\source{rdocumentation.org/packages/icd/versions/2.2/topics/icd_expand_range}) (logical - ...).
 #' 
 #' @return data.table with the expanded icd9 code list and the associated code range names. 
 #' 
