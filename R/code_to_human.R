@@ -14,6 +14,7 @@
 #' code_to_human("icu_patient_count", 3) \# "ICU Patient Count"
 
 code_to_human <- function(string, capitalization_length = 1){
+	
 	# Turn 
 	# 1. replace _ by " "
 	# 2. capitalize first letter

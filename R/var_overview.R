@@ -23,7 +23,7 @@
 #' print(str(summary_dt))
 
 var_overview <- function(data, observation_unit=NA, alternative_id=NA, 
-  alternative_id_name="observations", data_name=NA) {
+  alternative_id_name="/", data_name=NA) {
 
   # helper functions
   # ---------------------------
@@ -200,7 +200,7 @@ var_overview <- function(data, observation_unit=NA, alternative_id=NA,
 
 
   data_temp <- copy(data)
-  dt_replace(dt=data_temp, mode="set_missing_na") # to ensure that missingness is correctly calculated
+  dt_replace(data=data_temp, mode="set_missing_na") # to ensure that missingness is correctly calculated
   
   feature_vital_sign <- rbindlist(list(feature_vital_sign, data.table(
     var_name=c("", "unit of observation:", "number of observations:", paste0("number of ", 
@@ -247,7 +247,7 @@ var_overview <- function(data, observation_unit=NA, alternative_id=NA,
   ## deal with NAs
   feature_vital_sign[, names(feature_vital_sign):=lapply(.SD, function(x) as.character(x)), 
     .SDcols=names(feature_vital_sign)]
-  dt_replace(dt=feature_vital_sign, mode="set_na_zero")
+  dt_replace(data=feature_vital_sign, mode="set_na_zero")
 
  return(feature_vital_sign)
 

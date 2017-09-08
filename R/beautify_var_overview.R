@@ -15,8 +15,7 @@
 #' @param output_file path and filename to output resulting Excel to (character)
 #' @param source source of data / cohort name (to print in Excel) (character)
 #' @param sheet_title Title of overview sheet (character)
-#' @examples
-#' \dontrun{
+#' @examples \dontrun{
 #'      var_overview_dt <- var_overview(dem)
 #' 		beautify_var_overview(var_overview_dt = var_overview_dt, output_file = "Summary.xlsx")
 #' }

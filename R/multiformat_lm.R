@@ -14,8 +14,7 @@
 #' @param title_list optional list of titles for each regression in the list to write atop output file (blank by default) (list of character)
 #' @param ndigit level of precision in output, 5 by default (integer)
 #' @return matrix containing formatted results from the provided regression list (matrix)
-#' @examples
-#' \dontrun{
+#' @examples \dontrun{
 #' 	dem_dia <- merge(x = dem, y = dia, by = "empi", all.y = TRUE)
 #'  dem_dia[, pt_dia_count := .N, by = "empi"]
 #'  pt_dem_dia <- unique(dem_dia, by = "empi")
