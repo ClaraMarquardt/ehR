@@ -36,10 +36,10 @@ print("Test Examples - NOT automatically executed")
 #' @import data.table
 #' 
 #' @param range_table data.table containing a column with icd9 code ranges and code range names (data.table).
-#' @param code_col name of the column containing the icd9 code ranges (see the below example) - commented out rows (start with '#') are ignored (character). 
+#' @param code_col name of the column containing the icd9 code ranges (see the below example) 
 #' @param name_col name of the column containing the code range names (character).  
 #' @param decimal whether or not the icd9 codes are in decimal format (logical - TRUE/FALSE) [default: TRUE]. 
-#' @param validate whether or not to subset to 'defined' icd9 codes (see \source{www.rdocumentation.org/packages/icd/versions/2.2/topics/icd_expand_range} for more detail) (logical - TRUE/FALSE) [default: FALSE]. 
+#' @param validate whether or not to subset to 'defined' icd9 codes (\source{www.rdocumentation.org/packages/icd/versions/2.2/topics/icd_expand_range}) (logical - TRUE/FALSE) [default: FALSE]. 
 #' 
 #' @return data.table with the expanded icd9 code list and the associated code range names. 
 #' 
