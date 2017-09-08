@@ -51,11 +51,22 @@ print("Test Examples - NOT automatically executed")
 ```
 
 - **_Conventional Parameter Names_**: While each added function will require it's own set of parameters, the functional nature of many is common across various methods in the package, for example, a `data.table` containing the source information / data that needs to be transformed. For uniformity, simplicity and to avoid sheer forgetfulness, the authors suggest using the following conventional variable names for parameters to the extent possible:
-	- `data`:For any `data.frame` or `data.table` that requires transformation / is the source of data in any manner
-	- `start_date`: Any date that represents the start of the timeframe of interest. By default, readers may assume that this date is **inclusive** when specified as part of a range.
-	- `end_date`: Analogous to `start_date`, and used to indicate when the timeframe of interest will terminate. Like `start_date`, this date is also understood to be **inclusive** when specified as part of a range, unless otherwise mentioned explicitly.
+
+	- `data`: For any `data.frame` or `data.table` that requires transformation / is the source of data in any manner
+	
+	- `start_date`: Any date that represents the start of the timeframe of interest. By default, readers 
+	may assume that this date is **inclusive** when specified as part of a range.
+	
+	- `end_date`: Analogous to `start_date`, and used to indicate when the timeframe of interest will 
+		terminate. Like `start_date`, this date is also understood to be **inclusive** when specified as part of a 
+		range, unless otherwise mentioned explicitly.
+		
 	- `[...]_col`: Any column name (in a data.table or data.frame), e.g. `date_col`
+	
 	- `quiet`: Indicate whether to run a function with more or less extensive output (TRUE/FALSE).
+	
 	- `ndigit`: Number of digits used in any rounding operations. 
-	- `inplace`: Whether to modify a data.table in place (TRUE/FALSE)
-	- `ggplt`: Refer to any ggplot object
+	
+	- `inplace`: Whether to modify a data.table in place (TRUE/FALSE).
+	
+	- `ggplt`: Refer to any ggplot object.
