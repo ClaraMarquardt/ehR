@@ -2,7 +2,7 @@
 
 #' Combine elements of a frequency table into a (character) string or formatted table. 
 #' 
-#' \
+#' @
 #' 
 #' @details Maintained by: Clara Marquardt
 #' 
@@ -21,19 +21,20 @@
 #' @return formatted (character) string or data.table. 
 #' 
 #' @examples
-#' data_raw  <- table(dia$dia_name)
-#' freq_string <- freq_table_comb(data=data_raw, expl_text="Percent of Principal Diagnoses", 
-#' element_number=10, sort=TRUE, item_sep="/", string_table="string")
-#' print(freq_string)
-#' data <- freq_table_comb(data=data_raw, expl_text="Percent of Principal Diagnoses", 
-#' element_number=10, sort=TRUE, item_sep="/", string_table="table")
-#' print(data)
+data_raw  <- prop.table(table(dia$dia_name)
+freq_string <- stringify_frequency(data=data_raw, expl_text="Percent of Principal Diagnoses", 
+element_number=10, sort=TRUE, item_sep="/", string_table="string", ndigit=3)
+print(freq_string)
+data <- stringify_frequency(data=data_raw, expl_text="Percent of Principal Diagnoses", 
+element_number=10, sort=TRUE, item_sep="/", string_table="table", ndigit=3)
+print(data)
 
-freq_table_comb <- function(data, expl_text, element_number=10, sort=TRUE, 
-  string_table="string", item_sep="/", text_col=NA, number_col=NA ) {
+stringify_frequency <- function(data, expl_text, element_number=10, sort=TRUE, 
+  string_table="string", item_sep="/", text_col=NA, number_col=NA , ndigit=3) {
 
   # format frequency table
   data <- data.frame(data)
+
   
   # identify columns
   if (is.na(text_col)) text_col <- names(data)[which(sapply(data,function(x) 
@@ -45,6 +46,9 @@ freq_table_comb <- function(data, expl_text, element_number=10, sort=TRUE,
   data[[text_col]] <- as.character(data[[text_col]] )
   if (sort==TRUE) data <- data[with(data, rev(order(get(number_col)))),]
   data <- data[1:element_number,]
+
+  # order
+  data <- round(data[, get(number_col)])
 
   # generate string
   if (string_table=="string")  { 

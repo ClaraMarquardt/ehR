@@ -23,26 +23,26 @@
 #' ## mode - set_na_zero
 #' sample_data[c(1,3,4), ':='(test_col=c(NA, -Inf), test_col_1=NA)]
 #' print(sample_data)
-#' dt_replace(data=sample_data, mode="set_na_zero", col=c("test_col"))
+#' replace_na_zero_missing(data=sample_data, replace="set_na_zero", col=c("test_col"))
 #' print(sample_data)
 
 #' ## mode - set_zero_na
 #' sample_data[c(1,3,4), ':='(test_col=0, test_col_1=0)]
 #' print(sample_data)
-#' dt_replace(data=sample_data, mode="set_zero_na", col=c("test_col_1"))
+#' replace_na_zero_missing(data=sample_data, replace="set_zero_na", col=c("test_col_1"))
 #' print(sample_data)
 #' 
 #' ## mode - set_missing_na
 #' sample_data[, ':='(test_col=as.character(test_col), test_col_1=as.character(test_col_1))]
 #' sample_data[c(1,3,4), ':='(test_col=" ", test_col_1="     ")]
 #' print(sample_data)
-#' dt_replace(data=sample_data, mode="set_missing_na")
+#' replace_na_zero_missing(data=sample_data, replace="set_missing_na")
 #' print(sample_data)
 
-dt_replace <- function(data, mode, replace="DEFAULT", col=names(data)) {
+replace_na_zero_missing <- function(data, replace, replace_with="DEFAULT", col=names(data)) {
 
 	# [1] set_na_zero
-	if (mode=="set_na_zero") {
+	if (replace=="set_na_zero") {
 
 		# define function (set_na_zero)
 		set_na_zero <- function(data, replace, subset_col) {
@@ -53,11 +53,11 @@ dt_replace <- function(data, mode, replace="DEFAULT", col=names(data)) {
 		}
 
 		# execute function
-		if (replace=="DEFAULT") replace <- 0
-		set_na_zero(data=data, replace=replace, subset_col=col)
+		if (replace_with=="DEFAULT") replace_with <- 0
+		set_na_zero(data=data, replace=replace_with, subset_col=col)
 
 	# [2] set_zero_na
-	} else if (mode=="set_zero_na") {
+	} else if (replace=="set_zero_na") {
 
 		# define function (set_zero_na)
 		set_zero_na <- function(data, replace, subset_col) {
@@ -67,11 +67,11 @@ dt_replace <- function(data, mode, replace="DEFAULT", col=names(data)) {
 		}
 
 		# execute function
-		if (replace=="DEFAULT") replace <- NA
-		set_zero_na(data=data, replace=replace, subset_col=col)
+		if (replace_with=="DEFAULT") replace_with <- NA
+		set_zero_na(data=data, replace=replace_with, subset_col=col)
 
 	# [3] set_missing_na
-	} else if (mode=="set_missing_na") {
+	} else if (replace=="set_missing_na") {
 		
 		# define function (set_missing_na)
 		set_missing_na <- function(data, replace=NA, subset_col=names(data)) {
@@ -82,8 +82,8 @@ dt_replace <- function(data, mode, replace="DEFAULT", col=names(data)) {
 		}
 
 		# execute function
-		if (replace=="DEFAULT") replace <- NA
-		set_missing_na(data=data, replace=replace, subset_col=col)
+		if (replace_with=="DEFAULT") replace_with <- NA
+		set_missing_na(data=data, replace=replace_with, subset_col=col)
 
 	}
 

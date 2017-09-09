@@ -2,7 +2,7 @@
 
 #' Expand a list of icd9 code ranges. 
 #' 
-#' \
+#' @description: Given a data.table with a column containing one or more ICD9 code ranges (separated by ";"), and another with the name of the corresponding condition, return a data.table with an expanded, comprehensive list of all valid ICD9 codes falling in the listed range(s), along with names of the condition inherited from the original table.
 #' 
 #' @details Maintained by: Clara Marquardt
 #' 

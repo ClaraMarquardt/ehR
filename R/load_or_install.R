@@ -69,7 +69,6 @@ load_or_install <- function(package_list, custom_lib_path="",
 
       }
 
-    
       # special case - "data.table" (1.9.6 version)
       if (x=="data.table" & custom_package_version==TRUE) {
     
