@@ -27,12 +27,14 @@ matrix containing formatted results from the provided regression list (matrix)
 : Given a list of formulae (as strings), type of regression, and data, run listed regressions, return formatted results, & optionally  write to file. OLS, OLS with clustered SE, and logistic regressions currently supported.
 }
 \examples{
+dem_temp <- copy(dem)
+dem_temp[, died:=0][!is.na(date_of_death), died:=1]
 glm_reg_list <- list("died ~ age", "died ~ age + gender", "died ~ age + gender + race")
-multiformat_regression(type = "logistic", formula_list = reg_list, data = dem)
+multiformat_regression(type = "logistic", formula_list = glm_reg_list, data = dem_temp)
 
 dem_dia <- merge(x = dem, y = dia, by = "empi", all.y = TRUE)
 dem_dia[, pt_dia_count := .N, by = "empi"]
 pt_dem_dia <- unique(dem_dia, by = "empi")
 lm_reg_list <- list("pt_dia_count ~ age", "pt_dia_count ~ age + gender", "pt_dia_count ~ age + gender + race")
-multiformat_regression(type = "ols", formula_list = lm_reg_list)
+multiformat_regression(type = "ols", formula_list = lm_reg_list, data=pt_dem_dia)
 }

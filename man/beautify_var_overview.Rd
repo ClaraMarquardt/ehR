@@ -23,7 +23,7 @@ beautify_var_overview(var_overview_dt, data_definition_dt = NA, output_file,
 }
 \examples{
 \dontrun{
-     var_overview_dt <- var_overview(dem)
-		beautify_var_overview(var_overview_dt = var_overview_dt, output_file = "Summary.xlsx")
+var_overview_dt <- var_overview(dem)
+beautify_var_overview(var_overview_dt = var_overview_dt, output_file = "Summary.xlsx")
 }
 }

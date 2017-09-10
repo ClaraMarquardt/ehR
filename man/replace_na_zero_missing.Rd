@@ -2,7 +2,7 @@
 % Please edit documentation in R/replace_na_zero_missing.R
 \name{replace_na_zero_missing}
 \alias{replace_na_zero_missing}
-\title{Perform a set of common in-place modifications on a data.table.}
+\title{Perform in-place zero/na/missing replacements on a data.table.}
 \usage{
 replace_na_zero_missing(data, replace, replace_with = "DEFAULT",
   col = names(data))
@@ -14,33 +14,36 @@ replace_na_zero_missing(data, replace, replace_with = "DEFAULT",
 
 \item{col}{Vector of column names which are to be modified (vector - character) [Default: All columns in the data].}
 
-\item{mode}{Modification which is to be performed ((i) set_na_zero (replace: Na, inf, -inf -> 0) (ii) set_zero_na (replace: 0 -> NA), (iii) set_missing_na (replace: " "* -> NA) (character).}
+\item{mode}{Value which is to be replaced ((i) 'na_inf' (replace: Na, inf, -inf -> 0) (ii) 'zero' (replace: 0 -> NA), (iii) 'missing' (replace: " "* -> NA) (character).}
 }
 \value{
 data.table modified in place
 }
+\description{
+Perform an operation of choice on a data.table (in-place): (i) replace na/inf values (ii) replace zero values (iii) replace missing values (e.g. " ").
+}
 \details{
-Maintained by: Clara Marquardata
+Maintained by: Clara Marquardt
 }
 \examples{
-sample_data <- copy(test_data)
-sample_data[, ':='(test_col=prediction, test_col_1=control_cat_3)]
+sample_data <- copy(ehR_cohort)
+sample_data[, ':='(test_col=prediction, test_col_1=feature_categorical_3)]
 
-## mode - set_na_zero
-sample_data[c(1,3,4), ':='(test_col=c(NA, -Inf), test_col_1=NA)]
+## replace: na_inf
+sample_data[c(1,3,4), ':='(test_col=c(NA, -Inf, NA), test_col_1=NA)]
 print(sample_data)
-replace_na_zero_missing(data=sample_data, replace="set_na_zero", col=c("test_col"))
+replace_na_zero_missing(data=sample_data, replace="na_inf", col=c("test_col"))
 print(sample_data)
-## mode - set_zero_na
+
+## replace: zero
 sample_data[c(1,3,4), ':='(test_col=0, test_col_1=0)]
 print(sample_data)
-replace_na_zero_missing(data=sample_data, replace="set_zero_na", col=c("test_col_1"))
+replace_na_zero_missing(data=sample_data, replace="zero", col=c("test_col_1"))
 print(sample_data)
-
-## mode - set_missing_na
+## mode - missing
 sample_data[, ':='(test_col=as.character(test_col), test_col_1=as.character(test_col_1))]
 sample_data[c(1,3,4), ':='(test_col=" ", test_col_1="     ")]
 print(sample_data)
-replace_na_zero_missing(data=sample_data, replace="set_missing_na")
+replace_na_zero_missing(data=sample_data, replace="missing")
 print(sample_data)
 }

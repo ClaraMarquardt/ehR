@@ -20,7 +20,10 @@ load_or_install(package_list, custom_lib_path = "",
 \item{verbose}{Verbosity (logical - TRUE/FALSE) [Default: TRUE].}
 }
 \value{
-List of packages which were succesfully installed/loaded.
+List of packages which were successfully installed/loaded.
+}
+\description{
+Given a list of packages (e.g. list("data.table", "claramarquardt/ehR")) install (where necessary)/load all packages from CRAN/Github as appropriate.
 }
 \details{
 Maintained by: Clara Marquardt
@@ -29,6 +32,6 @@ Maintained by: Clara Marquardt
 \dontrun{
 package <- list("data.table", "trinker/plotflow")
 load_or_install(package_list=package, custom_lib_path=paste0(getwd(), "/test/"), 
-verbose=TRUE)
+ quiet=FALSE)
 }
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/multi_merge.R
 \name{multi_merge}
 \alias{multi_merge}
-\title{Sequentially merge a list of data.tables on a given set of variables (inner-join).}
+\title{Merge together multiple data.tables.}
 \usage{
 multi_merge(data_list, key_var, allow.cartesian = FALSE)
 }
@@ -15,6 +15,9 @@ multi_merge(data_list, key_var, allow.cartesian = FALSE)
 }
 \value{
 Merged data.table.
+}
+\description{
+Sequentially merge a list of data.tables on a given set of variables (inner-join).
 }
 \details{
 Maintained by: Clara Marquardt

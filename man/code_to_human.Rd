@@ -15,6 +15,6 @@ code_to_human(string, capitalization_length = 1)
 : A function that turns code based variable names to human friendly names, useful in particular for converting variable names with underscores to more easily interpretable words as axis labels in plots and in spreadsheets.
 }
 \examples{
-code_to_human("age_years") \\#"Age Years"
-code_to_human("icu_patient_count", 3) \\# "ICU Patient Count"
+code_to_human("age_years") # "Age Years"
+code_to_human("icu_patient_count", 3) # "ICU Patient Count"
 }

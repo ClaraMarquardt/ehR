@@ -26,13 +26,13 @@ matrix containing formatted results from the provided regression list (matrix)
 }
 \examples{
 \dontrun{
-	dem_dia <- merge(x = dem, y = dia, by = "empi", all.y = TRUE)
- dem_dia[, pt_dia_count := .N, by = "empi"]
- pt_dem_dia <- unique(dem_dia, by = "empi")
- lm_dia_count_age <- lm(pt_dia_count ~ age, data = pt_dem_dia)
- lm_dia_count_age_gender <- lm(pt_dia_count ~ age + gender, data = pt_dem_dia)
- lm_dia_count_age_gender_race <- lm(pt_dia_count ~ age + gender + race, data = pt_dem_dia)
- lm_list <- list(lm_dia_count_age, lm_dia_count_age_gender, lm_dia_count_age_gender_race)
- multiformat_lm(lm_list = lm_list, output_file = "dia_count_lm_variation.csv")
+dem_dia <- merge(x = dem, y = dia, by = "empi", all.y = TRUE)
+dem_dia[, pt_dia_count := .N, by = "empi"]
+pt_dem_dia <- unique(dem_dia, by = "empi")
+lm_dia_count_age <- lm(pt_dia_count ~ age, data = pt_dem_dia)
+lm_dia_count_age_gender <- lm(pt_dia_count ~ age + gender, data = pt_dem_dia)
+lm_dia_count_age_gender_race <- lm(pt_dia_count ~ age + gender + race, data = pt_dem_dia)
+lm_list <- list(lm_dia_count_age, lm_dia_count_age_gender, lm_dia_count_age_gender_race)
+multiformat_lm(lm_list = lm_list, output_file = "dia_count_lm_variation.csv")
 }
 }

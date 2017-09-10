@@ -25,11 +25,12 @@ matrix containing formatted results from the provided regression list (matrix)
 : Given a list of logistic regressions, *performed using glm()* format, return and optionally, write the results side-by-side to csv.
 }
 \examples{
-dem[, died := 0, ]
-dem[tolower(vital_status) \%like\% "deceased", died := 1, ]
-glm_age             <- glm(died ~ age, data = dem)
-glm_age_gender      <- glm(died ~ age + gender, data = dem)
-glm_age_gender_race <- glm(died ~ age + gender + race, data = dem)
+dem_temp <- copy(dem)
+dem_temp[, died := 0, ]
+dem_temp[tolower(vital_status) \%like\% "deceased", died := 1, ]
+glm_age             <- glm(died ~ age, data = dem_temp)
+glm_age_gender      <- glm(died ~ age + gender, data = dem_temp)
+glm_age_gender_race <- glm(died ~ age + gender + race, data = dem_temp)
 glm_list            <- list(glm_age, glm_age_gender, glm_age_gender_race)
 multiformat_glm(glm_list = glm_list)
 }

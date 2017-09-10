@@ -21,6 +21,9 @@ var_overview(data, observation_unit = NA, alternative_id = NA,
 \value{
 Overview of dataset [data.table]
 }
+\description{
+Dynamically generate an overview of a given dataset taking into account variable types.
+}
 \details{
 Maintained by: Clara Marquardt
 }

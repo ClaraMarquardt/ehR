@@ -7,14 +7,17 @@
 load_or_install_local(package_list, custom_lib_path = "", quiet = FALSE)
 }
 \arguments{
-\item{package_list}{List of package paths which are to be installed/loaded (list - character).}
+\item{package_list}{List of package paths which are to be installed/loaded (e.g. list("~/Desktop/ehR")) - character).}
 
 \item{custom_lib_path}{Custom library path (character) [Default: Default library path].}
 
 \item{quiet}{Verbosity (logical - TRUE/FALSE) [Default: TRUE].}
 }
 \value{
-List of packages which were succesfully installed/loaded.
+List of packages which were successfully installed/loaded.
+}
+\description{
+Given a list of paths to locally stored packages, i.e. R package folders (e.g. list("~/Desktop/ehR")) load all functions/data sets into the global namespace.
 }
 \details{
 Maintained by: Clara Marquardt
@@ -22,6 +25,6 @@ Maintained by: Clara Marquardt
 \examples{
 \dontrun{
 package <- list("[package path]", "[package path]") ## do NOT end in a /
-load_or_install_local(package_list=package, custom_lib_path=paste0(getwd(), "/test/"), quiet=TRUE)
+load_or_install_local(package_list=package, custom_lib_path=paste0(getwd(), "/test/"), quiet=FALSE)
 }
 }

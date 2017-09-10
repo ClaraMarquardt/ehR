@@ -6,7 +6,7 @@
 \usage{
 ggplot_footnote_summary(ggplt, summary_list, summary_title_vec, ndigit = 3,
   font = "Helvetica", font_size = 8, font_color = "#3A3F3F",
-  output_file = NA, plot_theme = TRUE)
+  output_file = NA)
 }
 \arguments{
 \item{ggplt}{The ggplot to which the summary(summaries) are to be appended (ggplot2 object)}
@@ -21,19 +21,18 @@ ggplot_footnote_summary(ggplt, summary_list, summary_title_vec, ndigit = 3,
 
 \item{font_size}{footnote text size, 8 by default (numeric)}
 
-\item{font_color}{color of footnote text, dark grey by default (character expressing hex or RGB color)}
+\item{font_color}{color of footnote text, dark gray by default (character expressing hex or RGB color)}
 
 \item{output_file}{Path and filename to save resulting plot with footnote as (NA, means don't save - default) (character)}
-
-\item{plot_theme}{Whether to format the plot (using theme_basic()) (logical)}
 }
 \description{
 : A function that, given a ggplot object, list of summaries (each obtained using summary() in base R), a name for each summary object and an output file, returns (and saves) a version of the plot with a the summary (summaries) at the bottom of the plot.
 }
 \examples{
 \dontrun{
-		gender_summary <- list(summary(dem[gender == "female", ]$age), summary(dem[gender == "male", ]$age))
-		age_distribution <- ggplot(data = dem, aes(x = age, color = factor(gender))) + geom_density()
-		ggplot_footnote_summary(ggplt = age_distribution, summary_list = gender_summary, summary_title_vec = c("Female", "   Male"), output_file = "age_distribution_by_gender.png")
+gender_summary <- list(summary(dem[gender == "female", ]$age), summary(dem[gender == "male", ]$age))
+age_distribution <- ggplot(data = dem, aes(x = age, color = factor(gender))) + geom_density()
+ggplot_footnote_summary(ggplt = age_distribution, summary_list = gender_summary, summary_title_vec = c("Female", "   Male"), 
+ output_file = "age_distribution_by_gender.png")
 }
 }

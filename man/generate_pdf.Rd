@@ -29,14 +29,17 @@ generate_pdf(ggplt_list, ncol_plot = 3, nrow_plot = 3, output_path,
 \value{
 Generate and save a PDF with all plots.
 }
+\description{
+Given a list of ggplot objects - arrange the plots on a page (with a specified number of plots columns/rows per page) and save as a (multi-page) PDF
+}
 \details{
 Maintained by: Clara Marquardt
 }
 \examples{
 \\{dontrun
 plot_1 <- ggplot(data=dia[1:15]) + 
-geom_bar(aes(x=dia_code)) + 
-theme_basic()
+	geom_bar(aes(x=dia_code)) + 
+	theme_basic()
 plot_list <- list(plot_1, plot_1, plot_1, plot_1,plot_1, plot_1, plot_1)
 generate_pdf(ggplt_list=plot_list, ncol_plot=3, nrow_plot=2, 
  output_path="", output_file="merge_pdf_test", orientation="horizontal", 

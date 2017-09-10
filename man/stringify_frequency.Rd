@@ -2,11 +2,10 @@
 % Please edit documentation in R/stringify_frequency.R
 \name{stringify_frequency}
 \alias{stringify_frequency}
-\title{Combine elements of a frequency table into a (character) string or formatted table.}
+\title{Combine elements of a frequency table into a (character) string.}
 \usage{
 stringify_frequency(data, expl_text, element_number = 10, sort = TRUE,
-  string_table = "string", item_sep = "/", text_col = NA,
-  number_col = NA, ndigit = 3)
+  item_sep = "/", text_col = NA, number_col = NA, ndigit = 3)
 }
 \arguments{
 \item{data}{frequency table (table(x) output).}
@@ -16,8 +15,6 @@ stringify_frequency(data, expl_text, element_number = 10, sort = TRUE,
 \item{element_number}{number of rows of the frequency table which are to be included (integer) [default:10].}
 
 \item{sort}{whether to sort the frequency table (descending order) (logical - TRUE/FALSE) [default: TRUE].}
-
-\item{string_table}{whether to return a string or table (character - "string"/"table") [default: "string"].}
 
 \item{item_sep}{symbol used to separate the elements in the string (character) [default: "//"].}
 
@@ -29,17 +26,14 @@ stringify_frequency(data, expl_text, element_number = 10, sort = TRUE,
 formatted (character) string or data.table.
 }
 \description{
-Combine elements of a frequency table into a (character) string or formatted table.
+Combine elements of a frequency table into a (character) string.
 }
 \details{
 Maintained by: Clara Marquardt
 }
 \examples{
-data_raw  <- prop.table(table(dia$dia_name))
-freq_string <- stringify_frequency(data=data_raw, expl_text="Percent of Principal Diagnoses", 
-element_number=10, sort=TRUE, item_sep="/", string_table="string", ndigit=3)
+data_raw  <- prop.table(table(dia$dia_name))*100
+freq_string <- stringify_frequency(data=data_raw, expl_text="Percent of Principal Diagnoses (\%)", 
+  element_number=5, sort=TRUE, item_sep="//", ndigit=3)
 print(freq_string)
-data <- stringify_frequency(data=data_raw, expl_text="Percent of Principal Diagnoses", 
-element_number=10, sort=TRUE, item_sep="/", string_table="table", ndigit=3)
-print(data)
 }
