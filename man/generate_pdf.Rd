@@ -4,21 +4,21 @@
 \alias{generate_pdf}
 \title{Convert a list of ggplot objects into a (multi-page) PDF.}
 \usage{
-generate_pdf(ggplot_list, ncol_plot = 3, nrow_plot = 3, file_path,
-  file_name, orientation = "vertical", share_legend = FALSE,
+generate_pdf(ggplt_list, ncol_plot = 3, nrow_plot = 3, output_path,
+  output_file, orientation = "vertical", share_legend = FALSE,
   quiet = FALSE, height_plot = NULL, width_plot = NULL,
   height_overall = NULL, width_overall = NULL)
 }
 \arguments{
-\item{ggplot_list}{List of ggplot objects (list - ggplot).}
+\item{ggplt_list}{List of ggplot objects (list - ggplot).}
 
 \item{ncol_plot}{Number of plot columns on each page of the final PDF (integer) [default: 3].}
 
 \item{nrow_plot}{Number of plot rows on each page of the final PDF (integer) [default: 3].}
 
-\item{file_path}{Path where the final PDF is to be saved ("...../") (character).}
+\item{output_path}{Path where the final PDF is to be saved ("...../") (character).}
 
-\item{file_name}{Namer under which the final PDF is to be saved ("...pdf") (character).}
+\item{output_file}{Namer under which the final PDF is to be saved ("...pdf") (character).}
 
 \item{orientation}{Page orientation of the final PDF (character - "vertical"/"horizontal") [default: "vertical"].}
 
@@ -30,7 +30,7 @@ generate_pdf(ggplot_list, ncol_plot = 3, nrow_plot = 3, file_path,
 Generate and save a PDF with all plots.
 }
 \details{
-Maintainer: Clara Marquardt
+Maintained by: Clara Marquardt
 }
 \examples{
 \\{dontrun
@@ -38,8 +38,8 @@ plot_1 <- ggplot(data=dia[1:15]) +
 geom_bar(aes(x=dia_code)) + 
 theme_basic()
 plot_list <- list(plot_1, plot_1, plot_1, plot_1,plot_1, plot_1, plot_1)
-generate_pdf(ggplot_list=plot_list, ncol_plot=3, nrow_plot=2, 
- file_path="", file_name="merge_pdf_test", orientation="horizontal", 
+generate_pdf(ggplt_list=plot_list, ncol_plot=3, nrow_plot=2, 
+ output_path="", output_file="merge_pdf_test", orientation="horizontal", 
  share_legend=FALSE, quiet=FALSE) 
 }
 }

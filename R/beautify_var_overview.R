@@ -16,8 +16,8 @@
 #' @param source source of data / cohort name (to print in Excel) (character)
 #' @param sheet_title Title of overview sheet (character)
 #' @examples \dontrun{
-#'      var_overview_dt <- var_overview(dem)
-#' 		beautify_var_overview(var_overview_dt = var_overview_dt, output_file = "Summary.xlsx")
+#' var_overview_dt <- var_overview(dem)
+#' beautify_var_overview(var_overview_dt = var_overview_dt, output_file = "Summary.xlsx")
 #' }
 
 beautify_var_overview <- function(var_overview_dt, data_definition_dt = NA, output_file, 
@@ -35,8 +35,6 @@ beautify_var_overview <- function(var_overview_dt, data_definition_dt = NA, outp
 	  setCellStyle(sheetTitle[[1,1]], titleStyle)
 	}
 
-	library(splitstackshape)
-	library(xlsx)
 	wb <- createWorkbook(type = "xlsx")
 
 	# identity row number to split var_overview at 

@@ -10,5 +10,5 @@ load_dep()
 Add any (temporary) dependencies as @import statements.
 }
 \details{
-Maintainer: Clara Marquardt
+Maintained by: Clara Marquardt
 }

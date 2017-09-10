@@ -4,24 +4,24 @@
 \alias{load_or_install_local}
 \title{Load or install R packages (Local).}
 \usage{
-load_or_install_local(package_list, custom_lib_path = "", verbose = TRUE)
+load_or_install_local(package_list, custom_lib_path = "", quiet = FALSE)
 }
 \arguments{
 \item{package_list}{List of package paths which are to be installed/loaded (list - character).}
 
 \item{custom_lib_path}{Custom library path (character) [Default: Default library path].}
 
-\item{verbose}{Verbosity (logical - TRUE/FALSE) [Default: TRUE].}
+\item{quiet}{Verbosity (logical - TRUE/FALSE) [Default: TRUE].}
 }
 \value{
 List of packages which were succesfully installed/loaded.
 }
 \details{
-Maintainer: Clara Marquardt
+Maintained by: Clara Marquardt
 }
 \examples{
 \dontrun{
 package <- list("[package path]", "[package path]") ## do NOT end in a /
-load_or_install_local(package_list=package, custom_lib_path=paste0(getwd(), "/test/"), verbose=TRUE)
+load_or_install_local(package_list=package, custom_lib_path=paste0(getwd(), "/test/"), quiet=TRUE)
 }
 }

@@ -2,7 +2,7 @@
 
 #' Generate a basic overview of a dataset. 
 #' 
-#' \
+#' Dynamically generate an overview of a given dataset taking into account variable types.
 #' 
 #' @details Maintained by: Clara Marquardt
 #' 
@@ -200,7 +200,7 @@ var_overview <- function(data, observation_unit=NA, alternative_id=NA,
 
 
   data_temp <- copy(data)
-  dt_replace(data=data_temp, mode="set_missing_na") # to ensure that missingness is correctly calculated
+  replace_na_zero_missing(data=data_temp, replace="missing") # to ensure that missingness is correctly calculated
   
   feature_vital_sign <- rbindlist(list(feature_vital_sign, data.table(
     var_name=c("", "unit of observation:", "number of observations:", paste0("number of ", 
@@ -247,7 +247,7 @@ var_overview <- function(data, observation_unit=NA, alternative_id=NA,
   ## deal with NAs
   feature_vital_sign[, names(feature_vital_sign):=lapply(.SD, function(x) as.character(x)), 
     .SDcols=names(feature_vital_sign)]
-  dt_replace(data=feature_vital_sign, mode="set_na_zero")
+  replace_na_zero_missing(data=feature_vital_sign, replace="na_inf")
 
  return(feature_vital_sign)
 

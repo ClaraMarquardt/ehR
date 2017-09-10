@@ -15,14 +15,14 @@
 #' @param ndigit level of precision in output, 5 by default (integer)
 #' @return matrix containing formatted results from the provided regression list (matrix)
 #' @examples \dontrun{
-#' 	dem_dia <- merge(x = dem, y = dia, by = "empi", all.y = TRUE)
-#'  dem_dia[, pt_dia_count := .N, by = "empi"]
-#'  pt_dem_dia <- unique(dem_dia, by = "empi")
-#'  lm_dia_count_age <- lm(pt_dia_count ~ age, data = pt_dem_dia)
-#'  lm_dia_count_age_gender <- lm(pt_dia_count ~ age + gender, data = pt_dem_dia)
-#'  lm_dia_count_age_gender_race <- lm(pt_dia_count ~ age + gender + race, data = pt_dem_dia)
-#'  lm_list <- list(lm_dia_count_age, lm_dia_count_age_gender, lm_dia_count_age_gender_race)
-#'  multiformat_lm(lm_list = lm_list, output_file = "dia_count_lm_variation.csv")
+#' dem_dia <- merge(x = dem, y = dia, by = "empi", all.y = TRUE)
+#' dem_dia[, pt_dia_count := .N, by = "empi"]
+#' pt_dem_dia <- unique(dem_dia, by = "empi")
+#' lm_dia_count_age <- lm(pt_dia_count ~ age, data = pt_dem_dia)
+#' lm_dia_count_age_gender <- lm(pt_dia_count ~ age + gender, data = pt_dem_dia)
+#' lm_dia_count_age_gender_race <- lm(pt_dia_count ~ age + gender + race, data = pt_dem_dia)
+#' lm_list <- list(lm_dia_count_age, lm_dia_count_age_gender, lm_dia_count_age_gender_race)
+#' multiformat_lm(lm_list = lm_list, output_file = "dia_count_lm_variation.csv")
 #' }
 
 multiformat_lm <- function(lm_list, output_file = NA, formula_list = NA, title_list = NA, ndigit = 5) {
@@ -106,7 +106,7 @@ multiformat_lm <- function(lm_list, output_file = NA, formula_list = NA, title_l
 	# drop first two columns which are blank (as a result of formatting in a loop with no exceptions for the first regression)
 	composite_matrix <- composite_matrix[, -(1:2)]
 
-	# write resuts if output file specified
+	# write results if output file specified
 	if(!is.na(output_file)) {
 		write.table(composite_matrix, file=output_file, row.names=FALSE, col.names = FALSE, sep = ",")
 		print(paste0("Output ", output_file, " created successfully."))

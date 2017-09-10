@@ -15,6 +15,6 @@ data(gagne_code)
 Weights used to derive Gagne Comborbidity Scores.
 }
 \details{
-Maintainer: Clara Marquardt
+Maintained by: Clara Marquardt
 }
 \keyword{datasets}

@@ -10,8 +10,8 @@
 #' @param string The string variable you would like to transform. (character)
 #' @param capitalization_length The length at or below which, substrings should be turned into all CAPS (integer)
 #' @examples
-#' code_to_human("age_years") \#"Age Years"
-#' code_to_human("icu_patient_count", 3) \# "ICU Patient Count"
+#' code_to_human("age_years") # "Age Years"
+#' code_to_human("icu_patient_count", 3) # "ICU Patient Count"
 
 code_to_human <- function(string, capitalization_length = 1){
 	

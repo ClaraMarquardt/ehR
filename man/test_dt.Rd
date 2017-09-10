@@ -12,6 +12,6 @@ data(test_dt)
 Cohort-style data.table to faciliate function/code testing and validation.
 }
 \details{
-Maintainer: Clara Marquardt
+Maintained by: Clara Marquardt
 }
 \keyword{datasets}

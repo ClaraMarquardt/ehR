@@ -12,6 +12,6 @@ data(ed)
 Simulated EHR data (no PHI constraints) featuring ED data for ~500 patients.
 }
 \details{
-Maintainer: Clara Marquardt
+Maintained by: Clara Marquardt
 }
 \keyword{datasets}

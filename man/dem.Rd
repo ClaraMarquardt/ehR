@@ -4,7 +4,7 @@
 \name{dem}
 \alias{dem}
 \title{Simulated EHR data - Demograhics.}
-\format{An object of class \code{data.table} (inherits from \code{data.frame}) with 400 rows and 8 columns.}
+\format{An object of class \code{data.table} (inherits from \code{data.frame}) with 400 rows and 9 columns.}
 \usage{
 data(dem)
 }
@@ -12,6 +12,6 @@ data(dem)
 Simulated EHR data (no PHI constraints) featuring demographics data for ~500 patients.
 }
 \details{
-Maintainer: Clara Marquardt
+Maintained by: Clara Marquardt
 }
 \keyword{datasets}

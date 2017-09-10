@@ -25,5 +25,10 @@ matrix containing formatted results from the provided regression list (matrix)
 :Given a list of OLS regressions on panel data, *performed using plm()* (in order to obtain clustered SEs), format, return and optionally, write the results side-by-side in a csv.
 }
 \examples{
-TBC
+\dontrun{
+ plm_income_age_gender <- plm (monthly_income ~ age , index = "gender", data=dem, model="within") 
+ plm_income_dob_gender <- plm (monthly_income ~ date_of_birth, index = "gender", data=dem, model="within") 
+ plm_list <- list(plm_income_age_gender, plm_income_race_gender)
+ multiformat_plm(plm_list = plm_list, output_file = "income_plm_variation.csv")
+}
 }

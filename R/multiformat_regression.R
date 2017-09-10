@@ -18,14 +18,16 @@
 #' @param ndigit level of precision in output, 5 by default (integer)
 #' @return matrix containing formatted results from the provided regression list (matrix)
 #' @examples
+#' dem_temp <- copy(dem)
+#' dem_temp[, died:=0][!is.na(date_of_death), died:=1]
 #' glm_reg_list <- list("died ~ age", "died ~ age + gender", "died ~ age + gender + race")
-#' multiformat_regression(type = "logistic", formula_list = reg_list, data = dem)
+#' multiformat_regression(type = "logistic", formula_list = glm_reg_list, data = dem_temp)
 #' 
 #' dem_dia <- merge(x = dem, y = dia, by = "empi", all.y = TRUE)
 #' dem_dia[, pt_dia_count := .N, by = "empi"]
 #' pt_dem_dia <- unique(dem_dia, by = "empi")
 #' lm_reg_list <- list("pt_dia_count ~ age", "pt_dia_count ~ age + gender", "pt_dia_count ~ age + gender + race")
-#' multiformat_regression(type = "ols", formula_list = lm_reg_list)
+#' multiformat_regression(type = "ols", formula_list = lm_reg_list, data=pt_dem_dia)
 
 multiformat_regression <- function(type, formula_list, data, output_file = NA,title_list = NA, ndigit = 5, cluster_se_by = NA){
 	switch(type,
@@ -69,6 +71,7 @@ multiformat_regression <- function(type, formula_list, data, output_file = NA,ti
 			####### OTHER OPTIONS NOT SUPPORTED CURRENTLY #######
 			stop("You seem to have entered an unsupported regression type. Try type = \"ols\" or type = \"logistic\" instead.")
 		})
+	
 	return(multiformat_result)
 }
 #----------------------------------------------------------------------------#

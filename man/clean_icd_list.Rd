@@ -4,11 +4,10 @@
 \alias{clean_icd_list}
 \title{Expand a list of icd9 code ranges.}
 \usage{
-clean_icd_list(range_table, code_col, name_col, decimal = TRUE,
-  validate = FALSE)
+clean_icd_list(data, code_col, name_col, decimal = TRUE, validate = FALSE)
 }
 \arguments{
-\item{range_table}{data.table containing a column with icd9 code ranges and code range names (data.table).}
+\item{data}{data.table containing a column with icd9 code ranges and code range names (data.table).}
 
 \item{code_col}{name of the column containing the icd9 code ranges (see the below example) - commented out rows (start with '#') are ignored (character).}
 
@@ -21,12 +20,15 @@ clean_icd_list(range_table, code_col, name_col, decimal = TRUE,
 \value{
 data.table with the expanded icd9 code list and the associated code range names.
 }
+\description{
+: Given a data.table with a column containing one or more ICD9 code ranges (separated by ";"), and another with the name of the corresponding condition, return a data.table with an expanded, comprehensive list of all valid ICD9 codes falling in the listed range(s), along with names of the condition inherited from the original table.
+}
 \details{
-Maintainer: Clara Marquardt
+Maintained by: Clara Marquardt
 }
 \examples{
 orig_table <- copy(gagne_code) 
 print(orig_table$code)        
-code_table  <- clean_icd_list(range_table=orig_table, code_col="code", name_col="condition", decimal=FALSE, validate=FALSE) 
+code_table  <- clean_icd_list(data=orig_table, code_col="code", name_col="condition", decimal=FALSE, validate=FALSE) 
 print(code_table)
 }

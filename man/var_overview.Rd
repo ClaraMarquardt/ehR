@@ -4,28 +4,28 @@
 \alias{var_overview}
 \title{Generate a basic overview of a dataset.}
 \usage{
-var_overview(orig_dt, observation_unit = NA, alt_id = NA,
-  alt_id_name = "observations", file_title = NA)
+var_overview(data, observation_unit = NA, alternative_id = NA,
+  alternative_id_name = "/", data_name = NA)
 }
 \arguments{
-\item{orig_dt}{data.table for which the overview is to be generated (data.table).}
+\item{data}{data.table for which the overview is to be generated (data.table).}
 
 \item{observation_unit}{Observation unit (character).}
 
-\item{alt_id}{name of column corresponding to the alt_id_name (character).}
+\item{alternative_id}{name of column corresponding to the alternative_id_name (character).}
 
-\item{alt_id_name}{alternative observation unit, e.g. "patients" in a diagnosis file with multiple diagnoses per patient (character).}
+\item{alternative_id_name}{alternative observation unit, e.g. "patients" in a diagnosis file with multiple diagnoses per patient (character).}
 
-\item{file_title}{file title (printed at the top of the overview) (character).}
+\item{data_name}{file title (printed at the top of the overview) (character).}
 }
 \value{
 Overview of dataset [data.table]
 }
 \details{
-Maintainer: Clara Marquardt
+Maintained by: Clara Marquardt
 }
 \examples{
-summary_dt <- var_overview(dia, alt_id="empi", alt_id_name="patients",observation_unit="diagnoses", 
-file_title="dia.rda" )
+summary_dt <- var_overview(dia, alternative_id="empi", alternative_id_name="patients",observation_unit="diagnoses", 
+data_name="dia.rda" )
 print(str(summary_dt))
 }

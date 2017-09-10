@@ -16,11 +16,12 @@
 #' @param ndigit level of precision in output, 5 by default (integer)
 #' @return matrix containing formatted results from the provided regression list (matrix)
 #' @examples
-#' dem[, died := 0, ]
-#' dem[tolower(vital_status) %like% "deceased", died := 1, ]
-#' glm_age             <- glm(died ~ age, data = dem)
-#' glm_age_gender      <- glm(died ~ age + gender, data = dem)
-#' glm_age_gender_race <- glm(died ~ age + gender + race, data = dem)
+#' dem_temp <- copy(dem)
+#' dem_temp[, died := 0, ]
+#' dem_temp[tolower(vital_status) %like% "deceased", died := 1, ]
+#' glm_age             <- glm(died ~ age, data = dem_temp)
+#' glm_age_gender      <- glm(died ~ age + gender, data = dem_temp)
+#' glm_age_gender_race <- glm(died ~ age + gender + race, data = dem_temp)
 #' glm_list            <- list(glm_age, glm_age_gender, glm_age_gender_race)
 #' multiformat_glm(glm_list = glm_list)
 
@@ -100,7 +101,7 @@ multiformat_glm <- function(glm_list, output_file = NA, formula_list = NA, title
 	# drop first two columns which are blank (as a result of formatting in a loop with no exceptions for the first regression)
 	composite_matrix <- composite_matrix[, -(1:2)]
 
-	# write resuts if output file specified
+	# write results if output file specified
 	if(!is.na(output_file)) {
 		write.table(composite_matrix, file=output_file, row.names=FALSE, col.names = FALSE, sep = ",")
 		print(paste0("Output ", output_file, " created successfully."))

@@ -2,7 +2,7 @@
 
 #' Merge a list of PDFs into a multi-page PDF.
 #' 
-#' \
+#' Given a list of paths to locally stored PDF files - merge the PDFs (in the given order) and save the newly created PDF to a specified location.
 #' 
 #' @details Maintained by: Clara Marquardt
 #' 
@@ -16,7 +16,7 @@
 #' 
 #' @examples \dontrun{
 #' pdf_list <- list("[path.pdf]", "[path.pdf]") 
-#' merge_pdf(pdf_list=pdf_list, output_file="merge_pdf_test")
+#' merge_PDF(pdf_list=pdf_list, output_file="merge_pdf_test.pdf")
 #' }
 
 merge_PDF <- function(pdf_list, output_file) {

@@ -2,7 +2,7 @@
 
 #' Load or install R packages (from CRAN or Github).
 #'
-#' \ 
+#' Given a list of packages (e.g. list("data.table", "claramarquardt/ehR")) install (where necessary)/load all packages from CRAN/Github as appropriate.
 #'
 #' @details Maintained by: Clara Marquardt
 #'
@@ -16,12 +16,12 @@
 #' @param custom_package_version Whether to take into account version specifications for key packages (data.table, ggplot2) (logical - TRUE/FALSE) [Default: TRUE]. 
 #' @param verbose Verbosity (logical - TRUE/FALSE) [Default: TRUE]. 
 #'
-#' @return List of packages which were succesfully installed/loaded. 
+#' @return List of packages which were successfully installed/loaded. 
 #'
 #' @examples \dontrun{
 #' package <- list("data.table", "trinker/plotflow")
 #' load_or_install(package_list=package, custom_lib_path=paste0(getwd(), "/test/"), 
-#' verbose=TRUE)
+#'  quiet=FALSE)
 #' }
 
 load_or_install <- function(package_list, custom_lib_path="", 
@@ -132,7 +132,7 @@ load_or_install <- function(package_list, custom_lib_path="",
 
   # output
   # -----------------------------
-  cat("\n\n*****************\n\nThe Following Packages Were Succesfully Installed/Loaded:\n\n")
+  cat("\n\n*****************\n\nThe Following Packages Were Successfully Installed/Loaded:\n\n")
   print(package_loaded[[length(package_list)]])
   cat("\n*****************\n\n")
 

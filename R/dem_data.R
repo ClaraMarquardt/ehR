@@ -1,6 +1,6 @@
 #----------------------------------------------------------------------------#
 
-#' Simulated EHR data - Demograhics. 
+#' Simulated EHR data - Demographics. 
 #'
 #' Simulated EHR data (no PHI constraints) featuring demographics data for ~500 patients.
 #'

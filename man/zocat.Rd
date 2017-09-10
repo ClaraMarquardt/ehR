@@ -11,4 +11,7 @@ data(zocat)
 \description{
 Crosswalk between icd9 diagnosis codes and zocat diagnosis categories.
 }
+\details{
+Maintained by: Clara Marquardt
+}
 \keyword{datasets}

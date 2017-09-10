@@ -4,10 +4,10 @@
 \alias{code_to_human}
 \title{: Format code variable names to proper names.}
 \usage{
-code_to_human(code_string, capitalization_length = 1)
+code_to_human(string, capitalization_length = 1)
 }
 \arguments{
-\item{code_string}{The string variable you would like to transform. (character)}
+\item{string}{The string variable you would like to transform. (character)}
 
 \item{capitalization_length}{The length at or below which, substrings should be turned into all CAPS (integer)}
 }

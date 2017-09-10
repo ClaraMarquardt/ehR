@@ -4,10 +4,10 @@
 \alias{multi_merge}
 \title{Sequentially merge a list of data.tables on a given set of variables (inner-join).}
 \usage{
-multi_merge(dt_list, key_var, allow.cartesian = FALSE)
+multi_merge(data_list, key_var, allow.cartesian = FALSE)
 }
 \arguments{
-\item{dt_list}{List of data.tables which are to be merged (list - data.table).}
+\item{data_list}{List of data.tables which are to be merged (list - data.table).}
 
 \item{key_var}{Vector of variable names on the basis of which the data.tables are to be merged (vector - character).}
 
@@ -17,10 +17,10 @@ multi_merge(dt_list, key_var, allow.cartesian = FALSE)
 Merged data.table.
 }
 \details{
-Maintainer: Clara Marquardt
+Maintained by: Clara Marquardt
 }
 \examples{
-dt_list   <- list(ed[1:100], dia[1:100], dem[1:100])
-dt_merged <- multi_merge(dt_list=dt_list, key_var=c("empi"))
+data_list   <- list(ed[1:100], dia[1:100], dem[1:100])
+dt_merged <- multi_merge(data_list=data_list, key_var=c("empi"))
 print(str(dt_merged))
 }

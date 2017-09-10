@@ -12,6 +12,6 @@ data(dia)
 Simulated EHR data (no PHI constraints) featuring diagnosis data for ~500 patients.
 }
 \details{
-Maintainer: Clara Marquardt
+Maintaineed by: Clara Marquardt
 }
 \keyword{datasets}

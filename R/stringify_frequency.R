@@ -1,8 +1,7 @@
 #----------------------------------------------------------------------------#
 
-#' Combine elements of a frequency table into a (character) string or formatted table. 
+#' Combine elements of a frequency table into a (character) string. 
 #' 
-#' @
 #' 
 #' @details Maintained by: Clara Marquardt
 #' 
@@ -14,28 +13,23 @@
 #' @param element_number number of rows of the frequency table which are to be included (integer) [default:10].  
 #' @param sort whether to sort the frequency table (descending order) (logical - TRUE/FALSE) [default: TRUE].
 #' @param item_sep symbol used to separate the elements in the string (character) [default: "//"]. 
-#' @param string_table whether to return a string or table (character - "string"/"table") [default: "string"].
 #' @param text_col name of text column (character) [default: automatically identify column based on column types]. 
 #' @param number_col name of number column (character) [default: automatically identify column based on column types]. 
 #' 
 #' @return formatted (character) string or data.table. 
 #' 
 #' @examples
-data_raw  <- prop.table(table(dia$dia_name)
-freq_string <- stringify_frequency(data=data_raw, expl_text="Percent of Principal Diagnoses", 
-element_number=10, sort=TRUE, item_sep="/", string_table="string", ndigit=3)
-print(freq_string)
-data <- stringify_frequency(data=data_raw, expl_text="Percent of Principal Diagnoses", 
-element_number=10, sort=TRUE, item_sep="/", string_table="table", ndigit=3)
-print(data)
+#' data_raw  <- prop.table(table(dia$dia_name))*100
+#' freq_string <- stringify_frequency(data=data_raw, expl_text="Percent of Principal Diagnoses (%)", 
+#'   element_number=5, sort=TRUE, item_sep="//", ndigit=3)
+#' print(freq_string)
 
 stringify_frequency <- function(data, expl_text, element_number=10, sort=TRUE, 
-  string_table="string", item_sep="/", text_col=NA, number_col=NA , ndigit=3) {
+  item_sep="/", text_col=NA, number_col=NA , ndigit=3) {
 
   # format frequency table
   data <- data.frame(data)
 
-  
   # identify columns
   if (is.na(text_col)) text_col <- names(data)[which(sapply(data,function(x) 
     class(x)[1]) %in% c("character", "factor"))]
@@ -48,33 +42,16 @@ stringify_frequency <- function(data, expl_text, element_number=10, sort=TRUE,
   data <- data[1:element_number,]
 
   # order
-  data <- round(data[, get(number_col)])
+  data[[number_col]] <- round(data[[number_col]], digits=ndigit)
 
   # generate string
-  if (string_table=="string")  { 
-      comb <- paste0(data[[text_col]], " - ", data[[number_col]],  
+  comb <- paste0(data[[text_col]], " - ", data[[number_col]],  
           " ", item_sep," ", collapse=" ")
-      comb <- gsub(paste0(" ", item_sep," $"), "",comb)
-      comb <- paste0(expl_text, ": ", comb)
+  comb <- gsub(paste0(" ", item_sep," $"), "",comb)
+  comb <- paste0(expl_text, ": ", comb)
 
-      comb <- gsub("^[ ]*|[ ]*$", "", comb)
+  comb <- gsub("^[ ]*|[ ]*$", "", comb)
 
-    } else if (string_table=="table") {
-
-     comb <- lapply(1:nrow(data), function(x) {
-
-        comb <- paste0(data[[text_col]][x], " - ", data[[number_col]][x],
-           " ",item_sep," ", collapse=" ")
-        comb <- gsub(paste0(" ",item_sep," $"), "",comb)
-        comb <- paste(comb, expl_text)
-        comb <- gsub("^[ ]*|[ ]*$", "", comb)
-
-     })
-
-     comb <- data.table(data.frame(cbind(comb)))
-     setnames(comb, "")
-    
-    }
 
   # return
   return(comb)

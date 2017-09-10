@@ -2,7 +2,7 @@
 
 #' Convert a list of ggplot objects into a (multi-page) PDF.
 #' 
-#' \
+#' Given a list of ggplot objects - arrange the plots on a page (with a specified number of plots columns/rows per page) and save as a (multi-page) PDF
 #' 
 #' @details Maintained by: Clara Marquardt
 #' 
@@ -26,8 +26,8 @@
 #' 
 #' @examples \{dontrun
 #' plot_1 <- ggplot(data=dia[1:15]) + 
-#'	geom_bar(aes(x=dia_code)) + 
-#'	theme_basic()
+#' 	geom_bar(aes(x=dia_code)) + 
+#' 	theme_basic()
 #' plot_list <- list(plot_1, plot_1, plot_1, plot_1,plot_1, plot_1, plot_1)
 #' generate_pdf(ggplt_list=plot_list, ncol_plot=3, nrow_plot=2, 
 #'  output_path="", output_file="merge_pdf_test", orientation="horizontal", 
@@ -109,8 +109,8 @@ generate_pdf <- function(ggplt_list, ncol_plot=3, nrow_plot=3,
   file_list <- file_list[order(as.numeric(gsub("(.*)(_)([0-9]*)(\\.pdf)$", "\\3", file_list)))]
 
   # merge the generated PDF & save
-  merge_PDF(input_pdf_list=file_list,
-  	output_output_file=paste0(output_path, output_file, "_combined.pdf"))
+  merge_PDF(pdf_list=file_list,
+  	output_file=paste0(output_path, output_file, "_combined.pdf"))
 
   # delete the temporary folder
   unlink(temp_folder_plot, recursive=TRUE)

@@ -44,6 +44,8 @@ theme_basic <-  function(axis_size=0.5, title_size=8, subtitle_size=6,
                   legend_width=0.5, legend_height=0.2, legend_hjust_title=0.5)  { 
 
 
+  ## load fonts
+  loadfonts()
 
   ## pre-built base theme
   theme_bw() +

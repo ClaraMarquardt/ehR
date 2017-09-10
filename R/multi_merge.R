@@ -1,8 +1,8 @@
 #----------------------------------------------------------------------------#
 
-#' Sequentially merge a list of data.tables on a given set of variables (inner-join).
+#' Merge together multiple data.tables. 
 #' 
-#' \
+#' Sequentially merge a list of data.tables on a given set of variables (inner-join).
 #'
 #' @details Maintained by: Clara Marquardt
 #'

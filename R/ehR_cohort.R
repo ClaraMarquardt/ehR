@@ -2,14 +2,14 @@
 
 #' Simulated cohort & feature set.  
 #'
-#' Cohort-style data.table to faciliate function/code testing and validation. 
+#' Cohort-style data.table to facilitate function/code testing and validation. 
 #'
 #' @details Maintained by: Clara Marquardt
 #' 
 #' @docType data
 #' 
-#' @usage data(test_dt)
+#' @usage data(ehR_cohort)
 
-"test_dt"
+"ehR_cohort"
 
 #----------------------------------------------------------------------------#

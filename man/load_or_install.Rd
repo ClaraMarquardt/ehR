@@ -6,7 +6,7 @@
 \usage{
 load_or_install(package_list, custom_lib_path = "",
   custom_repo = "https://cran.rstudio.com", custom_package_version = TRUE,
-  verbose = TRUE)
+  quiet = FALSE)
 }
 \arguments{
 \item{package_list}{List of package names which are to be installed/loaded (list - character).}
@@ -23,7 +23,7 @@ load_or_install(package_list, custom_lib_path = "",
 List of packages which were succesfully installed/loaded.
 }
 \details{
-Maintainer: Clara Marquardt
+Maintained by: Clara Marquardt
 }
 \examples{
 \dontrun{
