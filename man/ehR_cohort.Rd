@@ -4,7 +4,7 @@
 \name{ehR_cohort}
 \alias{ehR_cohort}
 \title{Simulated cohort & feature set.}
-\format{An object of class \code{data.table} (inherits from \code{data.frame}) with 10000 rows and 14 columns.}
+\format{An object of class \code{data.table} (inherits from \code{data.frame}) with 400 rows and 14 columns.}
 \usage{
 data(ehR_cohort)
 }
