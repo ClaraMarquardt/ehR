@@ -20,8 +20,7 @@
 #' 
 #' @examples
 #' data_raw  <- prop.table(table(dia$dia_name))*100
-#' freq_string <- stringify_frequency(data=data_raw, expl_text="Percent of Principal Diagnoses (%)", 
-#'   element_number=5, sort=TRUE, item_sep="//", ndigit=3)
+#' freq_string <- stringify_frequency(data=data_raw, expl_text="Percent of Principal Diagnoses (%)", element_number=5, sort=TRUE, item_sep="//", ndigit=3)
 #' print(freq_string)
 
 stringify_frequency <- function(data, expl_text, element_number=10, sort=TRUE, 

@@ -23,8 +23,7 @@
 #' @examples \dontrun{
 #' gender_summary <- list(summary(dem[gender == "female", ]$age), summary(dem[gender == "male", ]$age))
 #' age_distribution <- ggplot(data = dem, aes(x = age, color = factor(gender))) + geom_density()
-#' ggplot_footnote_summary(ggplt = age_distribution, summary_list = gender_summary, summary_title_vec = c("Female", "   Male"), 
-#'  output_file = "age_distribution_by_gender.png")
+#' plot_summ <- ggplot_footnote_summary(ggplt = age_distribution, summary_list = gender_summary, summary_title_vec = c("Female", "   Male"), output_file = "age_distribution_by_gender.pdf")
 #' }
 
 ggplot_footnote_summary <- function(ggplt, summary_list, summary_title_vec, ndigit = 3, font = "Helvetica", font_size = 8, font_color = "#3A3F3F", output_file = NA){
@@ -35,7 +34,6 @@ ggplot_footnote_summary <- function(ggplt, summary_list, summary_title_vec, ndig
 	footnote_string <- paste(summary_title_vec, summ_string, sep = ": ") %>% paste(., collapse = "\n ") # combine list into a string
 
 	##################### add footnote to plot #####################
-
 
 	g <- arrangeGrob(ggplt, 
 					 bottom = textGrob(footnote_string, x = 0, hjust = -0.2, vjust=0.2, 

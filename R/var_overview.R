@@ -18,8 +18,7 @@
 #' @return Overview of dataset [data.table]
 #' 
 #' @examples
-#' summary_dt <- var_overview(dia, alternative_id="empi", alternative_id_name="patients",observation_unit="diagnoses", 
-#' data_name="dia.rda" )
+#' summary_dt <- var_overview(dia, alternative_id="empi", alternative_id_name="patients",observation_unit="diagnoses", data_name="dia.rda" )
 #' print(str(summary_dt))
 
 var_overview <- function(data, observation_unit=NA, alternative_id=NA, 

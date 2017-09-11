@@ -17,8 +17,8 @@
 #' @param ndigit level of precision in output, 5 by default (integer)
 #' @return matrix containing formatted results from the provided regression list (matrix)
 #' @examples \dontrun{
-#' plm_income_age_gender <- plm (monthly_income ~ age , index = "gender", data=dem, model="within") 
-#' plm_income_dob_gender <- plm (monthly_income ~ date_of_birth, index = "gender", data=dem, model="within") 
+#' plm_income_age_gender <- plm (monthly_income ~ age , index = "gender", data=dem, model="pooling") 
+#' plm_income_dob_gender <- plm (monthly_income ~ date_of_birth, index = "gender", data=dem, model="pooling") 
 #' plm_list <- list(plm_income_age_gender, plm_income_dob_gender)
 #' multiformat_plm(plm_list = plm_list, output_file = "income_plm_variation.csv")
 #' }

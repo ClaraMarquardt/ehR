@@ -10,7 +10,7 @@ beautify_var_overview(var_overview_dt, data_definition_dt = NA, output_file,
 \arguments{
 \item{var_overview_dt}{df returned by var_overview() (data.frame from var_overview)}
 
-\item{data_definition_dt}{notes to be appended at the end of the overview, such              as variable definitions and other points. This *MUST* be a 2 COLUMN data.table (data.table)}
+\item{data_definition_dt}{notes to be appended at the end of the overview, such as variable definitions and other points. This *MUST* be a 2 COLUMN data.table (data.table)}
 
 \item{output_file}{path and filename to output resulting Excel to (character)}
 

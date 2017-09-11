@@ -28,7 +28,7 @@ Maintained by: Clara Marquardt
 }
 \examples{
 orig_table <- copy(gagne_code) 
-print(orig_table$code)        
+print(orig_table$code)
 code_table  <- clean_icd_list(data=orig_table, code_col="code", name_col="condition", decimal=FALSE, validate=FALSE) 
 print(code_table)
 }

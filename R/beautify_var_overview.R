@@ -11,7 +11,7 @@
 #' @import data.table
 #' @import xlsx
 #' @param var_overview_dt df returned by var_overview() (data.frame from var_overview)
-#' @param data_definition_dt notes to be appended at the end of the overview, such              as variable definitions and other points. This *MUST* be a 2 COLUMN data.table (data.table)
+#' @param data_definition_dt notes to be appended at the end of the overview, such as variable definitions and other points. This *MUST* be a 2 COLUMN data.table (data.table)
 #' @param output_file path and filename to output resulting Excel to (character)
 #' @param source source of data / cohort name (to print in Excel) (character)
 #' @param sheet_title Title of overview sheet (character)

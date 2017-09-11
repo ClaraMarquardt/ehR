@@ -32,7 +32,6 @@ ggplot_footnote_summary(ggplt, summary_list, summary_title_vec, ndigit = 3,
 \dontrun{
 gender_summary <- list(summary(dem[gender == "female", ]$age), summary(dem[gender == "male", ]$age))
 age_distribution <- ggplot(data = dem, aes(x = age, color = factor(gender))) + geom_density()
-ggplot_footnote_summary(ggplt = age_distribution, summary_list = gender_summary, summary_title_vec = c("Female", "   Male"), 
- output_file = "age_distribution_by_gender.png")
+plot_summ <- ggplot_footnote_summary(ggplt = age_distribution, summary_list = gender_summary, summary_title_vec = c("Female", "   Male"), output_file = "age_distribution_by_gender.pdf")
 }
 }
