@@ -11,7 +11,7 @@
 "ggplot_footnote_summary",": Format a given plot by adding a summary of the data as a footnote."
 "group_race",": Classify given race as one of the conventional medical groups- white, black, hispanic, other."
 "load_dep","Load dependencies (DEV function - to be used only for internal testing and development)."
-"load_or_install","Load or install R packages (from CRAN or Github)."
+"load_or_install","Load or install R packages (from CRAN or Github (Public or Private Repositories))."
 "load_or_install_local","Load or install R packages (Local)."
 "merge_PDF","Merge a list of PDFs into a multi-page PDF."
 "multi_merge","Merge together multiple data.tables."

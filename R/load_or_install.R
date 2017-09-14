@@ -1,6 +1,6 @@
 #----------------------------------------------------------------------------#
 
-#' Load or install R packages (from CRAN or Github).
+#' Load or install R packages (from CRAN or Github (Public or Private Repositories)).
 #'
 #' Given a list of packages (e.g. list("data.table", "claramarquardt/ehR")) install (where necessary)/load all packages from CRAN/Github as appropriate.
 #'
@@ -15,6 +15,7 @@
 #' @param custom_repo R repository from which to download packages [Default: https://cran.rstudio.com"]
 #' @param custom_package_version Whether to take into account version specifications for key packages (data.table, ggplot2) (logical - TRUE/FALSE) [Default: TRUE]. 
 #' @param verbose Verbosity (logical - TRUE/FALSE) [Default: TRUE]. 
+#' @param github_auth_token Github API Authentication Token (only needed if installing Github repos from a private repository) (string) [Default: NA].
 #'
 #' @return List of packages which were successfully installed/loaded. 
 #'
@@ -26,7 +27,7 @@
 
 load_or_install <- function(package_list, custom_lib_path="", 
   custom_repo="https://cran.rstudio.com", custom_package_version=TRUE, 
-  quiet=FALSE) {  
+  quiet=FALSE, github_auth_token=NA) {  
 
   # Point Person: Clara
 
@@ -99,12 +100,15 @@ load_or_install <- function(package_list, custom_lib_path="",
 
       }
 
-      suppressMessages(withr::with_libpaths(new = lib_path, 
+      if (is.na(github_auth_token)) {
+        suppressMessages(withr::with_libpaths(new = lib_path, 
            install_github(x)))
-
-    }
+      } else {  
+        suppressMessages(withr::with_libpaths(new = lib_path, 
+           install_github(x, auth_token=github_auth_token)))
+     }
    
-  }))
+  }}))
 
   # load
   # -----------------------------
