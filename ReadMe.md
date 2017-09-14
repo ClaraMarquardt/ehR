@@ -15,7 +15,7 @@ The package contains the following data sets and crosswalks:
 - _dia_: Simulated EHR diagnosis data for 500 patients
 - _ed_: Simulated EHR ED visit data for 500 patients
 - _dem_: Simulated EHR demographics data for 500 patients
-- _test_dt_: Simulated cohort & feature set
+- _ehR_Cohort_: Simulated cohort & feature set
 - _gagne_code_: ICD9 code - gagne co-morbidity category crosswalk (http://scholar.harvard.edu/gagne/software/combined-comorbidity-score) [* note the crosswalk included in the package includes gagne categories that are assigned a 0 weight (these are not included in the here referenced, publicly available version of the crosswalk)]
 - _zocat_: ICD9 code - zocat crosswalk
 
