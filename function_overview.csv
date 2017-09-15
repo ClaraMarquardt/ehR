@@ -1,5 +1,4 @@
 "function_name","function_desc"
-"beautify_var_overview",": Format a given var_overview() outcome as a formatted two tab .xlsx sheet."
 "clean_icd_list","Expand a list of icd9 code ranges."
 "code_to_human",": Format code variable names to proper names."
 "dem","Simulated EHR data - Demographics."
