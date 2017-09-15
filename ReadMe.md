@@ -1,5 +1,7 @@
 # ehR
 
+NOTE: THIS VERSION OF THE REPOSITORY IS NO LONGER ACTIVELY MAINTAINED  - Please see https://github.com/sysmedlab/ehR
+
 **Install** 
 
 ```
@@ -25,9 +27,7 @@ The package contains the following data sets and crosswalks:
 library(devtools)  
 install_github("hadley/devtools")
 ```
-- [2] Depends on rJava (http://www.rforge.net/rJava/)
-
-- [3] ggplot themes included in the package (theme_[name of theme].R) *may* require a number of additional fonts to be installed and registered with ggplot/ggsave
+- [2] ggplot themes included in the package (theme_[name of theme].R) *may* require a number of additional fonts to be installed and registered with ggplot/ggsave
 
 ````
 # install the necessary packages
